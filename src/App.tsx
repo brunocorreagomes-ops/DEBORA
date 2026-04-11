@@ -939,15 +939,25 @@ const CTA = ({ onOpenContact }: { onOpenContact: () => void }) => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <a 
+            <motion.a 
               href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20agendar%20uma%20conversa%20estratégica" 
               target="_blank"
               rel="noopener noreferrer"
+              initial={{ scale: 1 }}
+              whileInView={{ 
+                scale: [1, 1.03, 1],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              viewport={{ once: false }}
               className="bg-white text-brand-700 px-8 md:px-10 py-4 md:py-5 rounded-full text-xs md:text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-3 hover:bg-brand-50 transition-all shadow-xl"
             >
               Quero agendar minha sessão
               <ArrowRight size={18} />
-            </a>
+            </motion.a>
             <button 
               onClick={onOpenContact}
               className="bg-transparent border border-white/30 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-xs md:text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-3 hover:bg-white/10 transition-all cursor-pointer"
@@ -983,28 +993,46 @@ const CTA = ({ onOpenContact }: { onOpenContact: () => void }) => {
 
 const Footer = () => {
   return (
-    <footer className="bg-ink py-12 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 flex items-center justify-center">
-            <img 
-              src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
-              alt="Logo Débora Bolangno" 
-              className="w-full h-full object-contain brightness-0 invert"
-              referrerPolicy="no-referrer"
-            />
+    <footer className="bg-ink py-16 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center md:flex-row md:justify-between gap-10 md:gap-8">
+        {/* Logo & Name */}
+        <div className="flex flex-col items-center md:items-start gap-4">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 flex items-center justify-center">
+              <img 
+                src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
+                alt="Logo Débora Bolangno" 
+                className="w-full h-full object-contain brightness-0 invert"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div className="font-serif text-white text-lg md:text-xl font-bold tracking-tight">
+              Débora Bolangno
+            </div>
           </div>
-          <div className="font-serif text-white text-lg font-bold">
-            Débora Bolangno <span className="text-white/20 font-normal ml-2">· DB Consultoria</span>
+          <div className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-medium">
+            DB Consultoria & Estratégia
           </div>
         </div>
         
-        <div className="text-white/40 text-[10px] tracking-widest uppercase flex items-center gap-2">
-          Desenvolvido por <a href="https://www.orvalia.com.br" target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:text-brand-300 transition-colors">Orvalia Studio</a> @ 2026
+        {/* Dev Info */}
+        <div className="flex flex-col items-center gap-2">
+          <div className="text-white/40 text-[10px] tracking-[0.2em] uppercase font-medium flex items-center gap-2">
+            Desenvolvido por <a href="https://www.orvalia.com.br" target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:text-brand-300 transition-colors font-bold">Orvalia Studio</a>
+          </div>
+          <div className="text-white/20 text-[9px] uppercase tracking-widest">
+            © 2026 · Todos os direitos reservados
+          </div>
         </div>
         
-        <div className="text-white/20 text-[10px] uppercase tracking-[0.2em]">
-          Portfólio Corporativo
+        {/* Category/Tag */}
+        <div className="flex flex-col items-center md:items-end gap-2">
+          <div className="px-4 py-1 border border-white/10 rounded-full text-white/40 text-[9px] uppercase tracking-[0.2em]">
+            Portfólio Corporativo
+          </div>
+          <div className="text-white/10 text-[8px] uppercase tracking-tighter">
+            Executive Presence & Leadership
+          </div>
         </div>
       </div>
     </footer>
