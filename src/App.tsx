@@ -80,9 +80,14 @@ const Navbar = () => {
               referrerPolicy="no-referrer"
             />
           </div>
-          <span className="font-serif text-lg md:text-xl font-bold tracking-tight text-ink group-hover:text-brand-700 transition-colors hidden sm:block">
-            Débora Bolangno
-          </span>
+          <div className="flex flex-col">
+            <span className="font-serif text-base md:text-xl font-bold tracking-tight text-ink group-hover:text-brand-700 transition-colors">
+              Débora Bolangno
+            </span>
+            <span className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-ink/40 font-medium">
+              Estratégia de Carreira & Liderança
+            </span>
+          </div>
         </a>
 
         {/* Desktop Links */}
@@ -838,67 +843,67 @@ const ContactModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-0 m-auto w-[90%] max-w-lg h-fit bg-cream rounded-[2.5rem] z-[70] overflow-hidden shadow-2xl flex flex-col"
+            className="fixed inset-0 m-auto w-[92%] max-w-lg h-fit max-h-[90vh] bg-cream rounded-[2rem] md:rounded-[2.5rem] z-[70] overflow-hidden shadow-2xl flex flex-col"
           >
-            <div className="p-8 md:p-12">
-              <div className="flex justify-between items-start mb-8">
-                <div>
-                  <h3 className="font-serif text-3xl md:text-4xl font-bold text-ink mb-2">Vamos conversar?</h3>
-                  <p className="text-ink/60 text-sm md:text-base">Escolha o canal de sua preferência para iniciarmos sua jornada estratégica.</p>
+            <div className="p-6 md:p-12 overflow-y-auto">
+              <div className="flex justify-between items-start mb-6 md:mb-8">
+                <div className="pr-8">
+                  <h3 className="font-serif text-2xl md:text-4xl font-bold text-ink mb-2">Vamos conversar?</h3>
+                  <p className="text-ink/60 text-xs md:text-base leading-relaxed">Escolha o canal de sua preferência para iniciarmos sua jornada estratégica.</p>
                 </div>
                 <button 
                   onClick={onClose}
-                  className="p-2 hover:bg-brand-900/5 rounded-full transition-colors"
+                  className="p-2 hover:bg-brand-900/5 rounded-full transition-colors absolute right-6 top-6 md:static"
                 >
                   <X size={24} />
                 </button>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 <a 
                   href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20agendar%20uma%20conversa%20estratégica" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-5 p-6 bg-brand-700 rounded-2xl text-white hover:bg-brand-800 transition-all group shadow-lg shadow-brand-700/20"
+                  className="flex items-center gap-4 md:gap-5 p-4 md:p-6 bg-brand-700 rounded-2xl text-white hover:bg-brand-800 transition-all group shadow-lg shadow-brand-700/20"
                 >
-                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <MessageCircle size={24} />
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+                    <MessageCircle size={20} className="md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <div className="font-bold text-lg">WhatsApp Direto</div>
-                    <div className="text-white/60 text-xs uppercase tracking-widest font-semibold">Resposta em até 24h</div>
+                    <div className="font-bold text-base md:text-lg">WhatsApp Direto</div>
+                    <div className="text-white/60 text-[10px] uppercase tracking-widest font-semibold">Resposta em até 24h</div>
                   </div>
-                  <ChevronRight size={20} className="ml-auto opacity-50" />
+                  <ChevronRight size={18} className="ml-auto opacity-50" />
                 </a>
 
                 <a 
                   href="mailto:deborabolangno@outlook.com" 
-                  className="flex items-center gap-5 p-6 bg-white border border-ink/10 rounded-2xl text-ink hover:border-brand-700/30 transition-all group"
+                  className="flex items-center gap-4 md:gap-5 p-4 md:p-6 bg-white border border-ink/10 rounded-2xl text-ink hover:border-brand-700/30 transition-all group"
                 >
-                  <div className="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-700 group-hover:scale-110 transition-transform">
-                    <Mail size={24} />
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-700 group-hover:scale-110 transition-transform shrink-0">
+                    <Mail size={20} className="md:w-6 md:h-6" />
                   </div>
-                  <div>
-                    <div className="font-bold text-lg">E-mail Corporativo</div>
-                    <div className="text-ink/40 text-xs uppercase tracking-widest font-semibold">deborabolangno@outlook.com</div>
+                  <div className="min-w-0">
+                    <div className="font-bold text-base md:text-lg">E-mail Corporativo</div>
+                    <div className="text-ink/40 text-[9px] md:text-xs uppercase tracking-widest font-semibold truncate">deborabolangno@outlook.com</div>
                   </div>
-                  <ChevronRight size={20} className="ml-auto opacity-20" />
+                  <ChevronRight size={18} className="ml-auto opacity-20" />
                 </a>
 
                 <a 
                   href="https://www.linkedin.com/in/deborabolangno" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-5 p-6 bg-white border border-ink/10 rounded-2xl text-ink hover:border-brand-700/30 transition-all group"
+                  className="flex items-center gap-4 md:gap-5 p-4 md:p-6 bg-white border border-ink/10 rounded-2xl text-ink hover:border-brand-700/30 transition-all group"
                 >
-                  <div className="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-700 group-hover:scale-110 transition-transform">
-                    <Linkedin size={24} />
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-700 group-hover:scale-110 transition-transform shrink-0">
+                    <Linkedin size={20} className="md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <div className="font-bold text-lg">LinkedIn Profissional</div>
-                    <div className="text-ink/40 text-xs uppercase tracking-widest font-semibold">Conecte-se e acompanhe insights</div>
+                    <div className="font-bold text-base md:text-lg">LinkedIn Profissional</div>
+                    <div className="text-ink/40 text-[9px] md:text-xs uppercase tracking-widest font-semibold">Conecte-se e acompanhe insights</div>
                   </div>
-                  <ChevronRight size={20} className="ml-auto opacity-20" />
+                  <ChevronRight size={18} className="ml-auto opacity-20" />
                 </a>
               </div>
             </div>
@@ -994,11 +999,11 @@ const CTA = ({ onOpenContact }: { onOpenContact: () => void }) => {
 const Footer = () => {
   return (
     <footer className="bg-ink py-16 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center md:flex-row md:justify-between gap-10 md:gap-8">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center md:flex-row md:justify-between gap-12 md:gap-8 text-center md:text-left">
         {/* Logo & Name */}
         <div className="flex flex-col items-center md:items-start gap-4">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 flex items-center justify-center">
+            <div className="w-10 h-10 flex items-center justify-center shrink-0">
               <img 
                 src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
                 alt="Logo Débora Bolangno" 
@@ -1010,27 +1015,28 @@ const Footer = () => {
               Débora Bolangno
             </div>
           </div>
-          <div className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-medium">
+          <div className="text-white/30 text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-medium">
             DB Consultoria & Estratégia
           </div>
         </div>
         
         {/* Dev Info */}
-        <div className="flex flex-col items-center gap-2">
-          <div className="text-white/40 text-[10px] tracking-[0.2em] uppercase font-medium flex items-center gap-2">
-            Desenvolvido por <a href="https://www.orvalia.com.br" target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:text-brand-300 transition-colors font-bold">Orvalia Studio</a>
+        <div className="flex flex-col items-center gap-3">
+          <div className="text-white/40 text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-medium flex flex-col sm:flex-row items-center gap-2">
+            <span>Desenvolvido por</span>
+            <a href="https://www.orvalia.com.br" target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:text-brand-300 transition-colors font-bold">Orvalia Studio</a>
           </div>
-          <div className="text-white/20 text-[9px] uppercase tracking-widest">
+          <div className="text-white/20 text-[8px] md:text-[9px] uppercase tracking-widest">
             © 2026 · Todos os direitos reservados
           </div>
         </div>
         
         {/* Category/Tag */}
-        <div className="flex flex-col items-center md:items-end gap-2">
-          <div className="px-4 py-1 border border-white/10 rounded-full text-white/40 text-[9px] uppercase tracking-[0.2em]">
+        <div className="flex flex-col items-center md:items-end gap-3">
+          <div className="px-4 py-1.5 border border-white/10 rounded-full text-white/40 text-[8px] md:text-[9px] uppercase tracking-[0.2em] whitespace-nowrap">
             Portfólio Corporativo
           </div>
-          <div className="text-white/10 text-[8px] uppercase tracking-tighter">
+          <div className="text-white/10 text-[7px] md:text-[8px] uppercase tracking-tighter">
             Executive Presence & Leadership
           </div>
         </div>
