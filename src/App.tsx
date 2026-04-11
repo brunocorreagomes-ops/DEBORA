@@ -453,7 +453,7 @@ const About = () => {
             initial={{ scale: 1.1 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            src="https://i.ibb.co/zHJmMxcs/debora-002-2.png" 
+            src="https://i.ibb.co/KpxMJ3Yq/deb04.jpg" 
             alt="Débora Bolangno em ambiente corporativo - Especialista em Liderança"
             className="absolute inset-0 w-full h-full object-cover object-top opacity-90 transition-opacity duration-700 hover:opacity-100"
             referrerPolicy="no-referrer"
