@@ -321,7 +321,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 2.4 }}
             >
-              <div className="text-4xl md:text-6xl font-serif font-black text-brand-700 mb-2">+20</div>
+              <div className="text-7xl md:text-9xl font-serif font-black text-turquoise mb-2">+20</div>
               <div className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-ink/40 leading-tight">
                 Anos de experiência <br className="hidden sm:block" /> no mundo corporativo
               </div>
@@ -331,7 +331,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 2.6 }}
             >
-              <div className="text-4xl md:text-6xl font-serif font-black text-brand-700 mb-2">+250</div>
+              <div className="text-7xl md:text-9xl font-serif font-black text-turquoise mb-2">+250</div>
               <div className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-ink/40 leading-tight">
                 Profissionais <br className="hidden sm:block" /> impactados e mentorados
               </div>
@@ -935,15 +935,15 @@ const CTA = ({ onOpenContact }: { onOpenContact: () => void }) => {
       </div>
       
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-        <div>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-7xl font-black text-white leading-[1.1] mb-6 md:mb-8">
+        <div className="text-center lg:text-left">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-7xl font-black text-white leading-[1.1] mb-6 md:mb-8 text-balance">
             O próximo nível da sua carreira começa com uma <span className="opacity-50 italic">decisão estratégica.</span>
           </h2>
-          <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8 md:mb-12 max-w-md">
+          <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8 md:mb-12 max-w-md mx-auto lg:mx-0">
             Clique no botão abaixo para agendar uma breve conversa e entender como posso acelerar seus resultados.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4">
             <motion.a 
               href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20agendar%20uma%20conversa%20estratégica" 
               target="_blank"
@@ -958,14 +958,14 @@ const CTA = ({ onOpenContact }: { onOpenContact: () => void }) => {
                 ease: "easeInOut"
               }}
               viewport={{ once: false }}
-              className="bg-white text-brand-700 px-8 md:px-10 py-4 md:py-5 rounded-full text-xs md:text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-3 hover:bg-brand-50 transition-all shadow-xl"
+              className="bg-white text-brand-700 px-8 md:px-10 py-4 md:py-5 rounded-full text-xs md:text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-3 hover:bg-brand-50 transition-all shadow-xl w-full sm:w-auto"
             >
               Quero agendar minha sessão
               <ArrowRight size={18} />
             </motion.a>
             <button 
               onClick={onOpenContact}
-              className="bg-transparent border border-white/30 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-xs md:text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-3 hover:bg-white/10 transition-all cursor-pointer"
+              className="bg-transparent border border-white/30 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-xs md:text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-3 hover:bg-white/10 transition-all cursor-pointer w-full sm:w-auto"
             >
               Falar no WhatsApp
               <MessageCircle size={18} />
