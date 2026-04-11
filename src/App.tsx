@@ -289,7 +289,7 @@ const Hero = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] text-ink mb-4 lg:mb-6"
+            className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.1] text-ink mb-4 lg:mb-6"
           >
             {titlePart1.split("").map((char, i) => (
               <motion.span key={i} variants={letterVariants}>{char}</motion.span>
