@@ -270,14 +270,14 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 flex items-center overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section className="relative min-h-[90vh] lg:min-h-screen pt-24 lg:pt-32 pb-12 lg:pb-20 flex items-center overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
         <div className="relative z-10 order-2 lg:order-1">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex items-center gap-3 mb-6"
+            className="flex items-center gap-3 mb-4 lg:mb-6"
           >
             <div className="w-12 h-[1px] bg-brand-600"></div>
             <span className="text-[10px] uppercase tracking-[0.3em] text-brand-600 font-bold">
@@ -289,7 +289,7 @@ const Hero = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] text-ink mb-8"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] text-ink mb-4 lg:mb-6"
           >
             {titlePart1.split("").map((char, i) => (
               <motion.span key={i} variants={letterVariants}>{char}</motion.span>
@@ -310,19 +310,19 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.2 }}
-            className="text-lg md:text-2xl text-ink/70 mb-10 max-w-xl leading-relaxed"
+            className="text-base md:text-lg lg:text-xl text-ink/70 mb-6 lg:mb-8 max-w-xl leading-relaxed"
           >
             Mentoria personalizada para líderes e executivos que buscam posicionamento de alto impacto, segurança na tomada de decisão e crescimento consistente.
           </motion.p>
 
-          <div className="grid grid-cols-2 gap-6 md:gap-8 mb-12 py-8 border-y border-ink/5">
+          <div className="grid grid-cols-2 gap-6 md:gap-8 mb-8 lg:mb-10 py-4 lg:py-6 border-y border-ink/5">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 2.4 }}
             >
-              <div className="text-7xl md:text-9xl font-serif font-black text-turquoise mb-2">+20</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-ink/40 leading-tight">
+              <div className="text-5xl md:text-7xl font-serif font-black text-turquoise mb-1">+20</div>
+              <div className="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-ink/40 leading-tight">
                 Anos de experiência <br className="hidden sm:block" /> no mundo corporativo
               </div>
             </motion.div>
@@ -331,8 +331,8 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 2.6 }}
             >
-              <div className="text-7xl md:text-9xl font-serif font-black text-turquoise mb-2">+250</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-ink/40 leading-tight">
+              <div className="text-5xl md:text-7xl font-serif font-black text-turquoise mb-1">+250</div>
+              <div className="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-ink/40 leading-tight">
                 Profissionais <br className="hidden sm:block" /> impactados e mentorados
               </div>
             </motion.div>
@@ -348,14 +348,14 @@ const Hero = () => {
               href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20agendar%20uma%20conversa%20estratégica" 
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-brand-700 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-xs md:text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-3 hover:bg-brand-800 transition-all shadow-lg hover:shadow-brand-700/20 group"
+              className="bg-brand-700 text-white px-6 md:px-8 py-3.5 md:py-4 rounded-full text-[10px] md:text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-3 hover:bg-brand-800 transition-all shadow-lg hover:shadow-brand-700/20 group"
             >
               Agendar Conversa Estratégica
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a 
               href="#servicos" 
-              className="px-8 md:px-10 py-4 md:py-5 rounded-full text-xs md:text-sm uppercase tracking-widest font-bold text-ink border border-ink/10 hover:bg-ink hover:text-white transition-all text-center"
+              className="px-6 md:px-8 py-3.5 md:py-4 rounded-full text-[10px] md:text-xs uppercase tracking-widest font-bold text-ink border border-ink/10 hover:bg-ink hover:text-white transition-all text-center"
             >
               Conhecer programas
             </a>
@@ -370,7 +370,7 @@ const Hero = () => {
             delay: 1, 
             ease: [0.22, 1, 0.36, 1] 
           }}
-          className="relative aspect-[4/5] lg:aspect-auto lg:h-[700px] bg-brand-900 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-ink/5 order-1 lg:order-2"
+          className="relative aspect-[4/5] lg:aspect-auto lg:h-[550px] xl:h-[650px] bg-brand-900 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-ink/5 order-1 lg:order-2"
         >
           <img 
             src="https://i.ibb.co/N6D2hPBM/debora01.png" 
