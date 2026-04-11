@@ -158,7 +158,7 @@ const Navbar = () => {
             href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20maiores%20informações" 
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand-700 text-white px-6 lg:px-8 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-brand-800 transition-all shadow-md hover:shadow-brand-700/20 active:scale-95 whitespace-nowrap"
+            className="bg-brand-700 text-white px-6 lg:px-8 py-3.5 rounded-full text-[11px] lg:text-xs uppercase tracking-[0.2em] font-bold hover:bg-brand-800 transition-all shadow-md hover:shadow-brand-700/20 active:scale-95 whitespace-nowrap"
           >
             Solicitar Proposta
           </a>
@@ -251,7 +251,7 @@ const Navbar = () => {
                 ))}
               </div>
 
-              <div className="mt-auto pt-8 border-t border-brand-900/10">
+              <div className="mt-auto pt-10 border-t border-brand-900/10">
                 <motion.a 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -260,7 +260,7 @@ const Navbar = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="bg-brand-700 text-white px-6 py-4 rounded-2xl text-center text-xs uppercase tracking-[0.2em] font-bold block shadow-lg shadow-brand-700/20"
+                  className="bg-brand-700 text-white px-8 py-5 rounded-full text-center text-xs uppercase tracking-[0.2em] font-bold block shadow-xl shadow-brand-700/20 active:scale-95 transition-all"
                 >
                   Solicitar Proposta
                 </motion.a>
@@ -278,6 +278,9 @@ const Navbar = () => {
 };
 
 const Hero = () => {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, 100]);
+
   const titlePart1 = "Clareza para tomar";
   const titlePart2 = "decisões estratégicas";
   const titlePart3 = "e acelerar sua carreira executiva.";
@@ -404,10 +407,11 @@ const Hero = () => {
           }}
           className="relative aspect-[4/5] lg:aspect-auto lg:h-[550px] xl:h-[650px] bg-brand-900 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-ink/5 order-1 lg:order-2"
         >
-          <img 
+          <motion.img 
+            style={{ y }}
             src="https://i.ibb.co/N6D2hPBM/debora01.png" 
             alt="Débora Bolangno - Mentora de Carreira e Liderança Executiva"
-            className="w-full h-full object-cover opacity-100 transition-all duration-1000 hover:scale-105"
+            className="w-full h-[110%] -top-[5%] absolute object-cover opacity-100 transition-all duration-1000 hover:scale-105"
             referrerPolicy="no-referrer"
             fetchPriority="high"
             decoding="async"
@@ -678,8 +682,12 @@ const Services = () => {
           {services.map((service) => (
             <motion.div 
               key={service.num}
-              whileHover={{ backgroundColor: "rgba(18, 18, 18, 1)" }}
-              className="bg-white p-10 flex flex-col h-full transition-colors group"
+              whileHover={{ 
+                backgroundColor: "rgba(18, 18, 18, 1)",
+                y: -8,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)"
+              }}
+              className="bg-white p-10 flex flex-col h-full transition-all duration-300 group relative z-0 hover:z-10"
             >
               <div className="mb-8 group-hover:text-brand-400 transition-colors">
                 {service.icon}
@@ -695,7 +703,10 @@ const Services = () => {
               </p>
               <div className="flex flex-wrap gap-2">
                 {service.tags.map(tag => (
-                  <span key={tag} className="text-[9px] uppercase tracking-widest px-3 py-1.5 bg-ink/5 rounded-full text-ink/50 group-hover:bg-white/10 group-hover:text-white/50 transition-all">
+                  <span 
+                    key={tag} 
+                    className="text-[9px] uppercase tracking-widest px-3 py-1.5 bg-ink/5 rounded-full text-ink/50 group-hover:bg-turquoise group-hover:text-white transition-all duration-300"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -1031,10 +1042,10 @@ const CTA = ({ onOpenContact }: { onOpenContact: () => void }) => {
 const Footer = () => {
   return (
     <footer className="bg-ink py-16 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center md:flex-row md:justify-between gap-12 md:gap-8 text-center md:text-left">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center sm:flex-row sm:justify-between gap-12 sm:gap-8 text-center sm:text-left">
         {/* Logo & Name */}
-        <div className="flex flex-col items-center md:items-start gap-4">
-          <div className="flex items-center gap-4">
+        <div className="flex flex-col items-center sm:items-start gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             <div className="w-10 h-10 flex items-center justify-center shrink-0">
               <img 
                 src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
@@ -1064,7 +1075,7 @@ const Footer = () => {
         </div>
         
         {/* Category/Tag */}
-        <div className="flex flex-col items-center md:items-end gap-3">
+        <div className="flex flex-col items-center sm:items-end gap-3">
           <div className="px-4 py-1.5 border border-white/10 rounded-full text-white/40 text-[8px] md:text-[9px] uppercase tracking-[0.2em] whitespace-nowrap">
             Portfólio Corporativo
           </div>
