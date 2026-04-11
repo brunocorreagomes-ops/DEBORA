@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Débora Bolangno | Mentoria de Carreira e Liderança Executiva</title>
+    <meta name="description" content="Acelere sua carreira executiva com Débora Bolangno. Mentoria de liderança, presença executiva e estratégia de carreira para profissionais de alto impacto." />
+    <meta name="keywords" content="mentoria de carreira, liderança executiva, presença executiva, coaching executivo, débora bolangno, desenvolvimento de liderança" />
+    <meta name="author" content="Débora Bolangno" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://deborabolangno.com.br/" />
+    <meta property="og:title" content="Débora Bolangno | Mentoria de Carreira e Liderança" />
+    <meta property="og:description" content="Clareza estratégica para acelerar sua carreira executiva e desenvolver liderança de alto impacto." />
+    <meta property="og:image" content="https://i.ibb.co/N6D2hPBM/debora01.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Débora Bolangno | Mentoria de Carreira e Liderança" />
+    <meta property="twitter:description" content="Clareza estratégica para acelerar sua carreira executiva e desenvolver liderança de alto impacto." />
+    <meta property="twitter:image" content="https://i.ibb.co/N6D2hPBM/debora01.png" />
+
+    <script>
+      // Fix for "Uncaught TypeError: Cannot set property fetch of #<Window> which has only a getter"
+      // This happens when polyfills (like formdata-polyfill) try to overwrite window.fetch
+      (function() {
+        try {
+          var descriptor = Object.getOwnPropertyDescriptor(window, 'fetch');
+          if (descriptor && !descriptor.writable && !descriptor.set && descriptor.configurable) {
+            var _fetch = window.fetch;
+            Object.defineProperty(window, 'fetch', {
+              configurable: true,
+              enumerable: true,
+              get: function() { return _fetch; },
+              set: function(v) { _fetch = v; }
+            });
+          }
+        } catch (e) {
+          console.error('Error fixing fetch descriptor:', e);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
