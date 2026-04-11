@@ -61,6 +61,32 @@ const Navbar = () => {
     { name: "Contato", href: "#contato" },
   ];
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+    
+    if (element) {
+      const offset = 80; // Navbar height offset
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    } else if (href === "#") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
     <nav 
       aria-label="Menu principal"
@@ -71,7 +97,12 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="flex items-center gap-3 group shrink-0" aria-label="Débora Bolangno - Home">
+        <a 
+          href="#" 
+          onClick={(e) => scrollToSection(e, "#")}
+          className="flex items-center gap-3 group shrink-0" 
+          aria-label="Débora Bolangno - Home"
+        >
           <div className="w-12 h-12 flex items-center justify-center transition-all duration-300">
             <img 
               src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
@@ -115,6 +146,7 @@ const Navbar = () => {
               <a 
                 key={link.name} 
                 href={link.href} 
+                onClick={(e) => scrollToSection(e, link.href)}
                 className="text-[10px] lg:text-xs uppercase tracking-[0.2em] font-semibold text-ink/60 hover:text-brand-700 transition-all relative group/link"
               >
                 {link.name}
@@ -210,7 +242,7 @@ const Navbar = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + i * 0.1 }}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => scrollToSection(e, link.href)}
                     className="text-lg font-serif font-bold text-ink hover:text-brand-700 transition-colors flex items-center justify-between group"
                   >
                     {link.name}
@@ -310,12 +342,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.2 }}
-            className="text-base md:text-lg lg:text-xl text-ink/70 mb-6 lg:mb-8 max-w-xl leading-relaxed"
+            className="text-base md:text-lg lg:text-xl text-ink/70 mb-2 lg:mb-3 max-w-xl leading-relaxed"
           >
             Mentoria personalizada para líderes e executivos que buscam posicionamento de alto impacto, segurança na tomada de decisão e crescimento consistente.
           </motion.p>
 
-          <div className="grid grid-cols-2 gap-6 md:gap-8 mb-8 lg:mb-10 py-4 lg:py-6 border-y border-ink/5">
+          <div className="grid grid-cols-2 gap-6 md:gap-8 mb-6 lg:mb-8 py-3 lg:py-4 border-y border-ink/10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -355,7 +387,7 @@ const Hero = () => {
             </a>
             <a 
               href="#servicos" 
-              className="px-6 md:px-8 py-3.5 md:py-4 rounded-full text-[10px] md:text-xs uppercase tracking-widest font-bold text-ink border border-ink/10 hover:bg-ink hover:text-white transition-all text-center"
+              className="px-6 md:px-8 py-3.5 md:py-4 rounded-full text-[10px] md:text-xs uppercase tracking-widest font-bold text-ink border-2 border-ink/20 hover:bg-ink hover:text-white transition-all text-center"
             >
               Conhecer programas
             </a>
