@@ -655,18 +655,16 @@ const Programs = () => {
       icon: <TrendingUp className="text-gold" strokeWidth={1} size={36} />,
       badge: "MENTORIA INDIVIDUAL",
       journey: "Quero clareza e direção para minha carreira",
-      program: "Coaching & Mentoria de Carreira",
-      description: "Processo estruturado com técnicas de coaching e mentoria para quem está em momento decisivo ou quer acelerar sua evolução.",
+      program: "Programa de Coaching e Mentoria de Carreira",
+      description: "Processo estruturado com técnicas de coaching e mentoria para quem está em momento decisivo ou quer acelerar sua evolução profissional.",
       bullets: [
         "8 sessões individuais quinzenais",
         "Sessão extra de acompanhamento inclusa",
         "Relatório enviado em cada encontro"
       ],
-      ctaText: "Agendar uma conversa",
-      ctaLink: "https://wa.me/5511940803333",
-      ctaType: "outline",
-      secondaryText: "Ver programa →",
-      secondaryLink: "mentoria-individual.html"
+      ctaText: "Tenho interesse na mentoria individual",
+      ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, tenho interesse na mentoria individual.")}`,
+      ctaType: "outline"
     },
     {
       id: "lider",
@@ -681,15 +679,13 @@ const Programs = () => {
         "Materiais e ferramentas práticas"
       ],
       ctaText: "Garantir minha vaga — R$ 1.500",
-      ctaLink: "https://forms.gle/H79mZQTr5WbQpuwD8",
-      ctaType: "solid",
-      secondaryText: "Ver programa →",
-      secondaryLink: "lideranca-atualizada.html"
+      ctaLink: "https://deborabolangno.com/mentoria-em-grupo/",
+      ctaType: "solid"
     },
     {
       id: "comunidade",
       icon: <Trees className="text-gold" strokeWidth={1} size={36} />,
-      badge: "COMUNIDADE · 12 MESES",
+      badge: "COMUNIDADE — 12 MESES",
       journey: "Quero uma rede de alta performance ao meu redor",
       program: "Comunidade Sequoia",
       description: "Ambiente colaborativo com encontros quinzenais ao vivo, hot seats, clube do livro e acompanhamento próximo de carreira.",
@@ -698,12 +694,10 @@ const Programs = () => {
         "Grupo exclusivo no WhatsApp",
         "1 sessão individual de bônus inclusa"
       ],
-      ctaText: "Entrar na Sequoia — R$ 1.500",
-      ctaLink: "https://wa.me/5511940803333",
+      ctaText: "Me interessei em entrar no grupo da Sequoia",
+      ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, me interessei em entrar no grupo da Sequoia.")}`,
       ctaType: "solid",
-      urgency: "⚡ 97% das vagas preenchidas",
-      secondaryText: "Ver programa →",
-      secondaryLink: "sequoia.html"
+      urgency: "⚡ 97% das vagas preenchidas"
     },
     {
       id: "empresa",
@@ -711,17 +705,15 @@ const Programs = () => {
       badge: "EMPRESAS & WORKSHOPS",
       journey: "Quero levar desenvolvimento para minha empresa",
       program: "Palestras & Workshops Corporativos",
-      description: "Conteúdos customizados sobre liderança, carreira e inteligência emocional para empresas que desenvolvem equipes.",
+      description: "Conteúdos customizados sobre liderança, carreira e inteligência emocional para empresas que querem desenvolver suas equipes.",
       bullets: [
         "Palestras presenciais ou online",
         "Workshops e treinamentos sob medida",
         "Temas: liderança, carreira, transição"
       ],
-      ctaText: "Solicitar proposta",
-      ctaLink: "https://wa.me/5511940803333",
-      ctaType: "outline",
-      secondaryText: "Ver programa →",
-      secondaryLink: "palestras.html"
+      ctaText: "Gostaria de mais informações para minha empresa",
+      ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, me interessei no desenvolvimento para minha empresa. Gostaria de mais informações.")}`,
+      ctaType: "outline"
     }
   ];
 
@@ -778,12 +770,12 @@ const Programs = () => {
 
         <motion.p 
           variants={itemVariants}
-          className="font-sans text-[16px] text-cream-light/70 max-w-[580px] mx-auto mb-[60px] leading-relaxed"
+          className="font-sans text-xl md:text-2xl text-cream-light/75 max-w-[800px] mx-auto mb-20 leading-relaxed"
         >
           Mais de 20 anos de experiência corporativa condensados em formatos pensados para cada momento da sua jornada profissional.
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[28px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-[32px]">
           {cards.map((card) => (
             <motion.div
               key={card.id}
@@ -792,73 +784,78 @@ const Programs = () => {
                 hover: { 
                   backgroundColor: "rgba(255, 255, 255, 0.09)", 
                   borderColor: "var(--color-gold)",
-                  transition: { duration: 0.3 }
+                  y: -8,
+                  scale: 1.02
                 }
               }}
               whileHover="hover"
-              className="bg-white/5 border border-gold/25 p-[28px] md:p-[40px] rounded-[2px] transition-all duration-300 flex flex-col text-left group relative overflow-hidden"
+              className="bg-white/5 border border-gold/30 p-10 md:p-14 rounded-[2px] transition-all duration-300 flex flex-col text-left group relative overflow-hidden"
             >
-              <div
-                className="mb-[24px] w-fit text-gold"
+              <motion.div 
+                className="mb-10 w-fit"
+                variants={{
+                  hover: { 
+                    y: [0, -12, 0],
+                    transition: { 
+                      duration: 0.5,
+                      ease: "easeInOut"
+                    }
+                  }
+                }}
               >
                 {card.icon}
-              </div>
+              </motion.div>
               
-              <div 
-                className="inline-block border border-gold/50 px-[12px] py-[4px] text-[11px] font-sans font-semibold text-gold uppercase mb-[24px] w-fit rounded-[2px] tracking-[1px]"
+              <motion.div 
+                className="inline-block border border-gold px-5 py-2 text-[13px] font-sans font-bold text-gold tracking-[0.2em] uppercase mb-10 w-fit"
+                variants={{
+                  hover: { x: 5 }
+                }}
               >
                 {card.badge}
-              </div>
+              </motion.div>
 
-              <h3 className="font-serif text-[28px] text-cream-light font-semibold mb-[16px] leading-[1.2]">
+              <h3 className="font-serif text-3xl lg:text-[38px] text-cream-light font-bold mb-5 leading-tight">
                 {card.journey}
               </h3>
 
-              <div className="font-sans text-[11px] text-cream-light/45 uppercase tracking-[1.5px] font-semibold mb-[12px]">
+              <div className="font-sans text-[14px] text-gold uppercase tracking-[0.25em] font-extrabold mb-8">
                 {card.program}
               </div>
 
-              <p className="font-sans text-[15px] text-cream-light/70 leading-relaxed mt-[12px] mb-[24px] flex-grow">
+              <p className="font-sans text-[18px] text-cream-light/90 leading-relaxed mb-12 h-fit min-h-[3rem]">
                 {card.description}
               </p>
 
-              <div className="h-px bg-gold/20 w-full mb-[24px]"></div>
+              <div className="h-px bg-gold/30 w-full mb-12"></div>
 
-              <ul className="space-y-[12px] mb-[24px]">
+              <ul className="space-y-6 mb-12 flex-grow">
                 {card.bullets.map((bullet, idx) => (
-                  <li key={idx} className="flex items-start gap-[12px] font-sans text-[14px] text-cream-light/85 leading-[1.5]">
-                    <Check size={16} strokeWidth={2} className="text-gold shrink-0 mt-[2px]" />
+                  <li key={idx} className="flex items-start gap-4 font-sans text-[17px] text-cream-light">
+                    <Check size={20} className="text-gold shrink-0 mt-1" />
                     <span>{bullet}</span>
                   </li>
                 ))}
               </ul>
 
               {card.urgency && (
-                <div className="bg-gold/10 text-gold font-sans text-[12px] font-semibold py-[6px] px-[14px] rounded-[2px] w-fit mb-[32px]">
+                <div className="bg-gold/20 text-gold font-sans text-sm font-black py-3 px-7 rounded-sm w-fit mb-12 shadow-[0_0_20px_rgba(188,163,116,0.25)] border border-gold/30 animate-pulse">
                   {card.urgency}
                 </div>
               )}
 
-              <div className="flex flex-wrap gap-[12px] mt-auto">
-                <a
-                  href={card.ctaLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`py-[14px] px-[32px] rounded-[2px] text-center text-[13px] uppercase tracking-[1px] font-semibold transition-all duration-300 ease-in-out flex-1 flex items-center justify-center min-w-fit ${
-                    card.ctaType === "solid"
-                      ? "bg-gold text-deep-green border border-gold hover:bg-[#b8934d] hover:border-[#b8934d]"
-                      : "border border-gold text-gold bg-transparent hover:bg-gold hover:text-deep-green"
-                  }`}
-                >
-                  {card.ctaText}
-                </a>
-                <a
-                  href={card.secondaryLink}
-                  className="py-[14px] px-[32px] rounded-[2px] text-center text-[13px] uppercase tracking-[1px] font-semibold transition-all duration-300 ease-in-out border border-cream-light/20 text-cream-light/60 bg-transparent flex-1 flex items-center justify-center hover:border-cream-light/50 hover:text-cream-light min-w-fit"
-                >
-                  {card.secondaryText}
-                </a>
-              </div>
+              <a
+                href={card.ctaLink}
+                target={card.id !== "lider" ? "_blank" : "_self"}
+                rel={card.id !== "lider" ? "noopener noreferrer" : ""}
+                className={`py-6 md:py-7 px-10 rounded-full text-center text-[13px] uppercase tracking-[0.25em] font-extrabold transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 ${
+                  card.ctaType === "solid"
+                    ? "bg-gold text-deep-green hover:bg-white hover:text-deep-green shadow-xl hover:shadow-white/20"
+                    : "border-2 border-gold text-gold hover:bg-white hover:text-deep-green hover:border-white shadow-xl hover:shadow-white/10"
+                }`}
+              >
+                {card.ctaText}
+              </a>
             </motion.div>
           ))}
         </div>
@@ -1180,16 +1177,6 @@ const Footer = () => {
           </div>
           <div className="text-white/20 text-[8px] md:text-[9px] uppercase tracking-widest">
             © 2026 · Todos os direitos reservados
-          </div>
-        </div>
-        
-        {/* Category/Tag */}
-        <div className="flex flex-col items-center sm:items-end gap-3">
-          <div className="px-4 py-1.5 border border-white/10 rounded-full text-white/40 text-[8px] md:text-[9px] uppercase tracking-[0.2em] whitespace-nowrap">
-            Portfólio Corporativo
-          </div>
-          <div className="text-white/10 text-[7px] md:text-[8px] uppercase tracking-tighter">
-            Executive Presence & Leadership
           </div>
         </div>
       </div>

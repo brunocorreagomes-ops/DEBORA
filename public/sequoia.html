@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunidade Sequoia | Débora Bolangno</title>
+  
+  <!-- Fontes Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================================
+       RESET E VARIÁVEIS
+       ========================================================================= */
+    :root {
+      --deep-green: #1a3a2e;
+      --med-green: #2d5a47;
+      --cream: #f5f0e8;
+      --gold: #c9a96e;
+      --text: #555555;
+      --white: #ffffff;
+      
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'Jost', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background-color: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Utilitário Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Utilitários Textos e Centralização */
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* =========================================================================
+       BOTÕES PADRÃO
+       ========================================================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border-radius: 2px;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-solid {
+      background-color: var(--gold);
+      color: var(--deep-green);
+      border: 1px solid var(--gold);
+    }
+
+    .btn-solid:hover {
+      background-color: #b8934d;
+      border-color: #b8934d;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--gold);
+      color: var(--deep-green);
+    }
+
+    /* Outros botões específicos */
+    .btn-outline-cream {
+      background-color: transparent;
+      color: rgba(245,240,232,0.9);
+      border: 1px solid rgba(245,240,232,0.4);
+    }
+    .btn-outline-cream:hover {
+      background-color: var(--cream);
+      color: var(--deep-green);
+      border-color: var(--cream);
+    }
+
+    /* Grupo de Botões (Flex) */
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================================================
+       HEADER / NAV
+       ========================================================================= */
+    .site-header {
+      background-color: var(--cream);
+      border-bottom: 1px solid rgba(26, 58, 46, 0.1);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--deep-green);
+    }
+
+    .header-logo img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .header-back {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--deep-green);
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header-back:hover {
+      color: var(--gold);
+    }
+
+    /* =========================================================================
+       SEÇÃO 1 — HERO
+       ========================================================================= */
+    .hero {
+      background-color: var(--deep-green);
+      padding: 100px 0 80px;
+      color: var(--cream);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: rgba(201,169,110,0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+      letter-spacing: 1px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 64px;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: rgba(245,240,232,0.75);
+      max-width: 580px;
+      margin-bottom: 48px;
+    }
+
+    /* Progress Bar */
+    .progress-wrapper {
+      max-width: 320px;
+      margin-bottom: 48px;
+    }
+    
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 97%;
+      height: 100%;
+      background-color: var(--gold);
+      border-radius: 2px;
+    }
+
+    /* =========================================================================
+       SEÇÃO 2 — O QUE É A SEQUOIA
+       ========================================================================= */
+    .about {
+      background-color: var(--cream);
+      padding: 100px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .about-title {
+      font-family: var(--font-display);
+      font-size: 40px;
+      color: var(--deep-green);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .about-text {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    
+    .about-author {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--deep-green);
+    }
+
+    .about-card {
+      background-color: var(--deep-green);
+      padding: 48px;
+      border-left: 4px solid var(--gold);
+      color: var(--cream);
+      border-radius: 2px;
+      box-shadow: 0 10px 30px rgba(26,58,46,0.1);
+    }
+
+    .about-pillar {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(201,169,110,0.2);
+    }
+    .about-pillar:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .pillar-name {
+      font-size: 14px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .pillar-desc {
+      font-size: 16px;
+      color: rgba(245,240,232,0.85);
+      line-height: 1.5;
+    }
+
+    /* =========================================================================
+       SEÇÃO 3 — POR QUE FAZER PARTE
+       ========================================================================= */
+    .reasons {
+      background-color: var(--white);
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 38px;
+      color: var(--deep-green);
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .reason-card {
+      background-color: var(--cream);
+      padding: 32px 28px;
+      border-top: 3px solid var(--gold);
+      border-radius: 2px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(26,58,46,0.06);
+    }
+
+    .reason-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--deep-green);
+      margin-bottom: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .reason-desc {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* =========================================================================
+       SEÇÃO 4 — O QUE ESTÁ INCLUÍDO
+       ========================================================================= */
+    .included {
+      background-color: var(--cream);
+      padding: 100px 0;
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 48px;
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+
+    .included-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .included-icon {
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .included-text {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .included-topics {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      border-top: 1px solid rgba(26,58,46,0.1);
+      padding-top: 32px;
+      font-size: 14px;
+      color: var(--med-green);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    /* =========================================================================
+       SEÇÃO 5 — BÔNUS
+       ========================================================================= */
+    .bonus {
+      background-color: var(--deep-green);
+      padding: 80px 0;
+      text-align: center;
+      color: var(--cream);
+    }
+
+    .bonus-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .bonus-title {
+      font-family: var(--font-display);
+      font-size: 38px;
+      margin-bottom: 16px;
+      color: var(--cream);
+    }
+
+    .bonus-desc {
+      font-size: 16px;
+      color: rgba(245,240,232,0.75);
+      max-width: 500px;
+      margin: 0 auto 32px;
+      line-height: 1.5;
+    }
+
+    .bonus-price {
+      font-size: 16px;
+    }
+
+    .bonus-price-old {
+      text-decoration: line-through;
+      color: rgba(245,240,232,0.5);
+      margin-right: 12px;
+    }
+
+    .bonus-price-new {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    /* =========================================================================
+       SEÇÃO 6 — INVESTIMENTO
+       ========================================================================= */
+    .investment {
+      background-color: var(--cream);
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .invest-title {
+      font-family: var(--font-display);
+      font-size: 42px;
+      color: var(--deep-green);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .invest-subtitle {
+      font-size: 15px;
+      color: #888888;
+      margin-bottom: 48px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .price-card {
+      background-color: var(--deep-green);
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 48px;
+      border-radius: 2px;
+      box-shadow: 0 10px 40px rgba(26,58,46,0.15);
+      position: relative;
+    }
+    
+    .price-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background-color: var(--gold);
+    }
+
+    .price-old {
+      font-size: 20px;
+      color: rgba(245,240,232,0.35);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .price-current {
+      font-family: var(--font-display);
+      font-size: 64px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .price-installments {
+      font-size: 16px;
+      color: rgba(245,240,232,0.7);
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .price-card .btn-group {
+      justify-content: center;
+    }
+
+    /* =========================================================================
+       SEÇÃO 7 — FAQ
+       ========================================================================= */
+    .faq {
+      background-color: var(--white);
+      padding: 100px 0;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    details {
+      border-bottom: 1px solid rgba(26,58,46,0.1);
+      padding: 24px 0;
+      transition: all 0.3s ease;
+    }
+
+    details:first-of-type {
+      border-top: 1px solid rgba(26,58,46,0.1);
+    }
+
+    summary {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--deep-green);
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none; /* Hide default marker */
+      position: relative;
+      padding-right: 40px;
+      transition: color 0.3s ease;
+    }
+
+    summary::-webkit-details-marker {
+      display: none; /* Hide default marker in Safari */
+    }
+
+    summary:hover {
+      color: var(--gold);
+    }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-body);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--gold);
+      transition: transform 0.3s ease;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    .faq-answer {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.6;
+      margin-top: 16px;
+      padding-right: 40px;
+    }
+
+    /* =========================================================================
+       FOOTER
+       ========================================================================= */
+    .footer {
+      background-color: var(--deep-green);
+      padding: 40px 0;
+      color: rgba(245,240,232,0.6);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer p {
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    /* =========================================================================
+       RESPONSIVIDADE (Mobile)
+       ========================================================================= */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 0 60px;
+      }
+      .hero-title {
+        font-size: 44px;
+      }
+      .hero-subtitle {
+        font-size: 24px;
+      }
+      .about, .reasons, .included, .investment, .faq {
+        padding: 60px 0;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .reasons-grid {
+        grid-template-columns: 1fr;
+      }
+      .included-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .section-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+      .invest-title {
+        font-size: 32px;
+      }
+      .price-current {
+        font-size: 48px;
+      }
+      .btn {
+        width: 100%;
+      }
+      .price-card {
+        padding: 32px 24px;
+      }
+      summary {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================================
+       HEADER / NAV
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-logo">
+        <a href="index.html" aria-label="Débora Bolangno - Home">
+          <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo Débora Bolangno" />
+        </a>
+      </div>
+      <a href="index.html" class="header-back">
+        &larr; Voltar ao início
+      </a>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       SEÇÃO 1 — HERO
+       ========================================================================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">⚡ Vagas quase esgotadas — 97% preenchidas</div>
+      <h1 class="hero-title">Comunidade Sequoia</h1>
+      <p class="hero-subtitle">"Pertencer te traz poder."</p>
+      <p class="hero-desc">
+        Diga-me com quem andas e te direi quem és — uma verdade que define tanto o seu sucesso pessoal quanto o profissional.
+      </p>
+
+      <div class="progress-wrapper">
+        <div class="progress-header">
+          <span>Vagas preenchidas</span>
+          <span>97%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <a href="https://wa.me/5511940803333" target="_blank" class="btn btn-solid">Quero ser Sequoia</a>
+        <a href="https://wa.me/5511940803333" target="_blank" class="btn btn-outline-cream">Tirar dúvidas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SEÇÃO 2 — O QUE É A SEQUOIA
+       ========================================================================= -->
+  <section class="about">
+    <div class="container about-grid">
+      
+      <!-- Coluna Texto -->
+      <div class="about-content">
+        <span class="about-label">Sobre a Comunidade</span>
+        <h2 class="about-title">Um ambiente criado para profissionais de alta performance</h2>
+        <p class="about-text">
+          Depois de mais de 20 anos no mundo corporativo, defini um objetivo muito especial: aproximar pessoas boas e profissionais diferenciados. A Sequoia é a materialização desse propósito.
+        </p>
+        <span class="about-author">— Débora Bolangno, fundadora</span>
+      </div>
+
+      <!-- Coluna Card (Pilares) -->
+      <div class="about-card">
+        <div class="about-pillar">
+          <span class="pillar-name">Propósito</span>
+          <p class="pillar-desc">Empoderar cada membro a explorar seu potencial ilimitado.</p>
+        </div>
+        <div class="about-pillar">
+          <span class="pillar-name">Perspectiva</span>
+          <p class="pillar-desc">Comunidade reconhecida como ambiente de confiança e alta performance.</p>
+        </div>
+        <div class="about-pillar">
+          <span class="pillar-name">Pilares</span>
+          <p class="pillar-desc">Coragem, colaboração, aprendizado contínuo e ação.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SEÇÃO 3 — POR QUE FAZER PARTE
+       ========================================================================= -->
+  <section class="reasons">
+    <div class="container">
+      <h2 class="section-title">Por que você deve fazer parte?</h2>
+      <div class="reasons-grid">
+        
+        <div class="reason-card">
+          <h3 class="reason-title">Crescimento com clareza</h3>
+          <p class="reason-desc">Olhar estratégico para a carreira, permitindo decisões com total autonomia e direcionamento.</p>
+        </div>
+
+        <div class="reason-card">
+          <h3 class="reason-title">Futuro com segurança</h3>
+          <p class="reason-desc">Um espaço confidencial e seguro para explorar novas possibilidades profissionais sem julgamentos.</p>
+        </div>
+
+        <div class="reason-card">
+          <h3 class="reason-title">Marca pessoal forte</h3>
+          <p class="reason-desc">Posicionamento claro do seu valor, aprimorando a comunicação dos seus resultados e impacto.</p>
+        </div>
+
+        <div class="reason-card">
+          <h3 class="reason-title">Troca real entre pares</h3>
+          <p class="reason-desc">Acesso a profissionais de altíssimo nível que vivem ou já viveram os mesmos desafios que você.</p>
+        </div>
+
+        <div class="reason-card">
+          <h3 class="reason-title">Conteúdo relevante</h3>
+          <p class="reason-desc">Discussões sobre tendências, competências do futuro e modelos de liderança aplicáveis hoje.</p>
+        </div>
+
+        <div class="reason-card">
+          <h3 class="reason-title">Motivação renovada</h3>
+          <p class="reason-desc">A energia de pertencer a um grupo dinâmico inspira, impulsiona e blinda contra a inércia rotineira.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SEÇÃO 4 — O QUE ESTÁ INCLUÍDO
+       ========================================================================= -->
+  <section class="included">
+    <div class="container">
+      <h2 class="section-title">12 meses de crescimento e protagonismo</h2>
+      
+      <div class="included-grid">
+        <div class="included-item">
+          <svg class="included-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span class="included-text">Acompanhamento próximo e personalizado durante 12 meses.</span>
+        </div>
+        
+        <div class="included-item">
+          <svg class="included-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span class="included-text">Encontros quinzenais ao vivo com temas aplicados de carreira e liderança.</span>
+        </div>
+        
+        <div class="included-item">
+          <svg class="included-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span class="included-text">Mentorias em grupo estilo hot seat — desafios reais com múltiplas perspectivas.</span>
+        </div>
+        
+        <div class="included-item">
+          <svg class="included-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span class="included-text">Rede qualificada e grupo exclusivo no WhatsApp por 12 meses.</span>
+        </div>
+        
+        <div class="included-item">
+          <svg class="included-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span class="included-text">Atividades práticas de autoconhecimento, diagnóstico de carreira e posicionamento.</span>
+        </div>
+        
+        <div class="included-item">
+          <svg class="included-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span class="included-text">Clube do livro trimestral (já lemos: Pensamento Eficaz - Da Imprevisibilidade ao Valor).</span>
+        </div>
+        
+        <div class="included-item" style="grid-column: 1 / -1; justify-content: center;">
+          <svg class="included-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span class="included-text" style="font-weight: 600;">1 sessão individual de bônus (1h) inclusa para aceleração.</span>
+        </div>
+      </div>
+
+      <div class="included-topics">
+        Temas já abordados: Network &middot; Transição de Carreira &middot; Leitura de Cenários e Posicionamento &middot; e muito mais.
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SEÇÃO 5 — BÔNUS
+       ========================================================================= -->
+  <section class="bonus">
+    <div class="container">
+      <span class="bonus-badge">Bônus Exclusivo</span>
+      <h2 class="bonus-title">1 Sessão Individual Comigo</h2>
+      <p class="bonus-desc">
+        Para ter mais clareza e confiança no seu planejamento de carreira. 1 hora, agendada com antecedência, focada exclusivamente no seu momento atual.
+      </p>
+      <div class="bonus-price">
+        <span class="bonus-price-old">DE: R$ 600</span>
+        <span class="bonus-price-new">POR: R$ 0</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SEÇÃO 6 — INVESTIMENTO
+       ========================================================================= -->
+  <section class="investment">
+    <div class="container">
+      <h2 class="invest-title">Quanto você está disposto a investir na sua carreira?</h2>
+      <p class="invest-subtitle">Os meios que você escolhe para se atualizar hoje dizem muito sobre o profissional que você será amanhã.</p>
+
+      <div class="price-card">
+        <span class="price-old">R$ 2.000</span>
+        <div class="price-current">R$ 1.500</div>
+        <span class="price-installments">à vista ou R$ 1.800 em 10×</span>
+
+        <div class="btn-group">
+          <a href="https://wa.me/5511940803333" target="_blank" class="btn btn-solid">Quero ser Sequoia</a>
+          <a href="https://wa.me/5511940803333" target="_blank" class="btn btn-outline">Falar com a Débora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SEÇÃO 7 — FAQ
+       ========================================================================= -->
+  <section class="faq">
+    <div class="container faq-container">
+      <h2 class="section-title">Perguntas Frequentes</h2>
+      
+      <details>
+        <summary>Por quanto tempo terei acesso à comunidade?</summary>
+        <div class="faq-answer">
+          O acesso é válido por 12 meses, garantindo acompanhamento contínuo, encontros ao vivo regulares e acesso constante à rede de networking no WhatsApp.
+        </div>
+      </details>
+
+      <details>
+        <summary>Quantos encontros acontecem por mês?</summary>
+        <div class="faq-answer">
+          Realizamos 2 encontros por mês (encontros quinzenais). Geralmente, revezamos o formato: um encontro para mentorias e "hot seats" sobre casos reais, e outro para sessões interativas focadas em um tema ou livro específico.
+        </div>
+      </details>
+
+      <details>
+        <summary>Os encontros ficam gravados?</summary>
+        <div class="faq-answer">
+          Não. Para manter o espaço 100% seguro, confidencial e estimular a troca real de experiências, as sessões acontecem exclusivamente ao vivo e não são gravadas.
+        </div>
+      </details>
+
+      <details>
+        <summary>O que mais está incluído além dos encontros?</summary>
+        <div class="faq-answer">
+          Além das reuniões quinzenais, você fará parte do grupo exclusivo no WhatsApp para trocas diárias com profissionais de alto nível, participará do clube do livro trimestral e receberá 1 sessão individual de bônus comigo para traçar seu plano de ação.
+        </div>
+      </details>
+
+      <details>
+        <summary>Como funciona a renovação?</summary>
+        <div class="faq-answer">
+          O programa é anual. Durante o sexto mês de participação, fazemos um alinhamento individual para avaliar o ciclo e conversamos sobre as condições e desejo de renovação para o próximo ano.
+        </div>
+      </details>
+
+      <details>
+        <summary>Quais são as formas de pagamento?</summary>
+        <div class="faq-answer">
+          O valor com desconto (R$ 1.500) é para pagamento à vista, preferencialmente via Pix. Você também pode optar pelo pagamento parcelado no cartão de crédito em até 10 vezes (R$ 1.800).
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Débora Bolangno. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
