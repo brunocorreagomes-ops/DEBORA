@@ -14,14 +14,19 @@ import {
   Target, 
   Zap, 
   Award,
-  Menu,
+  Menu, 
   X,
   Twitter,
   Clock,
   CheckCircle2,
   Globe,
   MessageCircle,
-  ArrowUp
+  ArrowUp,
+  TrendingUp,
+  Trees,
+  Mic,
+  Check,
+  Instagram
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import * as React from "react";
@@ -56,7 +61,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Sobre", href: "#sobre" },
-    { name: "Programas", href: "#servicos" },
+    { name: "Resultados", href: "#resultados" },
+    { name: "Programas", href: "#programas" },
     { name: "Palestras", href: "#palestras" },
     { name: "Contato", href: "#contato" },
   ];
@@ -124,6 +130,15 @@ const Navbar = () => {
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 lg:gap-10">
           <div className="flex items-center gap-4">
+            <a 
+              href="https://www.instagram.com/deborabolangno" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-ink/40 hover:text-brand-700 transition-colors p-2"
+              aria-label="Instagram"
+            >
+              <Instagram size={18} />
+            </a>
             <a 
               href="https://www.linkedin.com/in/deborabolangno" 
               target="_blank" 
@@ -217,13 +232,23 @@ const Navbar = () => {
               className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-cream z-50 md:hidden flex flex-col p-8 shadow-2xl"
             >
               <div className="flex justify-between items-center mb-12">
-                <div className="w-12 h-12 flex items-center justify-center">
-                  <img 
-                    src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
-                    alt="Logo Débora Bolangno" 
-                    className="w-full h-full object-contain"
-                    referrerPolicy="no-referrer"
-                  />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center">
+                    <img 
+                      src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
+                      alt="Logo Débora Bolangno" 
+                      className="w-full h-full object-contain"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-serif text-lg font-bold tracking-tight text-ink">
+                      Débora Bolangno
+                    </span>
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-ink/40 font-medium leading-tight">
+                      Estratégia de Carreira & Liderança
+                    </span>
+                  </div>
                 </div>
                 <button 
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -234,7 +259,7 @@ const Navbar = () => {
                 </button>
               </div>
 
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-8">
                 {navLinks.map((link, i) => (
                   <motion.a 
                     key={link.name} 
@@ -243,10 +268,10 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + i * 0.1 }}
                     onClick={(e) => scrollToSection(e, link.href)}
-                    className="text-lg font-serif font-bold text-ink hover:text-brand-700 transition-colors flex items-center justify-between group"
+                    className="text-2xl font-serif font-bold text-ink hover:text-brand-700 transition-colors flex items-center justify-between group"
                   >
                     {link.name}
-                    <ChevronRight size={18} className="opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+                    <ChevronRight size={24} className="opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
                   </motion.a>
                 ))}
               </div>
@@ -330,7 +355,7 @@ const Hero = () => {
               <motion.span key={i} variants={letterVariants}>{char}</motion.span>
             ))}
             <br />
-            <span className="italic text-brand-700 text-balance">
+            <span className="italic text-highlight text-balance">
               {titlePart2.split("").map((char, i) => (
                 <motion.span key={i} variants={letterVariants}>{char}</motion.span>
               ))}
@@ -389,7 +414,7 @@ const Hero = () => {
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a 
-              href="#servicos" 
+              href="#programas" 
               className="px-6 md:px-8 py-3.5 md:py-4 rounded-full text-[10px] md:text-xs uppercase tracking-widest font-bold text-ink border-2 border-ink/20 hover:bg-ink hover:text-white transition-all text-center"
             >
               Conhecer programas
@@ -470,7 +495,7 @@ const About = () => {
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-bold text-ink leading-tight mb-6 md:mb-8">
             Estratégia, Liderança <br />
-            <span className="italic text-brand-700">& Execução.</span>
+            <span className="italic text-highlight">& Execução.</span>
           </h2>
           <div className="space-y-6 text-ink/70 leading-relaxed text-lg md:text-xl">
             <p>
@@ -545,14 +570,14 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-cream/50">
+    <section id="resultados" className="py-24 bg-cream/50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-[10px] uppercase tracking-[0.3em] text-brand-600 font-bold mb-4 block">
             Prova Social
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-black text-ink mb-6">
-            Resultados reais de quem já passou pelo processo
+            <span className="text-highlight">Resultados</span> reais de quem já passou pelo processo
           </h2>
           <p className="text-ink/50 max-w-2xl mx-auto text-lg">
             Profissionais que destravaram decisões, ganharam clareza e avançaram com mais segurança na carreira.
@@ -623,99 +648,222 @@ const Testimonials = () => {
   );
 };
 
-const Services = () => {
-  const services = [
+const Programs = () => {
+  const cards = [
     {
-      icon: <Users className="text-brand-600" size={32} />,
-      num: "01",
-      title: "Mentoria Executive Presence",
-      desc: "Foco em posicionamento, comunicação assertiva e construção de autoridade para o alto escalão.",
-      tags: ["Posicionamento", "Comunicação", "Autoridade"]
+      id: "individual",
+      icon: <TrendingUp className="text-gold" strokeWidth={1} size={36} />,
+      badge: "MENTORIA INDIVIDUAL",
+      journey: "Quero clareza e direção para minha carreira",
+      program: "Coaching & Mentoria de Carreira",
+      description: "Processo estruturado com técnicas de coaching e mentoria para quem está em momento decisivo ou quer acelerar sua evolução.",
+      bullets: [
+        "8 sessões individuais quinzenais",
+        "Sessão extra de acompanhamento inclusa",
+        "Relatório enviado em cada encontro"
+      ],
+      ctaText: "Agendar uma conversa",
+      ctaLink: "https://wa.me/5511940803333",
+      ctaType: "outline",
+      secondaryText: "Ver programa →",
+      secondaryLink: "mentoria-individual.html"
     },
     {
-      icon: <Target className="text-brand-600" size={32} />,
-      num: "02",
-      title: "Estratégia de Carreira 360º",
-      desc: "Planejamento tático personalizado para transições, promoções e novos desafios profissionais.",
-      tags: ["Transição", "Promoção", "Estratégia"]
+      id: "lider",
+      icon: <Users className="text-gold" strokeWidth={1} size={36} />,
+      badge: "MENTORIA EM GRUPO",
+      journey: "Sou líder e preciso atualizar minha gestão",
+      program: "Liderança Atualizada",
+      description: "5 encontros ao vivo focados em gestão moderna: tempo, comunicação, feedback e alta performance de equipes.",
+      bullets: [
+        "Início: 04/03 · Online ao vivo · 20h",
+        "Sessão individual de bônus inclusa",
+        "Materiais e ferramentas práticas"
+      ],
+      ctaText: "Garantir minha vaga — R$ 1.500",
+      ctaLink: "https://forms.gle/H79mZQTr5WbQpuwD8",
+      ctaType: "solid",
+      secondaryText: "Ver programa →",
+      secondaryLink: "lideranca-atualizada.html"
     },
     {
-      icon: <Zap className="text-brand-600" size={32} />,
-      num: "03",
-      title: "Liderança de Alta Performance",
-      desc: "Desenvolvimento de times, cultura organizacional e gestão estratégica de stakeholders.",
-      tags: ["Times", "Cultura", "Stakeholders"]
+      id: "comunidade",
+      icon: <Trees className="text-gold" strokeWidth={1} size={36} />,
+      badge: "COMUNIDADE · 12 MESES",
+      journey: "Quero uma rede de alta performance ao meu redor",
+      program: "Comunidade Sequoia",
+      description: "Ambiente colaborativo com encontros quinzenais ao vivo, hot seats, clube do livro e acompanhamento próximo de carreira.",
+      bullets: [
+        "Encontros quinzenais ao vivo em grupo",
+        "Grupo exclusivo no WhatsApp",
+        "1 sessão individual de bônus inclusa"
+      ],
+      ctaText: "Entrar na Sequoia — R$ 1.500",
+      ctaLink: "https://wa.me/5511940803333",
+      ctaType: "solid",
+      urgency: "⚡ 97% das vagas preenchidas",
+      secondaryText: "Ver programa →",
+      secondaryLink: "sequoia.html"
     },
     {
-      icon: <Award className="text-brand-600" size={32} />,
-      num: "04",
-      title: "Consultoria Organizacional",
-      desc: "Estratégia para fortalecer cultura, liderança e performance em ambientes corporativos.",
-      tags: ["RH", "Cultura", "Performance"]
+      id: "empresa",
+      icon: <Mic className="text-gold" strokeWidth={1} size={36} />,
+      badge: "EMPRESAS & WORKSHOPS",
+      journey: "Quero levar desenvolvimento para minha empresa",
+      program: "Palestras & Workshops Corporativos",
+      description: "Conteúdos customizados sobre liderança, carreira e inteligência emocional para empresas que desenvolvem equipes.",
+      bullets: [
+        "Palestras presenciais ou online",
+        "Workshops e treinamentos sob medida",
+        "Temas: liderança, carreira, transição"
+      ],
+      ctaText: "Solicitar proposta",
+      ctaLink: "https://wa.me/5511940803333",
+      ctaType: "outline",
+      secondaryText: "Ver programa →",
+      secondaryLink: "palestras.html"
     }
   ];
 
-  return (
-    <section id="servicos" className="py-24 bg-cream relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <img 
-          src="https://i.ibb.co/0pxFBjnW/Gemini-Generated-Image-bgseumbgseumbgse.png" 
-          alt="Background Texture"
-          className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6 md:gap-8 border-b border-ink/10 pb-8 md:pb-12">
-          <h2 className="font-serif text-4xl md:text-7xl font-black text-ink leading-[0.9]">
-            Programas de<br />
-            <span className="italic text-brand-700 text-balance">Alto Impacto</span>
-          </h2>
-          <p className="text-ink/50 uppercase tracking-widest text-[10px] md:text-sm font-bold max-w-xs md:text-right">
-            Escolha o formato ideal para o seu momento profissional
-          </p>
-        </div>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-ink/5 border border-ink/5 rounded-3xl overflow-hidden shadow-lg">
-          {services.map((service) => (
-            <motion.div 
-              key={service.num}
-              whileHover={{ 
-                backgroundColor: "rgba(18, 18, 18, 1)",
-                y: -8,
-                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)"
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.98 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+    }
+  };
+
+  return (
+    <motion.section 
+      id="programas" 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      className="py-[100px] bg-deep-green text-center overflow-hidden"
+    >
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="max-w-7xl mx-auto px-6"
+      >
+        <motion.span 
+          variants={itemVariants}
+          className="font-sans text-[18px] text-gold tracking-[0.2em] uppercase font-medium mb-6 block"
+        >
+          CADA ETAPA DA SUA CARREIRA TEM UM PROGRAMA CERTO
+        </motion.span>
+        
+        <motion.h2 
+          variants={itemVariants}
+          className="font-serif text-4xl md:text-5xl lg:text-[48px] text-cream-light font-bold mb-8"
+        >
+          Escolha seu caminho
+        </motion.h2>
+
+        <motion.p 
+          variants={itemVariants}
+          className="font-sans text-[16px] text-cream-light/70 max-w-[580px] mx-auto mb-[60px] leading-relaxed"
+        >
+          Mais de 20 anos de experiência corporativa condensados em formatos pensados para cada momento da sua jornada profissional.
+        </motion.p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[28px]">
+          {cards.map((card) => (
+            <motion.div
+              key={card.id}
+              variants={{
+                ...itemVariants,
+                hover: { 
+                  backgroundColor: "rgba(255, 255, 255, 0.09)", 
+                  borderColor: "var(--color-gold)",
+                  transition: { duration: 0.3 }
+                }
               }}
-              className="bg-white p-10 flex flex-col h-full transition-all duration-300 group relative z-0 hover:z-10"
+              whileHover="hover"
+              className="bg-white/5 border border-gold/25 p-[28px] md:p-[40px] rounded-[2px] transition-all duration-300 flex flex-col text-left group relative overflow-hidden"
             >
-              <div className="mb-8 group-hover:text-brand-400 transition-colors">
-                {service.icon}
+              <div
+                className="mb-[24px] w-fit text-gold"
+              >
+                {card.icon}
               </div>
-              <div className="text-[10px] uppercase tracking-widest text-ink/40 mb-4 group-hover:text-white/40">
-                {service.num} / 04
+              
+              <div 
+                className="inline-block border border-gold/50 px-[12px] py-[4px] text-[11px] font-sans font-semibold text-gold uppercase mb-[24px] w-fit rounded-[2px] tracking-[1px]"
+              >
+                {card.badge}
               </div>
-              <h3 className="font-serif text-2xl font-bold text-ink mb-4 group-hover:text-white transition-colors">
-                {service.title}
+
+              <h3 className="font-serif text-[28px] text-cream-light font-semibold mb-[16px] leading-[1.2]">
+                {card.journey}
               </h3>
-              <p className="text-sm text-ink/60 leading-relaxed mb-8 flex-grow group-hover:text-white/60 transition-colors">
-                {service.desc}
+
+              <div className="font-sans text-[11px] text-cream-light/45 uppercase tracking-[1.5px] font-semibold mb-[12px]">
+                {card.program}
+              </div>
+
+              <p className="font-sans text-[15px] text-cream-light/70 leading-relaxed mt-[12px] mb-[24px] flex-grow">
+                {card.description}
               </p>
-              <div className="flex flex-wrap gap-2">
-                {service.tags.map(tag => (
-                  <span 
-                    key={tag} 
-                    className="text-[9px] uppercase tracking-widest px-3 py-1.5 bg-ink/5 rounded-full text-ink/50 group-hover:bg-turquoise group-hover:text-white transition-all duration-300"
-                  >
-                    {tag}
-                  </span>
+
+              <div className="h-px bg-gold/20 w-full mb-[24px]"></div>
+
+              <ul className="space-y-[12px] mb-[24px]">
+                {card.bullets.map((bullet, idx) => (
+                  <li key={idx} className="flex items-start gap-[12px] font-sans text-[14px] text-cream-light/85 leading-[1.5]">
+                    <Check size={16} strokeWidth={2} className="text-gold shrink-0 mt-[2px]" />
+                    <span>{bullet}</span>
+                  </li>
                 ))}
+              </ul>
+
+              {card.urgency && (
+                <div className="bg-gold/10 text-gold font-sans text-[12px] font-semibold py-[6px] px-[14px] rounded-[2px] w-fit mb-[32px]">
+                  {card.urgency}
+                </div>
+              )}
+
+              <div className="flex flex-wrap gap-[12px] mt-auto">
+                <a
+                  href={card.ctaLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`py-[14px] px-[32px] rounded-[2px] text-center text-[13px] uppercase tracking-[1px] font-semibold transition-all duration-300 ease-in-out flex-1 flex items-center justify-center min-w-fit ${
+                    card.ctaType === "solid"
+                      ? "bg-gold text-deep-green border border-gold hover:bg-[#b8934d] hover:border-[#b8934d]"
+                      : "border border-gold text-gold bg-transparent hover:bg-gold hover:text-deep-green"
+                  }`}
+                >
+                  {card.ctaText}
+                </a>
+                <a
+                  href={card.secondaryLink}
+                  className="py-[14px] px-[32px] rounded-[2px] text-center text-[13px] uppercase tracking-[1px] font-semibold transition-all duration-300 ease-in-out border border-cream-light/20 text-cream-light/60 bg-transparent flex-1 flex items-center justify-center hover:border-cream-light/50 hover:text-cream-light min-w-fit"
+                >
+                  {card.secondaryText}
+                </a>
               </div>
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
@@ -738,7 +886,7 @@ const Lectures = () => {
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-black text-ink leading-tight mb-6 md:mb-8">
             Palestras<br />
-            <span className="italic text-brand-700">& Workshops</span><br />
+            <span className="italic text-highlight">& Workshops</span><br />
             Corporativos
           </h2>
           <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 md:mb-8 shadow-xl">
@@ -822,46 +970,6 @@ const Differentials = () => {
                 <h4 className="text-cream font-bold mb-2 group-hover:text-brand-300 transition-colors">{item.title}</h4>
                 <p className="text-sm text-cream/70 leading-relaxed">{item.desc}</p>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Formats = () => {
-  const formats = [
-    { icon: <Users size={28} />, title: "Mentoria Individual", desc: "Acompanhamento 1:1 personalizado para transição ou crescimento.", tag: "1:1" },
-    { icon: <Target size={28} />, title: "Mentorias em Grupo", desc: "Programas coletivos temáticos com trocas entre pares.", tag: "Grupos" },
-    { icon: <Award size={28} />, title: "Programas de Liderança", desc: "Desenvolvimento estruturado para líderes em todos os níveis.", tag: "Líderes" },
-    { icon: <Zap size={28} />, title: "Palestras & Workshops", desc: "Encontros corporativos práticos em todo o Brasil.", tag: "Corporativo" },
-    { icon: <Globe size={28} />, title: "Consultoria para RH", desc: "Apoio estratégico a projetos de desenvolvimento humano.", tag: "RH Estratégico" },
-  ];
-
-  return (
-    <section className="py-24 bg-cream">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-serif text-4xl md:text-6xl font-black text-ink text-center mb-4">
-          Formatos de <span className="italic text-brand-700">Atuação</span>
-        </h2>
-        <p className="text-center text-ink/50 mb-16 uppercase tracking-widest text-sm">
-          Presencial ou online · Customizável · Todo o Brasil
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
-          {formats.map((format, i) => (
-            <motion.div 
-              key={i}
-              whileHover={{ y: -10 }}
-              className="bg-white p-6 md:p-8 rounded-3xl border border-ink/5 text-center flex flex-col items-center shadow-sm hover:shadow-xl hover:border-brand-500/30 transition-all"
-            >
-              <div className="text-brand-600 mb-4 md:mb-6">{format.icon}</div>
-              <h4 className="font-serif font-bold text-ink mb-2 md:mb-3 leading-tight text-base md:text-lg">{format.title}</h4>
-              <p className="text-[11px] md:text-xs text-ink/50 leading-relaxed mb-4 md:mb-6 flex-grow">{format.desc}</p>
-              <span className="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-brand-700 bg-brand-50 px-3 py-1.5 rounded-full">
-                {format.tag}
-              </span>
             </motion.div>
           ))}
         </div>
@@ -1018,6 +1126,7 @@ const CTA = ({ onOpenContact }: { onOpenContact: () => void }) => {
         
         <div className="space-y-4">
           {[
+            { icon: <Instagram size={20} />, label: "Instagram · @deborabolangno", href: "https://www.instagram.com/deborabolangno" },
             { icon: <Linkedin size={20} />, label: "LinkedIn · Débora Bolangno", href: "https://www.linkedin.com/in/deborabolangno" },
             { icon: <Mail size={20} />, label: "deborabolangno@outlook.com", href: "mailto:deborabolangno@outlook.com" },
           ].map((link, i) => (
@@ -1139,10 +1248,9 @@ export default function App() {
         <Marquee />
         <SectionReveal><About /></SectionReveal>
         <SectionReveal><Testimonials /></SectionReveal>
-        <SectionReveal><Services /></SectionReveal>
+        <Programs />
         <SectionReveal><Lectures /></SectionReveal>
         <SectionReveal><Differentials /></SectionReveal>
-        <SectionReveal><Formats /></SectionReveal>
         <CTA onOpenContact={() => setIsContactModalOpen(true)} />
       </main>
       <Footer />
@@ -1156,7 +1264,7 @@ export default function App() {
       <div className="fixed bottom-8 right-8 z-50 flex gap-4 items-center">
         {/* WhatsApp Button */}
         <a
-          href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20maiores%20informações"
+          href={`https://wa.me/5511940803333?text=${encodeURIComponent("Olá, vim pelo site e gostaria de mais informações.")}`}
           target="_blank"
           rel="noopener noreferrer"
           className="p-4 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 transition-all flex items-center justify-center"
