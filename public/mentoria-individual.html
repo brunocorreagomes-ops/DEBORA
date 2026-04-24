@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidade Sequoia | Débora Bolangno</title>
+    <title>Mentoria Individual | Débora Bolangno</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,7 +94,7 @@
         .page-intro {
             padding: 120px 0 80px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 64px;
             align-items: center;
         }
@@ -125,46 +125,79 @@
 
         .intro-img {
             width: 100%;
-            height: 480px;
+            height: 540px;
             border-radius: 40px;
             object-fit: cover;
             box-shadow: 0 40px 80px rgba(0,0,0,0.1);
         }
 
-        .intro-subtitle {
-            font-size: 18px;
+        .intro-desc {
+            font-size: 19px;
             color: rgba(26, 58, 46, 0.6);
-            max-width: 500px;
+            max-width: 600px;
             line-height: 1.8;
             margin-top: 40px;
         }
 
-        /* Pillars Section */
-        .pillars-section {
+        /* Detail Cards */
+        .details-section {
             padding: 120px 0;
             background-color: var(--brand-white);
         }
 
-        .pillars-grid {
+        .grid-cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background-color: rgba(26, 58, 46, 0.05);
-            border-radius: 40px;
-            overflow: hidden;
-            border: 1px solid rgba(26, 58, 46, 0.05);
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
         }
 
-        .pillar-card {
-            background-color: var(--brand-white);
-            padding: 64px;
+        .card-glass {
+            padding: 56px;
+            background: var(--brand-cream);
+            border-radius: 40px;
+            border: 1px solid rgba(26, 58, 46, 0.05);
             transition: var(--transition);
         }
 
-        .pillar-card:hover { background-color: var(--brand-cream); }
+        .card-glass:hover {
+            transform: translateY(-10px);
+            background: white;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            border-color: var(--brand-gold);
+        }
 
-        .pillar-card h3 { font-size: 28px; margin-bottom: 16px; font-weight: 700; }
-        .pillar-card p { font-size: 17px; color: rgba(10, 26, 20, 0.5); }
+        .card-glass h3 { font-size: 32px; margin-bottom: 24px; font-weight: 700; }
+        .card-glass p { font-size: 17px; color: rgba(10, 26, 20, 0.5); }
+
+        /* Metodologia */
+        .method-section {
+            padding: 120px 0;
+            background-color: var(--brand-green);
+            color: var(--brand-cream);
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .list-premium { list-style: none; margin-top: 48px; }
+        .list-premium li {
+            font-size: 18px;
+            margin-bottom: 24px;
+            padding-left: 32px;
+            position: relative;
+            color: rgba(245, 240, 232, 0.7);
+        }
+        .list-premium li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--brand-gold);
+            font-size: 24px;
+        }
 
         /* CTA */
         .cta-section { padding: 140px 0; text-align: center; }
@@ -179,14 +212,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 12px;
-            transition: var(--transition);
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(201, 169, 110, 0.3);
-            background: var(--brand-green);
-            color: var(--brand-white);
         }
 
         footer {
@@ -213,16 +238,13 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: var(--transition);
         }
-        .float-btn:hover { transform: scale(1.1); }
-
         .btn-whatsapp { background-color: #25D366; color: white; }
         .btn-up { background-color: var(--brand-green); color: white; }
 
         @media (max-width: 1024px) {
-            .page-intro { grid-template-columns: 1fr; }
-            .pillars-grid { grid-template-columns: 1fr; }
+            .page-intro, .method-grid { grid-template-columns: 1fr; }
+            .grid-cards { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -238,52 +260,80 @@
     <section class="page-intro">
         <div class="container" style="display: inherit; gap: inherit; grid-template-columns: inherit; align-items: inherit;">
             <div>
-                <span class="tag">Comunidade Sequoia</span>
-                <h1 class="title-display">Conexões <i>de</i> Valor <i>e</i> Inteligência Coletiva</h1>
+                <span class="tag">Mentoria Individual</span>
+                <h1 class="title-display">Coaching <i>&</i> Mentoria <i>de</i> Carreira</h1>
                 <div style="width: 100px; height: 1px; background: var(--brand-gold); margin-bottom: 40px;"></div>
-                <p class="intro-subtitle">
-                    Um ecossistema exclusivo para líderes e profissionais que entendem que o topo é mais seguro quando compartilhado.
+                <p class="intro-desc">
+                    Um processo individualizado e de altíssimo nível, desenhado para líderes e executivos que buscam segurança absoluta na tomada de decisão e expansão de autoridade.
                 </p>
                 <div style="margin-top: 48px;">
-                    <a href="https://wa.me/5511940803333" class="btn">Candidatar-se à Sequoia</a>
+                    <a href="https://wa.me/5511940803333" class="btn">Agendar Sessão Alinhamento</a>
                 </div>
             </div>
             <div>
-                <img src="https://i.ibb.co/v6hZk0L4/Chat-GPT-Image-11-de-abr-de-2026-11-18-50.png" alt="Sequoia" class="intro-img">
+                <img src="https://i.ibb.co/KpxMJ3Yq/deb04.jpg" alt="Débora Bolangno" class="intro-img">
             </div>
         </div>
     </section>
 
-    <section class="pillars-section">
+    <section class="details-section">
         <div class="container">
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <h3>Inteligência Coletiva</h3>
-                    <p>Resolva seus problemas de gestão e carreira ouvindo as soluções de quem já passou pelo que você está vivendo hoje.</p>
+            <div class="grid-cards">
+                <div class="card-glass">
+                    <h3>Momento Decisivo</h3>
+                    <p>Profissionais em transição de carreira, busca por promoção ou redirecionamento estratégico que exigem segurança absoluta.</p>
                 </div>
-                <div class="pillar-card">
-                    <h3>Networking Premium</h3>
-                    <p>Acesso direto a uma rede de profissionais que estão no mesmo patamar de ambição e desafios que você.</p>
+                <div class="card-glass">
+                    <h3>Liderança Sênior</h3>
+                    <p>Executivos que desejam ampliar sua influência, destravar a comunicação e dominar a complexidade da gestão moderna.</p>
                 </div>
-                <div class="pillar-card">
-                    <h3>Sustentação Contínua</h3>
-                    <p>Evite o "efeito montanha-russa". A Sequoia garante que você mantenha o foco e a energia alta durante o ano todo.</p>
+                <div class="card-glass">
+                    <h3>Clareza Prática</h3>
+                    <p>Líderes que buscam alinhar seus valores pessoais com seus desafios profissionais, saindo do modo automático direto para a execução eficiente.</p>
                 </div>
+                <div class="card-glass">
+                    <h3>Aceleração Real</h3>
+                    <p>Para quem busca um atalho mentorado por quem conhece as dores e as oportunidades reais de cargos de alta gestão.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method-section">
+        <div class="container method-grid">
+            <div>
+                <h2 style="font-size: clamp(38px, 5vw, 56px); color: white; margin-bottom: 32px;">Como funciona <i>a jornada</i>?</h2>
+                <p style="font-size: 19px; opacity: 0.7;">O processo une a profundidade do Coaching (provocação) com a praticidade da Mentoria (troca de experiências).</p>
+                <ul class="list-premium">
+                    <li>8 Encontros individuais de 1h (quinzenais)</li>
+                    <li>Audit completo de carreira e posicionamento</li>
+                    <li>Relatórios estratégicos detalhados pós-sessão</li>
+                    <li>Sessão extra de acompanhamento bônus</li>
+                    <li>Flexibilidade: Online ou Presencial (SP/Osasco)</li>
+                </ul>
+            </div>
+            <div style="background: var(--brand-gold); padding: 56px; border-radius: 40px; color: var(--brand-green);">
+                <span style="font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 2px;">EXPERIÊNCIA</span>
+                <p style="font-family: var(--font-display); font-size: 48px; font-weight: 700; line-height: 1.1; margin-top: 16px;">
+                    +20 anos no topo do mundo corporativo.
+                </p>
+                <p style="margin-top: 32px; font-size: 18px; opacity: 0.8; font-weight: 500;">
+                    Eu não ensino teoria. Eu entrego os caminhos que funcionam em cargos de alta gestão.
+                </p>
             </div>
         </div>
     </section>
 
     <section class="cta-section">
-        <div class="container text-center">
-            <h2 style="font-size: clamp(32px, 5vw, 64px); margin-bottom: 40px;">Ninguém cresce <br> <i>sozinho</i> no topo.</h2>
-            <a href="https://wa.me/5511940803333" class="btn">Solicitar Acesso</a>
+        <div class="container">
+            <h2 style="font-size: clamp(32px, 5vw, 64px); margin-bottom: 40px;">Pronto para o <i>seu próximo</i> passo?</h2>
+            <a href="https://wa.me/5511940803333" class="btn">Solicitar Mentoria Individual</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>© 2026 Débora Bolangno · Comunidade Sequoia</p>
-            <p style="margin-top: 10px; opacity: 0.5;">Todos os direitos reservados.</p>
+            <p>© 2026 Débora Bolangno · Mentoria & Coaching</p>
         </div>
     </footer>
 

@@ -652,68 +652,89 @@ const Programs = () => {
   const cards = [
     {
       id: "individual",
-      icon: <TrendingUp className="text-gold" strokeWidth={1} size={36} />,
+      icon: <TrendingUp className="text-gold" strokeWidth={1} size={72} />,
       badge: "MENTORIA INDIVIDUAL",
-      journey: "Quero clareza e direção para minha carreira",
-      program: "Programa de Coaching e Mentoria de Carreira",
-      description: "Processo estruturado com técnicas de coaching e mentoria para quem está em momento decisivo ou quer acelerar sua evolução profissional.",
+      journey: "Clareza e Direção",
+      program: "Coaching & Mentoria de Carreira",
+      description: "Processo estruturado com técnicas de coaching e mentoria para quem busca acelerar sua evolução e conquistar novos patamares profissionais.",
       bullets: [
         "8 sessões individuais quinzenais",
-        "Sessão extra de acompanhamento inclusa",
-        "Relatório enviado em cada encontro"
+        "Acompanhamento estratégico próximo",
+        "Plano de voo customizado"
       ],
-      ctaText: "Tenho interesse na mentoria individual",
+      ctaText: "Agendar Conversa",
       ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, tenho interesse na mentoria individual.")}`,
-      ctaType: "outline"
+      ctaType: "solid",
+      pageLink: "/mentoria-individual.html"
+    },
+    {
+      id: "marca",
+      icon: <Target className="text-gold" strokeWidth={1} size={72} />,
+      badge: "POSICIONAMENTO",
+      journey: "Marca Intencional",
+      program: "Mentoria de Autoridade",
+      description: "Domine sua narrativa, construa autoridade inquestionável e torne-se a primeira opção nos grandes projetos e decisões do mercado.",
+      bullets: [
+        "Definição de diferenciais competitivos",
+        "Estratégia de LinkedIn e imagem digital",
+        "Gestão de reputação e influência"
+      ],
+      ctaText: "Construir Autoridade",
+      ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, gostaria de saber mais informações sobre a Mentoria Marca Intencional.")}`,
+      ctaType: "outline",
+      pageLink: "/marca-intencional.html"
     },
     {
       id: "lider",
-      icon: <Users className="text-gold" strokeWidth={1} size={36} />,
+      icon: <Users className="text-gold" strokeWidth={1} size={72} />,
       badge: "MENTORIA EM GRUPO",
-      journey: "Sou líder e preciso atualizar minha gestão",
-      program: "Liderança Atualizada",
-      description: "5 encontros ao vivo focados em gestão moderna: tempo, comunicação, feedback e alta performance de equipes.",
+      journey: "Liderança Atualizada",
+      program: "Gestão Moderna & Performance",
+      description: "Saia do operacional e torne-se um gestor que inspira, delega com segurança e constrói times de alta performance e autogerenciáveis.",
       bullets: [
-        "Início: 04/03 · Online ao vivo · 20h",
-        "Sessão individual de bônus inclusa",
-        "Materiais e ferramentas práticas"
+        "Sessões ao vivo (Próxima turma)",
+        "Lista de espera prioritária",
+        "Métodos práticos de gestão"
       ],
-      ctaText: "Garantir minha vaga — R$ 1.500",
-      ctaLink: "https://deborabolangno.com/mentoria-em-grupo/",
-      ctaType: "solid"
+      ctaText: "Entrar na Lista",
+      ctaLink: "https://forms.gle/H79mZQTr5WbQpuwD8",
+      ctaType: "solid",
+      pageLink: "/lideranca-atualizada.html"
     },
     {
       id: "comunidade",
-      icon: <Trees className="text-gold" strokeWidth={1} size={36} />,
-      badge: "COMUNIDADE — 12 MESES",
-      journey: "Quero uma rede de alta performance ao meu redor",
-      program: "Comunidade Sequoia",
-      description: "Ambiente colaborativo com encontros quinzenais ao vivo, hot seats, clube do livro e acompanhamento próximo de carreira.",
+      icon: <Trees className="text-gold" strokeWidth={1} size={72} />,
+      badge: "COMUNIDADE · ANUAL",
+      journey: "Comunidade Sequoia",
+      program: "Rede de Alta Performance",
+      description: "Um ecossistema de líderes onde as raízes se entrelaçam para sustentar um crescimento inabalável e conexões de alto valor.",
       bullets: [
-        "Encontros quinzenais ao vivo em grupo",
-        "Grupo exclusivo no WhatsApp",
-        "1 sessão individual de bônus inclusa"
+        "Encontros quinzenais ao vivo",
+        "Inteligência coletiva e networking",
+        "Sessão individual bônus"
       ],
-      ctaText: "Me interessei em entrar no grupo da Sequoia",
+      ctaText: "Acessar Sequoia",
       ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, me interessei em entrar no grupo da Sequoia.")}`,
-      ctaType: "solid",
+      ctaType: "outline",
+      pageLink: "/sequoia.html",
       urgency: "⚡ 97% das vagas preenchidas"
     },
     {
       id: "empresa",
-      icon: <Mic className="text-gold" strokeWidth={1} size={36} />,
-      badge: "EMPRESAS & WORKSHOPS",
-      journey: "Quero levar desenvolvimento para minha empresa",
-      program: "Palestras & Workshops Corporativos",
-      description: "Conteúdos customizados sobre liderança, carreira e inteligência emocional para empresas que querem desenvolver suas equipes.",
+      icon: <Mic className="text-gold" strokeWidth={1} size={72} />,
+      badge: "CORPORATIVO",
+      journey: "Palestras & Workshops",
+      program: "Desenvolvimento de Times",
+      description: "Conteúdos customizados sobre liderança e carreira para empresas que desejam elevar o patamar de seus talentos e gestores.",
       bullets: [
-        "Palestras presenciais ou online",
-        "Workshops e treinamentos sob medida",
-        "Temas: liderança, carreira, transição"
+        "Workshops interativos de alto impacto",
+        "Conteúdo desenhado sob medida",
+        "Formatos flexíveis (Online/Presencial)"
       ],
-      ctaText: "Gostaria de mais informações para minha empresa",
+      ctaText: "Solicitar Proposta",
       ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, me interessei no desenvolvimento para minha empresa. Gostaria de mais informações.")}`,
-      ctaType: "outline"
+      ctaType: "outline",
+      pageLink: "/palestras.html"
     }
   ];
 
@@ -729,133 +750,130 @@ const Programs = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.98 },
+    hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
-      y: 0, 
-      scale: 1,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+      y: 0,
+      transition: { duration: 0.8, ease: [0.165, 0.84, 0.44, 1] }
     }
   };
 
   return (
     <motion.section 
       id="programas" 
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      className="py-[100px] bg-deep-green text-center overflow-hidden"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      className="py-32 bg-[#020a08] relative overflow-hidden"
     >
+      {/* Dynamic Background Effects */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-900/10 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/4 animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold/5 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/4"></div>
+
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="max-w-7xl mx-auto px-6"
+        className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10"
       >
-        <motion.span 
-          variants={itemVariants}
-          className="font-sans text-[18px] text-gold tracking-[0.2em] uppercase font-medium mb-6 block"
-        >
-          CADA ETAPA DA SUA CARREIRA TEM UM PROGRAMA CERTO
-        </motion.span>
-        
-        <motion.h2 
-          variants={itemVariants}
-          className="font-serif text-4xl md:text-5xl lg:text-[48px] text-cream-light font-bold mb-8"
-        >
-          Escolha seu caminho
-        </motion.h2>
+        <div className="flex flex-col items-center mb-24">
+          <motion.div 
+            variants={itemVariants}
+            className="flex items-center gap-4 mb-8"
+          >
+            <div className="w-12 h-px bg-gold/40"></div>
+            <span className="text-[11px] text-gold tracking-[0.5em] uppercase font-black">
+              Ecosssistema de Soluções
+            </span>
+            <div className="w-12 h-px bg-gold/40"></div>
+          </motion.div>
+          
+          <motion.h2 
+            variants={itemVariants}
+            className="font-serif text-5xl md:text-8xl text-white font-black mb-10 text-center leading-[1.1]"
+          >
+            Seu próximo <span className="italic font-light text-gold/90 serif">salto</span> estratégico
+          </motion.h2>
 
-        <motion.p 
-          variants={itemVariants}
-          className="font-sans text-xl md:text-2xl text-cream-light/75 max-w-[800px] mx-auto mb-20 leading-relaxed"
-        >
-          Mais de 20 anos de experiência corporativa condensados em formatos pensados para cada momento da sua jornada profissional.
-        </motion.p>
+          <motion.p
+            variants={itemVariants}
+            className="text-white/40 text-lg max-w-2xl text-center font-light tracking-wide"
+          >
+            Escolha o caminho ideal para sua atual fase de carreira e desenvolvimento.
+          </motion.p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-[32px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cards.map((card) => (
             <motion.div
               key={card.id}
-              variants={{
-                ...itemVariants,
-                hover: { 
-                  backgroundColor: "rgba(255, 255, 255, 0.09)", 
-                  borderColor: "var(--color-gold)",
-                  y: -8,
-                  scale: 1.02
-                }
+              variants={itemVariants}
+              whileHover={{ 
+                y: -15,
+                transition: { duration: 0.5, ease: [0.165, 0.84, 0.44, 1] }
               }}
-              whileHover="hover"
-              className="bg-white/5 border border-gold/30 p-10 md:p-14 rounded-[2px] transition-all duration-300 flex flex-col text-left group relative overflow-hidden"
+              className="group bg-white/[0.03] backdrop-blur-xl border border-white/10 p-10 md:p-12 rounded-[3.5rem] flex flex-col text-left transition-all duration-700 hover:bg-white/[0.06] hover:border-gold/40 hover:shadow-[0_30px_100px_rgba(0,0,0,0.5)]"
             >
-              <motion.div 
-                className="mb-10 w-fit"
-                variants={{
-                  hover: { 
-                    y: [0, -12, 0],
-                    transition: { 
-                      duration: 0.5,
-                      ease: "easeInOut"
-                    }
-                  }
-                }}
-              >
-                {card.icon}
-              </motion.div>
-              
-              <motion.div 
-                className="inline-block border border-gold px-5 py-2 text-[13px] font-sans font-bold text-gold tracking-[0.2em] uppercase mb-10 w-fit"
-                variants={{
-                  hover: { x: 5 }
-                }}
-              >
-                {card.badge}
-              </motion.div>
+              <div className="flex justify-between items-start mb-12">
+                <motion.div 
+                  className="relative"
+                >
+                  <div className="absolute inset-0 bg-gold/20 blur-2xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-700"></div>
+                  <div className="relative text-gold transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-700">
+                    {card.icon}
+                  </div>
+                </motion.div>
+                <div className="text-[9px] uppercase tracking-[0.2em] font-black text-gold/50 py-2.5 px-5 rounded-full border border-gold/10 bg-gold/5 group-hover:border-gold/30 group-hover:text-gold/80 transition-all">
+                  {card.badge}
+                </div>
+              </div>
 
-              <h3 className="font-serif text-3xl lg:text-[38px] text-cream-light font-bold mb-5 leading-tight">
+              <h3 className="font-serif text-3xl lg:text-5xl text-white font-bold mb-5 leading-tight group-hover:text-gold transition-colors duration-500">
                 {card.journey}
               </h3>
 
-              <div className="font-sans text-[14px] text-gold uppercase tracking-[0.25em] font-extrabold mb-8">
+              <div className="text-[11px] text-gold/40 uppercase tracking-[0.3em] font-black mb-8 group-hover:text-gold/60 transition-colors">
                 {card.program}
               </div>
 
-              <p className="font-sans text-[18px] text-cream-light/90 leading-relaxed mb-12 h-fit min-h-[3rem]">
+              <p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 min-h-[5rem]">
                 {card.description}
               </p>
 
-              <div className="h-px bg-gold/30 w-full mb-12"></div>
-
-              <ul className="space-y-6 mb-12 flex-grow">
+              <div className="space-y-4 mb-12">
                 {card.bullets.map((bullet, idx) => (
-                  <li key={idx} className="flex items-start gap-4 font-sans text-[17px] text-cream-light">
-                    <Check size={20} className="text-gold shrink-0 mt-1" />
-                    <span>{bullet}</span>
-                  </li>
+                  <div key={idx} className="flex items-center gap-4 text-sm text-white/40 group-hover:text-white/60 transition-colors">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gold/30 group-hover:bg-gold/60 transition-colors"></div>
+                    <span className="font-light">{bullet}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
               {card.urgency && (
-                <div className="bg-gold/20 text-gold font-sans text-sm font-black py-3 px-7 rounded-sm w-fit mb-12 shadow-[0_0_20px_rgba(188,163,116,0.25)] border border-gold/30 animate-pulse">
+                <div className="mb-10 p-4 rounded-3xl bg-gold/5 border border-gold/10 text-[9px] uppercase font-black tracking-[0.2em] text-gold/70 text-center">
                   {card.urgency}
                 </div>
               )}
 
-              <a
-                href={card.ctaLink}
-                target={card.id !== "lider" ? "_blank" : "_self"}
-                rel={card.id !== "lider" ? "noopener noreferrer" : ""}
-                className={`py-6 md:py-7 px-10 rounded-full text-center text-[13px] uppercase tracking-[0.25em] font-extrabold transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 ${
-                  card.ctaType === "solid"
-                    ? "bg-gold text-deep-green hover:bg-white hover:text-deep-green shadow-xl hover:shadow-white/20"
-                    : "border-2 border-gold text-gold hover:bg-white hover:text-deep-green hover:border-white shadow-xl hover:shadow-white/10"
-                }`}
-              >
-                {card.ctaText}
-              </a>
+              <div className="mt-auto flex flex-col gap-4">
+                <a
+                  href={card.ctaLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-5 px-8 rounded-full text-center text-[11px] uppercase tracking-[0.2em] font-black transition-all duration-500 bg-gold text-[#0a1a14] hover:bg-white hover:text-brand-950 shadow-2xl shadow-gold/10 flex items-center justify-center gap-3 group/btn hover:scale-[1.02]"
+                >
+                  {card.ctaText}
+                  <ChevronRight size={16} className="group-hover/btn:translate-x-1.5 transition-transform" />
+                </a>
+                
+                <a
+                  href={card.pageLink}
+                  className="w-full py-5 px-8 rounded-full text-center text-[10px] uppercase tracking-[0.2em] font-black text-white/30 border border-white/5 hover:border-gold/30 hover:bg-white/5 hover:text-white transition-all duration-500"
+                >
+                  Explorar Detalhes
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -863,6 +881,7 @@ const Programs = () => {
     </motion.section>
   );
 };
+
 
 const Lectures = () => {
   const topics = [
@@ -1236,7 +1255,6 @@ export default function App() {
         <SectionReveal><About /></SectionReveal>
         <SectionReveal><Testimonials /></SectionReveal>
         <Programs />
-        <SectionReveal><Lectures /></SectionReveal>
         <SectionReveal><Differentials /></SectionReveal>
         <CTA onOpenContact={() => setIsContactModalOpen(true)} />
       </main>
