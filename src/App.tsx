@@ -435,8 +435,8 @@ const TestimonialsLuxury = () => {
     {
       text: "Semanas muito valiosas. Saio com determinação para implementar tudo.",
       name: "Anderson Alves dos Santos",
-      role: "CFP®",
-      image: null
+      role: "Gerente de Agência Bradesco | CFP®",
+      image: "https://i.ibb.co/PzNrVgvj/Anderson-Alves-dos-Santos-CFPM-GERENTE-DE-AGENCIA-BRADESCO.jpg"
     },
     {
       text: "Levarei esses aprendizados comigo em cada desafio profissional.",
