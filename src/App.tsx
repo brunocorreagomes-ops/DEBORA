@@ -497,6 +497,210 @@ const Qualification = () => {
   );
 };
 
+const Triagem = () => {
+  return (
+    <section className="bg-brand-950 py-24 px-8 border-t border-white/5">
+      <div className="max-w-7xl mx-auto">
+        <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-highlight block mb-5 text-center">Seu momento</span>
+        <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-black text-creme leading-tight text-center mb-16">
+          Qual desses momentos descreve você hoje?
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a href="marca-intencional.html" className="group bg-white/5 border border-white/10 p-10 rounded-3xl transition-all hover:bg-highlight/10 hover:border-highlight hover:-translate-y-2">
+            <div className="font-serif text-[44px] font-black text-highlight/20 leading-none mb-6">01</div>
+            <h3 className="font-serif text-2xl font-bold text-creme mb-4">Falta de direção</h3>
+            <p className="text-sm text-creme/50 leading-relaxed mb-8">Tenho competência, mas me falta clareza. Sinto que estou aquém do meu potencial e não sei qual é o próximo passo certo.</p>
+            <span className="text-[10px] uppercase tracking-widest font-bold text-highlight flex items-center gap-2 group-hover:gap-4 transition-all">Marca Intencional <ArrowRight size={14} /></span>
+          </a>
+          <a href="mentoria-individual.html" className="group bg-white/5 border border-white/10 p-10 rounded-3xl transition-all hover:bg-highlight/10 hover:border-highlight hover:-translate-y-2">
+            <div className="font-serif text-[44px] font-black text-highlight/20 leading-none mb-6">02</div>
+            <h3 className="font-serif text-2xl font-bold text-creme mb-4">Liderança travada</h3>
+            <p className="text-sm text-creme/50 leading-relaxed mb-8">Meu time depende demais de mim. Preciso evoluir como líder e gerar resultado sem precisar estar em tudo.</p>
+            <span className="text-[10px] uppercase tracking-widest font-bold text-highlight flex items-center gap-2 group-hover:gap-4 transition-all">Mentoria <ArrowRight size={14} /></span>
+          </a>
+          <a href="sequoia.html" className="group bg-white/5 border border-white/10 p-10 rounded-3xl transition-all hover:bg-highlight/10 hover:border-highlight hover:-translate-y-2">
+            <div className="font-serif text-[44px] font-black text-highlight/20 leading-none mb-6">03</div>
+            <h3 className="font-serif text-2xl font-bold text-creme mb-4">Crescimento isolado</h3>
+            <p className="text-sm text-creme/50 leading-relaxed mb-8">Falta troca com pessoas no meu nível. Quero crescer junto com quem entende o jogo — não sozinho.</p>
+            <span className="text-[10px] uppercase tracking-widest font-bold text-highlight flex items-center gap-2 group-hover:gap-4 transition-all">Comunidade Sequoia <ArrowRight size={14} /></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Quiz = () => {
+  const [step, setStep] = useState(1);
+  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [nome, setNome] = useState("");
+  const [wa, setWa] = useState("");
+  const [showResult, setShowResult] = useState(false);
+
+  const WA_NUMBER = "5511940803333";
+
+  const results = {
+    direcao: {
+      icon: '🧭',
+      titulo: 'Você precisa de direção estratégica',
+      desc: 'Sua maior alavanca agora não é trabalhar mais — é entender exatamente onde está e para onde quer ir. Com clareza, tudo muda.',
+      produto: 'Marca Intencional',
+      link: 'marca-intencional.html',
+      msg: 'Olá, Débora! Fiz o diagnóstico no seu site e o resultado foi: *Marca Intencional*. Gostaria de entender como funciona e dar o próximo passo.'
+    },
+    lideranca: {
+      icon: '🔐',
+      titulo: 'Seu próximo nível depende da sua liderança',
+      desc: 'Você tem potencial — o que falta é a liderança que sustenta resultados consistentes, sem depender só de você para tudo funcionar.',
+      produto: 'Mentoria de Liderança',
+      link: 'mentoria-individual.html',
+      msg: 'Olá, Débora! Fiz o diagnóstico no seu site e o resultado foi: *Mentoria de Liderança*. Gostaria de entender como funciona e dar o próximo passo.'
+    },
+    network: {
+      icon: '🌱',
+      titulo: 'Você cresce mais rápido com as conexões certas',
+      desc: 'Você já tem clareza e movimento — o que potencializa agora é estar com pessoas que jogam no mesmo nível e entendem o jogo.',
+      produto: 'Comunidade Sequoia',
+      link: 'sequoia.html',
+      msg: 'Olá, Débora! Fiz o diagnóstico no seu site e o resultado foi: *Comunidade Sequoia*. Gostaria de entender como funciona e dar o próximo passo.'
+    }
+  };
+
+  const steps = [
+    {
+      q: "Qual sensação mais se aproxima da sua carreira hoje?",
+      options: [
+        { l: "A", t: "Estou travado — sei que poderia estar em outro nível", v: "direcao" },
+        { l: "B", t: "Estou crescendo, mas sem clareza para onde", v: "direcao" },
+        { l: "C", t: "Estou liderando, mas com dificuldade — meu time depende demais de mim", v: "lideranca" },
+        { l: "D", t: "Estou bem, mas quero evoluir com as pessoas certas ao redor", v: "network" }
+      ]
+    },
+    {
+      q: "Qual é seu maior desafio agora?",
+      options: [
+        { l: "A", t: "Decidir meus próximos passos com clareza", v: "direcao" },
+        { l: "B", t: "Organizar prioridades e liderar melhor meu time", v: "lideranca" },
+        { l: "C", t: "Desenvolver minha performance e consistência", v: "lideranca" },
+        { l: "D", t: "Encontrar pessoas no meu nível para crescer junto", v: "network" }
+      ]
+    },
+    {
+      q: "Qual é o seu nível atual?",
+      options: [
+        { l: "A", t: "Pleno / Analista", v: "direcao" },
+        { l: "B", t: "Sênior / Especialista", v: "direcao" },
+        { l: "C", t: "Gestão / Coordenação", v: "lideranca" },
+        { l: "D", t: "Liderança / Executivo / C-level", v: "network" }
+      ]
+    },
+    {
+      q: "O que você busca neste momento?",
+      options: [
+        { l: "A", t: "Clareza e direção estratégica para minha carreira", v: "direcao" },
+        { l: "B", t: "Evolução na liderança e melhora de performance", v: "lideranca" },
+        { l: "C", t: "Crescimento contínuo com network de alto valor", v: "network" },
+        { l: "D", t: "Reposicionamento e novo ciclo profissional", v: "direcao" }
+      ]
+    },
+    {
+      q: "Como você se vê investindo na sua evolução agora?",
+      options: [
+        { l: "A", t: "Pronto para dar um passo, mas quero entender as opções primeiro", v: "direcao" },
+        { l: "B", t: "Com clareza do que quero — buscando o programa certo", v: "lideranca" },
+        { l: "C", t: "Totalmente comprometido com o próximo nível", v: "network" }
+      ]
+    }
+  ];
+
+  const calcResult = () => {
+    const counts: Record<string, number> = { direcao: 0, lideranca: 0, network: 0 };
+    Object.values(answers).forEach((v) => {
+      const val = v as string;
+      if (val in counts) {
+        counts[val]++;
+      }
+    });
+    return Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0] as keyof typeof results;
+  };
+
+  const handleNext = () => step < steps.length ? setStep(step + 1) : setStep(6);
+  const handleBack = () => setStep(step - 1);
+
+  const resultType = calcResult();
+  const r = results[resultType];
+
+  const handleSend = () => {
+    if (!nome || !wa) return alert("Por favor preencha nome e WhatsApp");
+    const msg = encodeURIComponent(`🔔 *Novo lead — diagnóstico*\n\nNome: ${nome}\nWhatsApp: ${wa}\nResultado: *${r.produto}*\n\n---\n${r.msg}`);
+    window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
+    setShowResult(true);
+  };
+
+  return (
+    <section id="quiz" className="bg-brand-950 py-24 px-8 relative overflow-hidden">
+      <div className="max-w-3xl mx-auto relative z-10">
+        {!showResult ? (
+          <>
+            <div className="text-center mb-16">
+              <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-highlight block mb-5">Diagnóstico Gratuito</span>
+              <h2 className="font-serif text-[clamp(28px,4vw,44px)] font-black text-creme leading-tight mb-4">Descubra qual é o seu<br /><span className="italic text-highlight">próximo movimento</span></h2>
+              <p className="text-creme/40 text-sm">Responda 5 perguntas rápidas e receba seu resultado personalizado.</p>
+            </div>
+
+            {step <= steps.length ? (
+              <motion.div key={step} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
+                <div className="flex gap-2 mb-8">
+                  {[1, 2, 3, 4, 5].map(i => (
+                    <div key={i} className={`h-1 flex-1 rounded-full bg-creme transition-colors ${i <= step ? "opacity-100" : "opacity-10"}`} />
+                  ))}
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-creme leading-tight mb-8">{steps[step-1].q}</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {steps[step-1].options.map((opt, i) => (
+                    <button
+                      key={i}
+                      onClick={() => { setAnswers({ ...answers, [step]: opt.v }); handleNext(); }}
+                      className={`flex items-center gap-5 p-5 border rounded-xl text-left transition-all ${answers[step] === opt.v ? "bg-highlight/20 border-highlight text-creme" : "bg-white/5 border-white/10 text-creme/60 hover:border-highlight/50 hover:bg-white/10"}`}
+                    >
+                      <span className={`w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-[11px] font-bold ${answers[step] === opt.v ? "bg-highlight border-highlight text-white" : ""}`}>{opt.l}</span>
+                      <span className="text-[15px]">{opt.t}</span>
+                    </button>
+                  ))}
+                </div>
+                {step > 1 && <button onClick={handleBack} className="text-xs text-creme/30 hover:text-creme transition-colors mt-8">← Voltar</button>}
+              </motion.div>
+            ) : (
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white/5 border border-white/10 p-12 rounded-[40px] text-center">
+                <h3 className="font-serif text-2xl font-bold text-creme mb-2">Seu diagnóstico está pronto</h3>
+                <p className="text-creme/40 text-sm mb-10">Preencha os dados para receber seu resultado personalizado no WhatsApp.</p>
+                <div className="space-y-4 max-w-sm mx-auto">
+                  <input type="text" placeholder="Nome completo" value={nome} onChange={(e) => setNome(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-creme outline-none focus:border-highlight transition-colors" />
+                  <input type="tel" placeholder="WhatsApp com DDD" value={wa} onChange={(e) => setWa(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-creme outline-none focus:border-highlight transition-colors" />
+                  <button onClick={handleSend} className="w-full bg-highlight text-white py-5 rounded-full font-bold text-[11px] uppercase tracking-widest transition-all hover:bg-highlight/80 flex items-center justify-center gap-3">Receber meu diagnóstico <ArrowRight size={16} /></button>
+                </div>
+                <button onClick={() => setStep(steps.length)} className="text-xs text-creme/30 hover:text-creme transition-colors mt-8">← Corrigir respostas</button>
+              </motion.div>
+            )}
+          </>
+        ) : (
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
+            <div className="w-20 h-20 bg-highlight/20 rounded-full flex items-center justify-center text-4xl mx-auto mb-8">{r.icon}</div>
+            <h3 className="font-serif text-3xl font-bold text-creme mb-4">{r.titulo}</h3>
+            <p className="text-creme/60 text-lg leading-relaxed mb-8">{r.desc}</p>
+            <div className="font-serif italic text-2xl text-highlight mb-12">{r.produto}</div>
+            <div className="flex flex-col gap-4 max-w-sm mx-auto">
+              <a href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(r.msg)}`} target="_blank" className="bg-[#25D366] text-white py-5 rounded-full font-bold text-[11px] uppercase tracking-widest flex items-center justify-center gap-3 hover:scale-105 transition-transform"><MessageCircle size={20} fill="currentColor" /> Falar com a Débora</a>
+              <a href={r.link} className="text-sm text-creme/40 hover:text-highlight transition-colors">Ver detalhes do programa →</a>
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+
 const ProgramsGrid = () => {
   const cards = [
     {
@@ -598,6 +802,8 @@ const ProgramsGrid = () => {
     </section>
   );
 };
+
+
 
 
 const Lectures = () => {
@@ -893,6 +1099,15 @@ export default function App() {
       <main>
         <Hero />
         <Marquee />
+        <SectionReveal><Triagem /></SectionReveal>
+        <div className="bg-creme py-32 px-8 text-center border-y border-ink/5">
+          <p className="font-serif text-[clamp(28px,4vw,48px)] font-black text-ink leading-tight max-w-[680px] mx-auto mb-6">
+            O problema não é esforço.<br /><span className="italic text-highlight">É direção estratégica.</span>
+          </p>
+          <p className="text-ink/50 text-lg max-w-[500px] mx-auto leading-relaxed">
+            Profissionais que chegam ao próximo nível não trabalham mais — trabalham com mais clareza sobre onde estão indo e por quê.
+          </p>
+        </div>
         <SectionReveal><Identification /></SectionReveal>
         <SectionReveal><ProofBar /></SectionReveal>
         <SectionReveal><About /></SectionReveal>
@@ -901,6 +1116,7 @@ export default function App() {
         <ProgramsGrid />
         <SectionReveal><Lectures /></SectionReveal>
         <SectionReveal><Differentials /></SectionReveal>
+        <Quiz />
         <CTA />
       </main>
       <Footer />

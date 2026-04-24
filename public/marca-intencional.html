@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -19,6 +19,7 @@
             --brand-cream-light: #f5f0e8;
             --brand-white: #ffffff;
             --brand-ink: #121212;
+            --brand-berry: #2a1b1a; /* Darker berry shade for contrast */
             --brand-red: #8b2d2d;
             
             --font-display: 'Cormorant Garamond', serif;
@@ -46,7 +47,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 40px;
         }
 
         h1, h2, h3, h4 {
@@ -148,7 +149,7 @@
             margin-bottom: 40px; 
             font-weight: 400;
         }
-        .section-title i { font-style: italic; }
+        .section-title i { font-style: italic; font-family: var(--font-display); }
 
         /* Manifesto Hero */
         .manifesto-hero {
@@ -156,14 +157,15 @@
             color: var(--brand-white);
             padding: 200px 0 120px;
             text-align: center;
+            position: relative;
         }
         .manifesto-quote {
             max-width: 800px;
-            margin: 60px auto 0;
+            margin: 100px auto 0;
             font-family: var(--font-display);
-            font-size: 24px;
+            font-size: 26px;
             line-height: 1.6;
-            opacity: 0.8;
+            opacity: 0.9;
             font-style: italic;
         }
 
@@ -175,27 +177,55 @@
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 100px;
             align-items: center;
+        }
+
+        /* Introduction Text Section */
+        .intro-text-section {
+            background-color: var(--brand-white);
+            padding: 80px 0;
+        }
+        .intro-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        /* Red Section Banner */
+        .red-banner {
+            background-color: var(--brand-berry);
+            color: var(--brand-white);
+            padding: 100px 0;
+            text-align: left;
+        }
+        .red-banner p {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.3;
+            font-style: italic;
+            max-width: 1000px;
         }
 
         /* Como Funciona */
         .funciona-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin: 60px 0;
+            gap: 32px;
+            margin: 80px 0;
         }
         .funciona-card {
             background: rgba(26, 58, 46, 0.03);
-            padding: 40px;
+            padding: 50px 40px;
             text-align: center;
             border-radius: 20px;
             border: 1px solid rgba(26, 58, 46, 0.05);
+            transition: var(--transition);
         }
+        .funciona-card:hover { transform: translateY(-5px); background: rgba(26, 58, 46, 0.05); }
         .funciona-card .num {
             font-family: var(--font-display);
-            font-size: 56px;
+            font-size: 64px;
             color: var(--brand-gold);
             display: block;
             margin-bottom: 8px;
@@ -206,23 +236,26 @@
         .target-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-top: 60px;
+            gap: 32px;
+            margin-top: 80px;
         }
         .target-item {
             display: flex;
-            gap: 24px;
+            gap: 28px;
             align-items: flex-start;
-            padding: 40px;
+            padding: 50px;
             background: white;
-            border-radius: 32px;
+            border-radius: 24px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.02);
-            border: 1px solid rgba(26, 58, 46, 0.03);
+            border: 1px solid rgba(26, 58, 46, 0.04);
+            transition: var(--transition);
         }
+        .target-item:hover { transform: translateY(-3px); box-shadow: 0 20px 60px rgba(0,0,0,0.04); }
         .target-num {
             font-family: var(--font-display);
             font-size: 40px;
-            color: rgba(188, 163, 116, 0.2);
+            color: var(--brand-gold);
+            opacity: 0.3;
             line-height: 1;
         }
 
@@ -231,8 +264,8 @@
             display: flex;
             gap: 40px;
             align-items: flex-start;
-            padding: 40px 0;
-            border-bottom: 1px solid rgba(26, 58, 46, 0.05);
+            padding: 48px 0;
+            border-bottom: 1px solid rgba(26, 58, 46, 0.08);
         }
         .agenda-num {
             font-family: var(--font-display);
@@ -245,28 +278,30 @@
         .agenda-date {
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.25em;
             color: var(--brand-green-med);
             font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
         }
 
         /* Investimento */
         .invest-section {
-            background-color: var(--brand-red);
+            background-color: var(--brand-berry);
             color: white;
             padding: 160px 0;
         }
         .invest-card {
             background: white;
             color: var(--brand-ink);
-            padding: 80px;
+            padding: 100px 80px;
             border-radius: 40px;
             text-align: center;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.2);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.3);
         }
         .invest-card .price {
             font-family: var(--font-display);
-            font-size: 72px;
+            font-size: 84px;
             color: var(--brand-green);
             margin: 24px 0;
             line-height: 1;
@@ -275,71 +310,80 @@
 
         /* FAQ */
         .faq-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
         .faq-item {
             border-bottom: 1px solid rgba(26, 58, 46, 0.1);
-            padding: 32px 0;
+            padding: 40px 0;
         }
         .faq-question {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 500;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
             font-family: var(--font-display);
+            transition: color 0.3s;
         }
+        .faq-question:hover { color: var(--brand-gold); }
         .faq-answer {
-            margin-top: 20px;
-            font-size: 16px;
-            color: rgba(0,0,0,0.6);
+            margin-top: 24px;
+            font-size: 17px;
+            color: rgba(0,0,0,0.55);
             display: none;
-            line-height: 1.7;
+            line-height: 1.8;
+            max-width: 800px;
         }
 
         /* Buttons */
         .btn-gold {
             background: var(--brand-gold);
             color: var(--brand-green);
-            padding: 22px 56px;
+            padding: 24px 64px;
             border-radius: 9999px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 11px;
+            font-size: 12px;
             display: inline-flex;
             align-items: center;
             gap: 12px;
+            transition: var(--transition);
         }
-        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(188, 163, 116, 0.3); }
+        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(188, 163, 116, 0.4); }
 
         .btn-dark {
             background: var(--brand-green);
             color: white;
-            padding: 22px 56px;
+            padding: 24px 64px;
             border-radius: 9999px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 11px;
+            font-size: 12px;
             display: inline-flex;
+            transition: var(--transition);
         }
+        .btn-dark:hover { transform: translateY(-3px); background: var(--brand-berry); }
 
         /* Utilities */
         .text-center { text-align: center; }
-        footer { background: var(--brand-green); padding: 100px 0; color: white; text-align: center; }
+        footer { background: var(--brand-green); padding: 120px 0; color: white; text-align: center; }
 
         @media (max-width: 1024px) {
             .grid-2 { grid-template-columns: 1fr; gap: 60px; }
             .funciona-grid { grid-template-columns: 1fr 1fr; }
             .nav-menu { display: none; }
+            .container { padding: 0 24px; }
         }
         @media (max-width: 640px) {
             .funciona-grid { grid-template-columns: 1fr; }
             .target-item { padding: 32px; }
-            .invest-card { padding: 40px; }
+            .invest-card { padding: 60px 24px; }
+            .invest-card .price { font-size: 60px; }
+            .target-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -362,22 +406,22 @@
                 <a href="#faq">FAQ</a>
             </div>
 
-            <a href="#investimento" class="btn-nav">Inscrições Abertas</a>
+            <a href="https://wa.me/5511940803333?text=Olá,%20Débora!%20Gostaria%20de%20me%20inscrever%20na%20mentoria%20Marca%20Intencional." class="btn-nav">Inscrições Abertas</a>
         </div>
     </header>
 
     <section class="manifesto-hero">
         <div class="container">
-            <h1 class="section-title" style="color: white; font-size: clamp(60px, 8vw, 120px);">MARCA <br> <i>Intencional.</i></h1>
-            <p style="font-size: 20px; opacity: 0.8; max-width: 600px; margin: 0 auto 48px;">
+            <h1 class="section-title" style="color: white; font-size: clamp(60px, 10vw, 150px); font-weight: 300; letter-spacing: -0.02em;">MARCA <br> <i style="font-weight: 400;">Intencional.</i></h1>
+            <p style="font-size: 24px; opacity: 0.9; max-width: 700px; margin: 40px auto 60px; font-weight: 400;">
                 Uma jornada de presença, posicionamento e influência para o próximo nível da sua carreira.
             </p>
-            <a href="#investimento" class="btn-gold">Quero Saber Mais</a>
+            <a href="#funciona" class="btn-gold">Quero Saber Mais</a>
             
             <div class="manifesto-quote">
                 "Conheceram-me logo por quem não era e não desmenti, e perdi-me. Quando quis tirar a máscara, estava pegada à cara. Quando a tirei e me vi ao espelho, já tinha envelhecido."
                 <br><br>
-                <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.3em; font-weight: 700; opacity: 0.5;">— Fernando Pessoa</span>
+                <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.4em; font-weight: 800; opacity: 0.6; font-style: normal;">— Fernando Pessoa</span>
             </div>
         </div>
     </section>
@@ -387,21 +431,40 @@
         <div class="container">
             <h2 class="section-title">Manifesto.</h2>
             <div class="grid-2">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-                    <img src="https://i.ibb.co/dsXWj8mX/Gemini-Generated-Image-fpo6d7fpo6d7fpo6.png" alt="Manifesto 1" style="width: 100%; height: 400px; object-fit: cover; border-radius: 24px;">
-                    <img src="https://i.ibb.co/zH87Z2p8/Gemini-Generated-Image-fpo6d7fpo6d7fpo6.png" alt="Manifesto 2" style="width: 100%; height: 400px; object-fit: cover; border-radius: 24px; margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+                    <img src="https://i.ibb.co/dsXWj8mX/Gemini-Generated-Image-fpo6d7fpo6d7fpo6.png" alt="Café" style="width: 100%; height: 500px; object-fit: cover; border-radius: 32px;">
+                    <img src="https://i.ibb.co/zH87Z2p8/Gemini-Generated-Image-fpo6d7fpo6d7fpo6.png" alt="Foco" style="width: 100%; height: 500px; object-fit: cover; border-radius: 32px; margin-top: 60px;">
                 </div>
                 <div>
-                    <p style="font-size: 24px; color: var(--brand-green); margin-bottom: 32px; font-family: var(--font-display); line-height: 1.4;">
+                    <p style="font-size: 32px; color: var(--brand-green); margin-bottom: 48px; font-family: var(--font-display); line-height: 1.35; font-weight: 400;">
                         Ainda existe uma crença no mundo corporativo de que basta trabalhar bem, que se você entregar resultado... o reconhecimento virá.
                     </p>
-                    <p style="margin-bottom: 24px; color: rgba(0,0,0,0.6);">Quem vive o dia a dia das organizações sabe que a realidade é bem mais complexa que isso. Carreiras não são construídas apenas por entrega.</p>
-                    <p style="font-weight: 700; margin-bottom: 32px; color: var(--brand-ink);">Elas são construídas por percepção, por posicionamento, pela forma como cada profissional ocupa os espaços onde as decisões acontecem.</p>
-                    <p style="opacity: 0.6; font-size: 14px; line-height: 1.8;">
+                    <p style="margin-bottom: 32px; color: rgba(0,0,0,0.65); font-size: 18px;">Quem vive o dia a dia das organizações sabe que a realidade é bem mais complexa que isso. Carreiras não são construídas apenas por entrega.</p>
+                    <p style="font-weight: 700; margin-bottom: 40px; color: var(--brand-ink); font-size: 20px; line-height: 1.6;">Elas são construídas por percepção, por posicionamento, pela forma como cada profissional ocupa os espaços onde as decisões acontecem.</p>
+                    <p style="opacity: 0.7; font-size: 16px; line-height: 1.8;">
                         A verdade é que todos nós já temos uma marca profissional. Ela existe nas conversas onde nosso nome aparece, nas reuniões onde nossas ideias ganham ou não espaço. A questão nunca foi se você tem uma marca profissional. A questão é se ela está sendo construída por você — ou por acaso.
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- INTRO TEXT SECTION -->
+    <section class="intro-text-section">
+        <div class="container intro-container">
+            <p style="font-size: 24px; color: var(--brand-green); font-family: var(--font-display); font-style: italic; margin-bottom: 40px; line-height: 1.5;">
+                Desse inconformismo nasceu a Mentoria Marca Intencional: um espaço para quem deseja sair do esforço sem estratégia para a construção de uma marca pessoal forte, coerente e influente.
+            </p>
+            <p style="font-size: 18px; color: rgba(0,0,0,0.6); line-height: 1.8;">
+                Uma jornada de consciência profissional, de leitura de contexto, de fortalecimento de presença, de construção intencional da forma como cada profissional deseja ser percebido ao longo da sua trajetória.
+            </p>
+        </div>
+    </section>
+
+    <!-- RED BANNER -->
+    <section class="red-banner">
+        <div class="container">
+            <p>"Um espaço para olhar para sua carreira com mais consciência, fortalecer sua presença e construir um posicionamento profissional intencional."</p>
         </div>
     </section>
 
@@ -412,29 +475,29 @@
             <div class="funciona-grid">
                 <div class="funciona-card">
                     <span class="num">4</span>
-                    <p style="font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-green);">Encontros em grupo</p>
+                    <p style="font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--brand-green);">Encontros em grupo</p>
                 </div>
                 <div class="funciona-card">
                     <span class="num">1</span>
-                    <p style="font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-green);">Sessão individual</p>
+                    <p style="font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--brand-green);">Sessão individual</p>
                 </div>
                 <div class="funciona-card">
                     <span class="num">+</span>
-                    <p style="font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-green);">Grupo reduzido</p>
+                    <p style="font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--brand-green);">Grupo reduzido</p>
                 </div>
                 <div class="funciona-card">
                     <span class="num">+</span>
-                    <p style="font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-green);">Aplicação prática</p>
+                    <p style="font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--brand-green);">Aplicação prática</p>
                 </div>
             </div>
             
             <div class="grid-2" style="align-items: start;">
-                <div style="font-size: 16px; color: rgba(0,0,0,0.7); line-height: 1.8;">
-                    <p style="margin-bottom: 24px;">A Mentoria Marca Intencional acontece em formato de grupo reduzido, criando um ambiente de troca, reflexão e desenvolvimento entre profissionais que vivem desafios semelhantes no ambiente corporativo.</p>
+                <div style="font-size: 18px; color: rgba(0,0,0,0.7); line-height: 1.9;">
+                    <p style="margin-bottom: 32px;">A Mentoria Marca Intencional acontece em formato de grupo reduzido, criando um ambiente de troca, reflexão e desenvolvimento entre profissionais que vivem desafios semelhantes no ambiente corporativo.</p>
                     <p>O programa combina reflexão estratégica, provocação intelectual e ferramentas práticas para fortalecer sua presença onde ela mais importa.</p>
                 </div>
-                <div style="font-size: 16px; color: rgba(0,0,0,0.7); line-height: 1.8;">
-                    <p style="font-style: italic; font-family: var(--font-display); font-size: 24px; color: var(--brand-green);">"Ao final da jornada, cada participante terá desenvolvido uma leitura mais clara do próprio posicionamento e um plano de ação para fortalecer influência e diretivas de carreira."</p>
+                <div style="font-size: 16px; color: rgba(0,0,0,0.7); line-height: 1.8; background: white; padding: 60px; border-radius: 40px; border: 1px solid rgba(26,58,46,0.05);">
+                    <p style="font-style: italic; font-family: var(--font-display); font-size: 28px; color: var(--brand-green); line-height: 1.4;">"Ao final da jornada, cada participante terá desenvolvido uma leitura mais clara do próprio posicionamento profissional e um plano de ação para fortalecer presença, influência e diretivas de carreira."</p>
                 </div>
             </div>
         </div>
@@ -447,32 +510,32 @@
             <div class="target-grid">
                 <div class="target-item">
                     <span class="target-num">01</span>
-                    <p>Já construiu trajetória, entrega resultados, assumiu responsabilidades importantes e, ainda assim, sente que poderia ocupar espaços maiores.</p>
+                    <p style="font-size: 17px; color: rgba(0,0,0,0.8);">Já construiu trajetória, entrega resultados, assumiu responsabilidades importantes e, ainda assim, sente que poderia ocupar espaços maiores.</p>
                 </div>
                 <div class="target-item">
                     <span class="target-num">02</span>
-                    <p>Faz muito, resolve muito, mas começa a perceber que carreira não cresce apenas por entrega.</p>
+                    <p style="font-size: 17px; color: rgba(0,0,0,0.8);">Faz muito, resolve muito, mas começa a perceber que carreira não cresce apenas por entrega.</p>
                 </div>
                 <div class="target-item">
                     <span class="target-num">03</span>
-                    <p>Quer olhar para a própria trajetória com mais intenção, com mais consciência e com mais protagonismo.</p>
+                    <p style="font-size: 17px; color: rgba(0,0,0,0.8);">Quer olhar para a própria trajetória com mais intenção, com mais consciência e com mais protagonismo.</p>
                 </div>
                 <div class="target-item">
                     <span class="target-num">04</span>
-                    <p>Deseja fortalecer presença, clareza de posicionamento e capacidade de influência em contextos de decisão.</p>
+                    <p style="font-size: 17px; color: rgba(0,0,0,0.8);">Deseja fortalecer presença, clareza de posicionamento e capacidade de influência em contextos de decisão.</p>
                 </div>
                 <div class="target-item">
                     <span class="target-num">05</span>
-                    <p>Não quer apenas trabalhar bem, mas também ser reconhecido na proporção do valor que entrega.</p>
+                    <p style="font-size: 17px; color: rgba(0,0,0,0.8);">Não quer apenas trabalhar bem, mas também ser reconhecido na proporção do valor que entrega.</p>
                 </div>
                 <div class="target-item">
                     <span class="target-num">06</span>
-                    <p>Deseja construir uma trajetória com mais intenção, mais consciência e mais poder de escolha.</p>
+                    <p style="font-size: 17px; color: rgba(0,0,0,0.8);">Deseja construir uma trajetória com mais intenção, mais consciência e mais poder de escolha.</p>
                 </div>
             </div>
-            <div class="text-center" style="margin-top: 80px;">
-                <p style="font-family: var(--font-display); font-size: 24px; font-style: italic; margin-bottom: 32px;">Se você se identificou, essa mentoria foi pensada para você.</p>
-                <a href="#investimento" class="btn-dark">Quero me inscrever</a>
+            <div class="text-center" style="margin-top: 100px;">
+                <p style="font-family: var(--font-display); font-size: 28px; font-style: italic; margin-bottom: 48px; color: var(--brand-green);">Se você se identificou, essa mentoria foi pensada para você.</p>
+                <a href="https://wa.me/5511940803333?text=Olá,%20Débora!%20Identifiquei%20meu%20perfil%20e%20quero%20me%20inscrever%20na%20mentoria%20Marca%20Intencional." class="btn-dark">Quero me inscrever</a>
             </div>
         </div>
     </section>
@@ -482,12 +545,12 @@
         <div class="container">
             <h2 class="section-title" style="color: white;">O que essa mentoria <br> <i>não é.</i></h2>
             <div class="grid-2" style="align-items: start;">
-                <div style="font-size: 18px; line-height: 1.8; opacity: 0.8;">
-                    <p style="margin-bottom: 24px;">A Mentoria Marca Intencional <strong>não é um programa de marketing pessoal superficial</strong>. Não se trata de aprender técnicas de autopromoção ou de construir uma imagem artificial.</p>
+                <div style="font-size: 20px; line-height: 1.8; opacity: 0.85;">
+                    <p style="margin-bottom: 32px;">A Mentoria Marca Intencional <strong>não é um programa de marketing pessoal superficial</strong>. Não se trata de aprender técnicas de autopromoção ou de construir uma imagem artificial.</p>
                     <p>Também <strong>não é um espaço de fórmulas prontas</strong> sobre carreira. Cada trajetória acontece dentro de contextos, culturas organizacionais e momentos de vida diferentes.</p>
                 </div>
-                <div style="background: rgba(255,255,255,0.05); padding: 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
-                    <p style="font-family: var(--font-display); font-size: 28px; font-style: italic; line-height: 1.4;">
+                <div style="background: rgba(255,255,255,0.05); padding: 70px 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
+                    <p style="font-family: var(--font-display); font-size: 32px; font-style: italic; line-height: 1.4; color: white;">
                         "É sobre alinhar quem você é, o valor que entrega e a forma como o ambiente profissional percebe isso."
                     </p>
                 </div>
@@ -501,49 +564,71 @@
             <div class="grid-2" style="align-items: start;">
                 <div>
                     <h2 class="section-title">Estrutura.</h2>
-                    <p style="margin-bottom: 60px; opacity: 0.6;">Encontros quinzenais, às quintas-feiras, das 20h às 21h30 via Zoom.</p>
+                    <p style="margin-bottom: 80px; font-size: 18px; color: rgba(0,0,0,0.5);">Encontros quinzenais, às quintas-feiras, das 20h às 21h30 via Zoom.</p>
                     
                     <div class="agenda-item">
                         <span class="agenda-num">01</span>
                         <div>
                             <span class="agenda-date">22 de Abril de 2026</span>
-                            <h3 style="font-size: 24px; margin-top: 8px;">Presença executiva e percepção profissional</h3>
+                            <h3 style="font-size: 28px; margin-top: 8px;">Presença executiva e percepção profissional</h3>
                         </div>
                     </div>
                     <div class="agenda-item">
                         <span class="agenda-num">02</span>
                         <div>
                             <span class="agenda-date">06 de Maio de 2026</span>
-                            <h3 style="font-size: 24px; margin-top: 8px;">Posicionamento e narrativa de carreira</h3>
+                            <h3 style="font-size: 28px; margin-top: 8px;">Posicionamento e narrativa de carreira</h3>
                         </div>
                     </div>
                     <div class="agenda-item">
                         <span class="agenda-num">03</span>
                         <div>
                             <span class="agenda-date">20 de Maio de 2026</span>
-                            <h3 style="font-size: 24px; margin-top: 8px;">Relações estratégicas e influência</h3>
+                            <h3 style="font-size: 28px; margin-top: 8px;">Relações estratégicas e influência</h3>
                         </div>
                     </div>
-                    <div class="agenda-item">
+                    <div class="agenda-item" style="border-bottom: none;">
                         <span class="agenda-num">04</span>
                         <div>
                             <span class="agenda-date">03 de Junho de 2026</span>
-                            <h3 style="font-size: 24px; margin-top: 8px;">Construção da Marca Intencional</h3>
+                            <h3 style="font-size: 28px; margin-top: 8px;">Construção da Marca Intencional</h3>
                         </div>
                     </div>
                 </div>
                 
-                <div style="background-color: var(--brand-cream-light); padding: 60px; border-radius: 40px;">
-                    <img src="https://i.ibb.co/PG74Lqyg/Gemini-Generated-Image-fpo6d7fpo6d7fpo6.png" alt="Extras" style="width: 100%; border-radius: 20px; margin-bottom: 40px;">
-                    <h4 style="font-family: var(--font-body); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700; margin-bottom: 24px; color: var(--brand-green);">Além dos encontros em grupo</h4>
-                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px; font-size: 14px; opacity: 0.7;">
-                        <li>• Kit de boas-vindas personalizado</li>
-                        <li>• Sessão individual de Leitura de Posicionamento</li>
-                        <li>• Diagnóstico de Posicionamento no LinkedIn</li>
-                        <li>• Encontros "Café com Mentoria"</li>
-                        <li>• Acesso às gravações e materiais complementares</li>
-                        <li>• Curadoria exclusiva de referências</li>
+                <div style="background-color: var(--brand-cream-light); padding: 80px 60px; border-radius: 40px;">
+                    <img src="https://i.ibb.co/PG74Lqyg/Gemini-Generated-Image-fpo6d7fpo6d7fpo6.png" alt="Mentoria em Grupo" style="width: 100%; border-radius: 32px; margin-bottom: 60px; box-shadow: 0 20px 60px rgba(0,0,0,0.05);">
+                    <h4 style="font-family: var(--font-body); font-size: 13px; text-transform: uppercase; letter-spacing: 0.25em; font-weight: 800; margin-bottom: 32px; color: var(--brand-green);">Além dos encontros em grupo</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px; font-size: 16px; opacity: 0.8;">
+                        <li style="display: flex; gap: 12px; align-items: start;">• <span style="font-weight: 500;">Kit de boas-vindas personalizado</span></li>
+                        <li style="display: flex; gap: 12px; align-items: start;">• <span style="font-weight: 500;">Sessão individual de Leitura de Posicionamento</span></li>
+                        <li style="display: flex; gap: 12px; align-items: start;">• <span style="font-weight: 500;">Diagnóstico de Posicionamento no LinkedIn</span></li>
+                        <li style="display: flex; gap: 12px; align-items: start;">• <span style="font-weight: 500;">Encontros "Café com Mentoria"</span></li>
+                        <li style="display: flex; gap: 12px; align-items: start;">• <span style="font-weight: 500;">Acesso às gravações e materiais complementares</span></li>
+                        <li style="display: flex; gap: 12px; align-items: start;">• <span style="font-weight: 500;">Curadoria exclusiva de referências</span></li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE MIM -->
+    <section class="section-padding" id="sobre" style="background-color: var(--brand-cream-light);">
+        <div class="container">
+            <div class="grid-2">
+                <div style="position: relative;">
+                    <img src="https://i.ibb.co/KpxMJ3Yq/deb04.jpg" alt="Débora Bolangno" style="width: 100%; border-radius: 40px; aspect-ratio: 4/5; object-fit: cover; box-shadow: 0 40px 100px rgba(0,0,0,0.1);">
+                </div>
+                <div>
+                    <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.3em; font-weight: 800; color: var(--brand-gold); margin-bottom: 24px; display: block;">Sobre a Mentora</span>
+                    <h2 class="section-title">Débora <br> <i>Bolangno.</i></h2>
+                    <p style="font-size: 20px; color: var(--brand-green); font-family: var(--font-display); margin-bottom: 32px; line-height: 1.5;">
+                        "Sua trajetória merece ser contada com intenção."
+                    </p>
+                    <div style="font-size: 17px; color: rgba(0,0,0,0.65); line-height: 1.9; display: flex; flex-direction: column; gap: 24px;">
+                        <p>Com mais de 20 anos de experiência no mundo corporativo, passei por desafios que me fizeram entender que competência é o requisito mínimo, mas posicionamento é o que decide o jogo.</p>
+                        <p>Minha missão é ajudar profissionais experientes a traduzirem seu valor real em presença executiva e influência, construindo carreiras com protagonismo e clareza estratégica.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -554,17 +639,17 @@
         <div class="container">
             <div class="grid-2">
                 <div class="invest-card">
-                    <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--brand-gold);">Edição 1 — Turma Fundadora</span>
+                    <span style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: var(--brand-gold);">Edição 1 — Turma Fundadora</span>
                     <div class="price">10x 220</div>
-                    <p style="opacity: 0.4; margin-bottom: 40px;">R$ 1.900,00 à vista</p>
-                    <a href="https://wa.me/5511940803333" class="btn-dark" style="width: 100%; justify-content: center;">Quero minha vaga</a>
+                    <p style="opacity: 0.4; margin-bottom: 48px; font-size: 20px;">R$ 1.900,00 à vista</p>
+                    <a href="https://wa.me/5511940803333?text=Olá,%20Débora!%20Quero%20garantir%20minha%20vaga%20na%20Turma%20Fundadora%20da%20mentoria%20Marca%20Intencional." class="btn-dark" style="width: 100%; justify-content: center; font-size: 14px; padding: 28px;">Quero garantir minha vaga</a>
                 </div>
                 <div>
-                    <h2 class="section-title" style="color: white;">Investimento.</h2>
-                    <p style="font-size: 24px; font-family: var(--font-display); line-height: 1.4; opacity: 0.9; margin-bottom: 32px;">
+                    <h2 class="section-title" style="color: white; margin-bottom: 40px;">Investimento.</h2>
+                    <p style="font-size: 28px; font-family: var(--font-display); line-height: 1.45; opacity: 0.95; margin-bottom: 40px;">
                         Se você sente que possui competência, experiência e potencial para ocupar espaços maiores, talvez seja hora de investir na sua marca com intencionalidade.
                     </p>
-                    <p style="opacity: 0.6; font-size: 14px;">As vagas para a turma fundadora são limitadas para garantir a profundidade das trocas no grupo.</p>
+                    <p style="opacity: 0.7; font-size: 16px; line-height: 1.8;">As vagas para a turma fundadora são limitadas para garantir a profundidade das trocas no grupo e o acompanhamento individualizado de cada participante.</p>
                 </div>
             </div>
         </div>
@@ -576,20 +661,24 @@
             <h2 class="section-title text-center">Perguntas <i>frequentes.</i></h2>
             <div class="faq-container">
                 <div class="faq-item">
+                    <div class="faq-question">Qual o formato dos encontros? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+                    <div class="faq-answer">Os encontros acontecem ao vivo via Zoom, de forma interativa. Cada sessão combina conteúdo estratégico, estudos de caso e momentos de aplicação prática imediata.</div>
+                </div>
+                <div class="faq-item">
                     <div class="faq-question">A mentoria é individual ou em grupo? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
-                    <div class="faq-answer">A mentoria acontece em formato de grupo reduzido para permitir a troca entre profissionais, mas inclui uma sessão individual (Leitura de Posicionamento) dedicada exclusivamente à sua carreira.</div>
+                    <div class="faq-answer">A mentoria acontece em formato de grupo reduzido para permitir a troca entre profissionais de alto nível, mas inclui uma sessão individual (Leitura de Posicionamento) dedicada exclusivamente à sua carreira.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">Preciso ter um cargo de liderança para participar? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
-                    <div class="faq-answer">Não necessariamente. O programa é voltado para profissionais experientes que buscam crescer, seja em cargos formais de gestão ou como especialistas que influenciam grandes decisões.</div>
+                    <div class="faq-answer">Não necessariamente. O programa é voltado para profissionais experientes que buscam crescer, seja em cargos formais de gestão ou como especialistas seniores que influenciam grandes decisões na organização.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">Os encontros ficam gravados? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
-                    <div class="faq-answer">Sim. Embora a participação ao vivo seja altamente recomendada para aproveitar a dinâmica do grupo, todas as sessões são gravadas e disponibilizadas na plataforma.</div>
+                    <div class="faq-answer">Sim. Embora a participação ao vivo seja altamente recomendada para aproveitar a dinâmica do grupo e as discussões, todas as sessões são gravadas e disponibilizadas na plataforma exclusiva para revisão.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">Quais as formas de pagamento? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
-                    <div class="faq-answer">Aceitamos pagamento à vista (Pix ou boleto) ou parcelamento em até 10x no cartão de crédito.</div>
+                    <div class="faq-answer">Aceitamos pagamento à vista (Pix ou boleto) ou parcelamento em até 10x sem juros no cartão de crédito.</div>
                 </div>
             </div>
         </div>
@@ -597,14 +686,14 @@
 
     <footer>
         <div class="container">
-            <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" style="width: 44px; margin-bottom: 24px; filter: brightness(0) invert(1);">
-            <h4 style="color: white; font-size: 24px; margin-bottom: 8px;">Débora Bolangno</h4>
-            <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.4; margin-bottom: 40px;">Estratégia de Carreira & Liderança</p>
-            <div style="display: flex; gap: 32px; justify-content: center; margin-bottom: 60px;">
-                <a href="https://www.linkedin.com/in/deborabolangno" style="color: white; opacity: 0.6;">LinkedIn</a>
-                <a href="https://www.instagram.com/deborabolangno" style="color: white; opacity: 0.6;">Instagram</a>
+            <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" style="width: 64px; margin-bottom: 40px; filter: brightness(0) invert(1);">
+            <h4 style="color: white; font-size: 28px; margin-bottom: 12px;">Débora Bolangno</h4>
+            <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.3em; opacity: 0.5; margin-bottom: 60px; font-weight: 700;">Estratégia de Carreira & Liderança</p>
+            <div style="display: flex; gap: 48px; justify-content: center; margin-bottom: 80px;">
+                <a href="https://www.linkedin.com/in/deborabolangno" style="color: white; opacity: 0.7; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">LinkedIn</a>
+                <a href="https://www.instagram.com/deborabolangno" style="color: white; opacity: 0.7; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Instagram</a>
             </div>
-            <p style="font-size: 10px; opacity: 0.2; text-transform: uppercase; letter-spacing: 0.1em;">© 2026 Débora Bolangno · Todos os direitos reservados</p>
+            <p style="font-size: 11px; opacity: 0.3; text-transform: uppercase; letter-spacing: 0.15em;">© 2026 Débora Bolangno · Todos os direitos reservados</p>
         </div>
     </footer>
 
@@ -616,8 +705,12 @@
                 
                 // Close all others
                 document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
+                document.querySelectorAll('.faq-question svg').forEach(svg => svg.style.transform = 'rotate(0deg)');
                 
-                if (!isOpen) answer.style.display = 'block';
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    item.querySelector('svg').style.transform = 'rotate(180deg)';
+                }
             });
         });
     </script>
