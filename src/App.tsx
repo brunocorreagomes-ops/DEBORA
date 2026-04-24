@@ -514,7 +514,7 @@ const TestimonialsLuxury = () => {
               “Carreiras são construídas pela consistência, pelo tempo e pelas trocas. É na colaboração que fortalecemos nossa trajetória e ampliamos nosso impacto.”
             </p>
             <span className="block mt-6 text-[13px] font-bold text-verde-med uppercase tracking-[0.2em]">
-              — Glaucimar Peticov (C-level | Executiva Bradesco)
+              — Glaucimar Peticov (Ex-Diretora Executiva do Bradesco, hoje CEO e fundadora da Peti Desenvolvimento Humano, conselheira e referência em liderança e cultura organizacional)
             </span>
           </div>
         </div>
