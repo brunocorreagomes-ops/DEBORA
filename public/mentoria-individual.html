@@ -53,42 +53,129 @@
 
         a { text-decoration: none; transition: var(--transition); }
 
-        /* Consistent Header Styling */
+        /* Consistent Header Styling - Matching App.tsx exactly */
         header {
             background-color: var(--brand-cream);
-            padding: 24px 0;
-            position: sticky;
+            padding: 16px 0;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(26, 58, 46, 0.05);
+            box-shadow: 0 10px 40px rgba(10, 26, 20, 0.03);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
         }
 
-        .logo {
-            font-family: var(--font-display);
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--brand-green);
-        }
-
-        .back-link {
-            font-family: var(--font-body);
-            font-size: 11px;
-            color: var(--brand-green);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .nav-logo {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
 
-        .back-link:hover { color: var(--brand-gold); }
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--brand-ink);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-subtitle {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(26, 58, 46, 0.4);
+            font-weight: 500;
+            margin-top: 1px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-socials {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .social-link {
+            padding: 8px;
+            color: rgba(26, 58, 46, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover { color: var(--brand-green); }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-menu a {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(26, 58, 46, 0.6);
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .nav-menu a:hover { 
+            color: var(--brand-green);
+            border-bottom-color: var(--brand-green);
+        }
+
+        .btn-nav {
+            background: var(--brand-green);
+            color: var(--brand-white);
+            padding: 14px 32px;
+            border-radius: 9999px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            box-shadow: 0 10px 20px rgba(10, 26, 20, 0.1);
+        }
+
+        .btn-nav:hover { 
+            background: #153a2e;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(10, 26, 20, 0.15);
+        }
+
+        @media (max-width: 1024px) {
+            .nav-socials, .nav-menu { display: none; }
+            .nav-inner { padding: 0 24px; }
+        }
 
         /* Design based on Home Page Title Aesthetics */
         .page-intro {
@@ -251,9 +338,38 @@
 <body>
 
     <header>
-        <div class="container nav-inner">
-            <div class="logo">Débora Bolangno</div>
-            <a href="index.html" class="back-link"><span>←</span> Voltar ao Início</a>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" class="logo-img">
+                <div class="logo-text-group">
+                    <span class="logo-name">Débora Bolangno</span>
+                    <span class="logo-subtitle">Estratégia de Carreira & Liderança</span>
+                </div>
+            </a>
+            
+            <div class="nav-right">
+                <div class="nav-socials">
+                    <a href="https://www.instagram.com/deborabolangno" target="_blank" class="social-link" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/deborabolangno" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="mailto:deborabolangno@outlook.com" class="social-link" aria-label="E-mail">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="nav-menu">
+                    <a href="index.html#sobre">Sobre</a>
+                    <a href="index.html#resultados">Resultados</a>
+                    <a href="index.html#programas">Programas</a>
+                    <a href="index.html#palestras">Palestras</a>
+                    <a href="index.html#contato">Contato</a>
+                </div>
+
+                <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20maiores%20informações" target="_blank" class="btn-nav">Solicitar Proposta</a>
+            </div>
         </div>
     </header>
 
