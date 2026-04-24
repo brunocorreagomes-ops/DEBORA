@@ -1,10 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", serif;
   --font-cormorant: "Cormorant Garamond", serif;
+
+  --color-verde: #1a3a2e;
+  --color-verde-med: #2d5a47;
+  --color-verde-claro: #658f86;
+  --color-creme: #F9F7F2;
+  --color-creme-light: #f5f0e8;
+  --color-dourado: #bca374;
+  --color-dourado-rich: #c9a96e;
+  --color-ink: #121212;
+  --color-highlight: #09778b;
 
   --color-brand-50: #f4f7f6;
   --color-brand-100: #e9efee;
@@ -17,15 +27,6 @@
   --color-brand-800: #153931;
   --color-brand-900: #112e28;
   --color-brand-950: #091916;
-
-  --color-cream: #F9F7F2;
-  --color-ink: #121212;
-  --color-turquoise: #1a473d;
-  --color-highlight: #09778b;
-  --color-gold: #bca374;
-  --color-deep-green: #1a3a2e;
-  --color-medium-green: #2d5a47;
-  --color-cream-light: #f5f0e8;
 }
 
 @layer base {
@@ -33,7 +34,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-cream text-ink font-sans antialiased text-lg md:text-[19px] leading-relaxed;
+    @apply bg-creme text-ink font-sans antialiased text-lg md:text-[19px] leading-relaxed;
   }
   p {
     @apply text-ink/80;

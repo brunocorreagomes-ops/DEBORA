@@ -12,16 +12,20 @@
 
     <style>
         :root {
-            --brand-green: #0a1a14; 
-            --brand-gold: #c9a96e;
-            --brand-cream: #f5f0e8;
+            --brand-green: #1a3a2e; 
+            --brand-green-med: #2d5a47;
+            --brand-gold: #bca374;
+            --brand-cream: #F9F7F2;
+            --brand-cream-light: #f5f0e8;
             --brand-white: #ffffff;
-            --brand-ink: #1a1a1a;
+            --brand-ink: #121212;
+            --brand-highlight: #09778b;
             
-            --font-display: 'Cormorant Garamond', serif;
+            --font-display: 'Playfair Display', serif;
             --font-body: 'Jost', sans-serif;
+            --font-cormorant: 'Cormorant Garamond', serif;
             
-            --transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * {
@@ -53,17 +57,17 @@
 
         a { text-decoration: none; transition: var(--transition); }
 
-        /* Consistent Header Styling - Matching App.tsx exactly */
+        /* Consistent Header Styling */
         header {
-            background-color: var(--brand-cream);
-            padding: 16px 0;
+            background-color: rgba(249, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 0;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(26, 58, 46, 0.05);
-            box-shadow: 0 10px 40px rgba(10, 26, 20, 0.03);
             transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
@@ -71,7 +75,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1280px;
+            max-width: 1440px;
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -79,12 +83,12 @@
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
         .logo-img {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             object-fit: contain;
         }
 
@@ -95,20 +99,21 @@
 
         .logo-name {
             font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 18px;
+            font-weight: 800;
             color: var(--brand-ink);
-            line-height: 1.2;
-            letter-spacing: -0.02em;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
         }
 
         .logo-subtitle {
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: rgba(26, 58, 46, 0.4);
-            font-weight: 500;
-            margin-top: 1px;
+            letter-spacing: 0.25em;
+            color: var(--brand-green-med);
+            font-weight: 700;
+            margin-top: 2px;
+            opacity: 0.5;
         }
 
         .nav-right {
@@ -116,22 +121,6 @@
             align-items: center;
             gap: 40px;
         }
-
-        .nav-socials {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .social-link {
-            padding: 8px;
-            color: rgba(26, 58, 46, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .social-link:hover { color: var(--brand-green); }
 
         .nav-menu {
             display: flex;
@@ -141,42 +130,72 @@
 
         .nav-menu a {
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: rgba(26, 58, 46, 0.6);
-            border-bottom: 1px solid transparent;
-            padding-bottom: 2px;
+            letter-spacing: 0.25em;
+            color: rgba(18, 18, 18, 0.6);
+            padding: 4px 0;
+            position: relative;
         }
 
-        .nav-menu a:hover { 
-            color: var(--brand-green);
-            border-bottom-color: var(--brand-green);
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--brand-green);
+            transition: width 0.3s ease;
         }
+
+        .nav-menu a:hover { color: var(--brand-green); }
+        .nav-menu a:hover::after { width: 100%; }
 
         .btn-nav {
             background: var(--brand-green);
             color: var(--brand-white);
-            padding: 14px 32px;
+            padding: 12px 28px;
             border-radius: 9999px;
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 10px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            box-shadow: 0 10px 20px rgba(10, 26, 20, 0.1);
+            letter-spacing: 0.25em;
+            transition: all 0.3s ease;
         }
 
         .btn-nav:hover { 
-            background: #153a2e;
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(10, 26, 20, 0.15);
+            background: #112e28;
+            transform: scale(1.05);
         }
 
         @media (max-width: 1024px) {
-            .nav-socials, .nav-menu { display: none; }
+            .nav-menu { display: none; }
             .nav-inner { padding: 0 24px; }
         }
 
+        /* Responsive Img Adjustments */
+        .intro-img {
+            width: 100%;
+            height: clamp(300px, 40vw, 600px);
+            border-radius: 40px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 1024px) {
+            .page-intro-inner { 
+                grid-template-columns: 1fr !important; 
+                text-align: center;
+                gap: 48px;
+            }
+            .intro-img { height: 400px; }
+        }
+        @media (max-width: 640px) {
+            .intro-img { height: 300px; }
+            .title-display { font-size: 40px !important; }
+        }
+    </style>
         /* Design based on Home Page Title Aesthetics */
         .page-intro {
             padding: 140px 0 80px;
@@ -352,21 +371,9 @@
             </a>
             
             <div class="nav-right">
-                <div class="nav-socials">
-                    <a href="https://www.instagram.com/deborabolangno" target="_blank" class="social-link" aria-label="Instagram">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/deborabolangno" target="_blank" class="social-link" aria-label="LinkedIn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="mailto:deborabolangno@outlook.com" class="social-link" aria-label="E-mail">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    </a>
-                </div>
-
                 <div class="nav-menu">
                     <a href="index.html#sobre">Sobre</a>
-                    <a href="index.html#resultados">Resultados</a>
+                    <a href="index.html#depoimentos">Depoimentos</a>
                     <a href="index.html#programas">Programas</a>
                     <a href="index.html#palestras">Palestras</a>
                     <a href="index.html#contato">Contato</a>
@@ -425,9 +432,27 @@
     </section>
 
     <footer>
-        <div class="container">
-            <p>© 2026 Débora Bolangno · Comunidade Sequoia</p>
-            <p style="margin-top: 10px; opacity: 0.5;">Todos os direitos reservados.</p>
+        <div class="container" style="max-width: 1440px; display: flex; flex-direction: column; align-items: center; gap: 40px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" style="width: 40px; height: 40px; filter: brightness(0) invert(1);">
+                    <div style="display: flex; flex-direction: column; text-align: left;">
+                        <span style="font-family: var(--font-display); font-size: 20px; font-weight: 700; color: white;">Débora Bolangno</span>
+                        <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4);">Estratégia de Carreira & Liderança</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 24px;">
+                <a href="https://www.instagram.com/deborabolangno" style="color: white; opacity: 0.5 hover:opacity: 1; transition: opacity 0.3s;">Instagram</a>
+                <a href="https://www.linkedin.com/in/deborabolangno" style="color: white; opacity: 0.5 hover:opacity: 1; transition: opacity 0.3s;">LinkedIn</a>
+                <a href="mailto:deborabolangno@outlook.com" style="color: white; opacity: 0.5 hover:opacity: 1; transition: opacity 0.3s;">E-mail</a>
+            </div>
+
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; width: 100%;">
+                <p style="text-transform: uppercase; letter-spacing: 0.2em; font-size: 10px; color: rgba(255,255,255,0.4);">© 2026 Débora Bolangno · Todos os direitos reservados</p>
+                <p style="margin-top: 8px; font-size: 10px; color: rgba(255,255,255,0.2);">Desenvolvido por Orvalia Studio</p>
+            </div>
         </div>
     </footer>
 

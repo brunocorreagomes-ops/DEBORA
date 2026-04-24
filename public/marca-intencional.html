@@ -12,16 +12,19 @@
 
     <style>
         :root {
-            --brand-green: #0a1a14; 
-            --brand-gold: #c9a96e;
-            --brand-cream: #f5f0e8;
+            --brand-green: #1a3a2e; 
+            --brand-green-med: #2d5a47;
+            --brand-gold: #bca374;
+            --brand-cream: #F9F7F2;
+            --brand-cream-light: #f5f0e8;
             --brand-white: #ffffff;
-            --brand-ink: #1a1a1a;
+            --brand-ink: #121212;
+            --brand-red: #8b2d2d;
             
             --font-display: 'Cormorant Garamond', serif;
             --font-body: 'Jost', sans-serif;
             
-            --transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * {
@@ -41,9 +44,9 @@
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 24px;
         }
 
         h1, h2, h3, h4 {
@@ -53,17 +56,17 @@
 
         a { text-decoration: none; transition: var(--transition); }
 
-        /* Consistent Header Styling - Matching App.tsx exactly */
+        /* Consistent Header Styling */
         header {
-            background-color: var(--brand-cream);
-            padding: 16px 0;
+            background-color: rgba(249, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 0;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(26, 58, 46, 0.05);
-            box-shadow: 0 10px 40px rgba(10, 26, 20, 0.03);
             transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
@@ -71,7 +74,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1280px;
+            max-width: 1440px;
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -79,12 +82,12 @@
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
         .logo-img {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             object-fit: contain;
         }
 
@@ -95,43 +98,22 @@
 
         .logo-name {
             font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 18px;
+            font-weight: 800;
             color: var(--brand-ink);
-            line-height: 1.2;
-            letter-spacing: -0.02em;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
         }
 
         .logo-subtitle {
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: rgba(26, 58, 46, 0.4);
-            font-weight: 500;
-            margin-top: 1px;
+            letter-spacing: 0.25em;
+            color: var(--brand-green-med);
+            font-weight: 700;
+            margin-top: 2px;
+            opacity: 0.5;
         }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .nav-socials {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .social-link {
-            padding: 8px;
-            color: rgba(26, 58, 46, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .social-link:hover { color: var(--brand-green); }
 
         .nav-menu {
             display: flex;
@@ -141,207 +123,223 @@
 
         .nav-menu a {
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: rgba(26, 58, 46, 0.6);
-            border-bottom: 1px solid transparent;
-            padding-bottom: 2px;
-        }
-
-        .nav-menu a:hover { 
-            color: var(--brand-green);
-            border-bottom-color: var(--brand-green);
+            letter-spacing: 0.25em;
+            color: rgba(18, 18, 18, 0.6);
         }
 
         .btn-nav {
             background: var(--brand-green);
             color: var(--brand-white);
-            padding: 14px 32px;
+            padding: 12px 28px;
             border-radius: 9999px;
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 10px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            box-shadow: 0 10px 20px rgba(10, 26, 20, 0.1);
+            letter-spacing: 0.25em;
         }
 
-        .btn-nav:hover { 
-            background: #153a2e;
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(10, 26, 20, 0.15);
+        /* Sections Branding */
+        .section-padding { padding: 120px 0; }
+        .section-title { 
+            font-size: clamp(48px, 6vw, 84px); 
+            line-height: 1.1; 
+            margin-bottom: 40px; 
+            font-weight: 400;
+        }
+        .section-title i { font-style: italic; }
+
+        /* Manifesto Hero */
+        .manifesto-hero {
+            background-color: var(--brand-green);
+            color: var(--brand-white);
+            padding: 200px 0 120px;
+            text-align: center;
+        }
+        .manifesto-quote {
+            max-width: 800px;
+            margin: 60px auto 0;
+            font-family: var(--font-display);
+            font-size: 24px;
+            line-height: 1.6;
+            opacity: 0.8;
+            font-style: italic;
         }
 
-        @media (max-width: 1024px) {
-            .nav-socials, .nav-menu { display: none; }
-            .nav-inner { padding: 0 24px; }
+        /* Manifesto Content */
+        .manifesto-body {
+            background-color: var(--brand-white);
+            padding: 140px 0;
         }
-
-        /* Design based on Home Page Title Aesthetics */
-        .page-intro {
-            padding: 140px 0 80px;
-        }
-
-        .page-intro-inner {
+        .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
         }
 
-        .tag {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 800;
-            color: var(--brand-gold);
-            margin-bottom: 24px;
-            display: block;
-        }
-
-        .title-display {
-            font-size: clamp(48px, 6vw, 84px);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 32px;
-            color: var(--brand-green);
-        }
-
-        .title-display i {
-            font-style: italic;
-            font-weight: 400;
-            opacity: 0.7;
-        }
-
-        .intro-img-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .intro-img {
-            width: 100%;
-            height: 520px;
-            border-radius: 40px;
-            object-fit: cover;
-            object-position: center;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.1);
-            display: block;
-        }
-
-        .intro-subtitle {
-            font-size: 18px;
-            color: rgba(26, 58, 46, 0.6);
-            max-width: 500px;
-            line-height: 1.8;
-            margin-top: 40px;
-        }
-
-        /* Pillars Section */
-        .pillars-section {
-            padding: 120px 0;
-            background-color: var(--brand-white);
-        }
-
-        .pillars-grid {
+        /* Como Funciona */
+        .funciona-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background-color: rgba(26, 58, 46, 0.05);
-            border-radius: 40px;
-            overflow: hidden;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin: 60px 0;
+        }
+        .funciona-card {
+            background: rgba(26, 58, 46, 0.03);
+            padding: 40px;
+            text-align: center;
+            border-radius: 20px;
             border: 1px solid rgba(26, 58, 46, 0.05);
         }
-
-        .pillar-card {
-            background-color: var(--brand-white);
-            padding: 64px;
-            transition: var(--transition);
-        }
-
-        .pillar-card:hover { background-color: var(--brand-cream); }
-
-        .pillar-icon {
-            font-size: 40px;
-            margin-bottom: 24px;
+        .funciona-card .num {
+            font-family: var(--font-display);
+            font-size: 56px;
+            color: var(--brand-gold);
             display: block;
+            margin-bottom: 8px;
+            font-weight: 300;
         }
 
-        .pillar-card h3 { font-size: 28px; margin-bottom: 16px; font-weight: 700; }
-        .pillar-card p { font-size: 17px; color: rgba(10, 26, 20, 0.5); }
+        /* Para Quem */
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        .target-item {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            padding: 40px;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+            border: 1px solid rgba(26, 58, 46, 0.03);
+        }
+        .target-num {
+            font-family: var(--font-display);
+            font-size: 40px;
+            color: rgba(188, 163, 116, 0.2);
+            line-height: 1;
+        }
 
-        /* CTA */
-        .cta-section { padding: 140px 0; text-align: center; }
-        .btn {
-            display: inline-flex;
+        /* Estrutura */
+        .agenda-item {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(26, 58, 46, 0.05);
+        }
+        .agenda-num {
+            font-family: var(--font-display);
+            font-size: 48px;
+            color: var(--brand-gold);
+            opacity: 0.4;
+            line-height: 1;
+            min-width: 60px;
+        }
+        .agenda-date {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--brand-green-med);
+            font-weight: 700;
+        }
+
+        /* Investimento */
+        .invest-section {
+            background-color: var(--brand-red);
+            color: white;
+            padding: 160px 0;
+        }
+        .invest-card {
+            background: white;
+            color: var(--brand-ink);
+            padding: 80px;
+            border-radius: 40px;
+            text-align: center;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.2);
+        }
+        .invest-card .price {
+            font-family: var(--font-display);
+            font-size: 72px;
+            color: var(--brand-green);
+            margin: 24px 0;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(26, 58, 46, 0.1);
+            padding: 32px 0;
+        }
+        .faq-question {
+            font-size: 20px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            padding: 24px 64px;
+            cursor: pointer;
+            font-family: var(--font-display);
+        }
+        .faq-answer {
+            margin-top: 20px;
+            font-size: 16px;
+            color: rgba(0,0,0,0.6);
+            display: none;
+            line-height: 1.7;
+        }
+
+        /* Buttons */
+        .btn-gold {
             background: var(--brand-gold);
             color: var(--brand-green);
+            padding: 22px 56px;
             border-radius: 9999px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 12px;
-            transition: var(--transition);
-        }
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(201, 169, 110, 0.3);
-            background: var(--brand-green);
-            color: var(--brand-white);
-        }
-
-        footer {
-            background-color: var(--brand-green);
-            padding: 80px 0;
-            text-align: center;
-            color: rgba(245, 240, 232, 0.3);
-            font-size: 12px;
-        }
-
-        .floating-actions {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            display: flex;
-            gap: 16px;
-            z-index: 9999;
-        }
-        .float-btn {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
+            font-size: 11px;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: var(--transition);
+            gap: 12px;
         }
-        .float-btn:hover { transform: scale(1.1); }
-        .btn-whatsapp { background-color: #25D366; color: white; }
-        .btn-up { background-color: var(--brand-green); color: white; }
+        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(188, 163, 116, 0.3); }
+
+        .btn-dark {
+            background: var(--brand-green);
+            color: white;
+            padding: 22px 56px;
+            border-radius: 9999px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            display: inline-flex;
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        footer { background: var(--brand-green); padding: 100px 0; color: white; text-align: center; }
 
         @media (max-width: 1024px) {
-            .page-intro { padding: 120px 0 60px; }
-            .page-intro-inner { 
-                grid-template-columns: 1fr; 
-                gap: 48px;
-                text-align: center;
-            }
-            .intro-img { 
-                height: 400px; 
-                border-radius: 24px;
-            }
-            .intro-subtitle { margin: 32px auto 0; }
-            .title-divider { margin: 0 auto 40px !important; }
-            
-            .pillars-grid { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; gap: 60px; }
+            .funciona-grid { grid-template-columns: 1fr 1fr; }
+            .nav-menu { display: none; }
         }
-
         @media (max-width: 640px) {
-            .intro-img { height: 320px; }
-            .page-intro { padding: 100px 0 40px; }
-            .title-display { font-size: 42px; }
+            .funciona-grid { grid-template-columns: 1fr; }
+            .target-item { padding: 32px; }
+            .invest-card { padding: 40px; }
         }
     </style>
 </head>
@@ -357,97 +355,271 @@
                 </div>
             </a>
             
-            <div class="nav-right">
-                <div class="nav-socials">
-                    <a href="https://www.instagram.com/deborabolangno" target="_blank" class="social-link" aria-label="Instagram">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/deborabolangno" target="_blank" class="social-link" aria-label="LinkedIn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="mailto:deborabolangno@outlook.com" class="social-link" aria-label="E-mail">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    </a>
-                </div>
-
-                <div class="nav-menu">
-                    <a href="index.html#sobre">Sobre</a>
-                    <a href="index.html#resultados">Resultados</a>
-                    <a href="index.html#programas">Programas</a>
-                    <a href="index.html#palestras">Palestras</a>
-                    <a href="index.html#contato">Contato</a>
-                </div>
-
-                <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20maiores%20informações" target="_blank" class="btn-nav">Solicitar Proposta</a>
+            <div class="nav-menu">
+                <a href="#manifesto">Manifesto</a>
+                <a href="#funciona">Como Funciona</a>
+                <a href="#estrutura">Estrutura</a>
+                <a href="#faq">FAQ</a>
             </div>
+
+            <a href="#investimento" class="btn-nav">Inscrições Abertas</a>
         </div>
     </header>
 
-    <section class="page-intro">
+    <section class="manifesto-hero">
         <div class="container">
-            <div class="page-intro-inner">
+            <h1 class="section-title" style="color: white; font-size: clamp(60px, 8vw, 120px);">MARCA <br> <i>Intencional.</i></h1>
+            <p style="font-size: 20px; opacity: 0.8; max-width: 600px; margin: 0 auto 48px;">
+                Uma jornada de presença, posicionamento e influência para o próximo nível da sua carreira.
+            </p>
+            <a href="#investimento" class="btn-gold">Quero Saber Mais</a>
+            
+            <div class="manifesto-quote">
+                "Conheceram-me logo por quem não era e não desmenti, e perdi-me. Quando quis tirar a máscara, estava pegada à cara. Quando a tirei e me vi ao espelho, já tinha envelhecido."
+                <br><br>
+                <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.3em; font-weight: 700; opacity: 0.5;">— Fernando Pessoa</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANIFESTO BODY -->
+    <section class="manifesto-body" id="manifesto">
+        <div class="container">
+            <h2 class="section-title">Manifesto.</h2>
+            <div class="grid-2">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                    <img src="https://i.ibb.co/dsXWj8mX/Gemini-Generated-Image-fpo6d7fpo6d7fpo6.png" alt="Manifesto 1" style="width: 100%; height: 400px; object-fit: cover; border-radius: 24px;">
+                    <img src="https://i.ibb.co/zH87Z2p8/Gemini-Generated-Image-fpo6d7fpo6d7fpo6.png" alt="Manifesto 2" style="width: 100%; height: 400px; object-fit: cover; border-radius: 24px; margin-top: 40px;">
+                </div>
                 <div>
-                    <span class="tag">Marca Pessoal</span>
-                    <h1 class="title-display">Marca <i>&</i> Carreira <i>com</i> Intencionalidade</h1>
-                    <div class="title-divider" style="width: 100px; height: 1px; background: var(--brand-gold); margin-bottom: 40px;"></div>
-                    <p class="intro-subtitle">
-                        O que dizem sobre você quando você não está na sala? Construa uma reputação sólida e inquestionável.
+                    <p style="font-size: 24px; color: var(--brand-green); margin-bottom: 32px; font-family: var(--font-display); line-height: 1.4;">
+                        Ainda existe uma crença no mundo corporativo de que basta trabalhar bem, que se você entregar resultado... o reconhecimento virá.
                     </p>
-                    <div style="margin-top: 48px;">
-                        <a href="https://wa.me/5511940803333" class="btn">Quero meu plano de marca</a>
+                    <p style="margin-bottom: 24px; color: rgba(0,0,0,0.6);">Quem vive o dia a dia das organizações sabe que a realidade é bem mais complexa que isso. Carreiras não são construídas apenas por entrega.</p>
+                    <p style="font-weight: 700; margin-bottom: 32px; color: var(--brand-ink);">Elas são construídas por percepção, por posicionamento, pela forma como cada profissional ocupa os espaços onde as decisões acontecem.</p>
+                    <p style="opacity: 0.6; font-size: 14px; line-height: 1.8;">
+                        A verdade é que todos nós já temos uma marca profissional. Ela existe nas conversas onde nosso nome aparece, nas reuniões onde nossas ideias ganham ou não espaço. A questão nunca foi se você tem uma marca profissional. A questão é se ela está sendo construída por você — ou por acaso.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="section-padding" id="funciona" style="background-color: var(--brand-cream-light);">
+        <div class="container">
+            <h2 class="section-title">Como <i>Funciona.</i></h2>
+            <div class="funciona-grid">
+                <div class="funciona-card">
+                    <span class="num">4</span>
+                    <p style="font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-green);">Encontros em grupo</p>
+                </div>
+                <div class="funciona-card">
+                    <span class="num">1</span>
+                    <p style="font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-green);">Sessão individual</p>
+                </div>
+                <div class="funciona-card">
+                    <span class="num">+</span>
+                    <p style="font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-green);">Grupo reduzido</p>
+                </div>
+                <div class="funciona-card">
+                    <span class="num">+</span>
+                    <p style="font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-green);">Aplicação prática</p>
+                </div>
+            </div>
+            
+            <div class="grid-2" style="align-items: start;">
+                <div style="font-size: 16px; color: rgba(0,0,0,0.7); line-height: 1.8;">
+                    <p style="margin-bottom: 24px;">A Mentoria Marca Intencional acontece em formato de grupo reduzido, criando um ambiente de troca, reflexão e desenvolvimento entre profissionais que vivem desafios semelhantes no ambiente corporativo.</p>
+                    <p>O programa combina reflexão estratégica, provocação intelectual e ferramentas práticas para fortalecer sua presença onde ela mais importa.</p>
+                </div>
+                <div style="font-size: 16px; color: rgba(0,0,0,0.7); line-height: 1.8;">
+                    <p style="font-style: italic; font-family: var(--font-display); font-size: 24px; color: var(--brand-green);">"Ao final da jornada, cada participante terá desenvolvido uma leitura mais clara do próprio posicionamento e um plano de ação para fortalecer influência e diretivas de carreira."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARA QUEM -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Para <i>Quem?</i></h2>
+            <div class="target-grid">
+                <div class="target-item">
+                    <span class="target-num">01</span>
+                    <p>Já construiu trajetória, entrega resultados, assumiu responsabilidades importantes e, ainda assim, sente que poderia ocupar espaços maiores.</p>
+                </div>
+                <div class="target-item">
+                    <span class="target-num">02</span>
+                    <p>Faz muito, resolve muito, mas começa a perceber que carreira não cresce apenas por entrega.</p>
+                </div>
+                <div class="target-item">
+                    <span class="target-num">03</span>
+                    <p>Quer olhar para a própria trajetória com mais intenção, com mais consciência e com mais protagonismo.</p>
+                </div>
+                <div class="target-item">
+                    <span class="target-num">04</span>
+                    <p>Deseja fortalecer presença, clareza de posicionamento e capacidade de influência em contextos de decisão.</p>
+                </div>
+                <div class="target-item">
+                    <span class="target-num">05</span>
+                    <p>Não quer apenas trabalhar bem, mas também ser reconhecido na proporção do valor que entrega.</p>
+                </div>
+                <div class="target-item">
+                    <span class="target-num">06</span>
+                    <p>Deseja construir uma trajetória com mais intenção, mais consciência e mais poder de escolha.</p>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 80px;">
+                <p style="font-family: var(--font-display); font-size: 24px; font-style: italic; margin-bottom: 32px;">Se você se identificou, essa mentoria foi pensada para você.</p>
+                <a href="#investimento" class="btn-dark">Quero me inscrever</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- O QUE NÃO É -->
+    <section class="section-padding" style="background-color: var(--brand-green); color: white;">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">O que essa mentoria <br> <i>não é.</i></h2>
+            <div class="grid-2" style="align-items: start;">
+                <div style="font-size: 18px; line-height: 1.8; opacity: 0.8;">
+                    <p style="margin-bottom: 24px;">A Mentoria Marca Intencional <strong>não é um programa de marketing pessoal superficial</strong>. Não se trata de aprender técnicas de autopromoção ou de construir uma imagem artificial.</p>
+                    <p>Também <strong>não é um espaço de fórmulas prontas</strong> sobre carreira. Cada trajetória acontece dentro de contextos, culturas organizacionais e momentos de vida diferentes.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
+                    <p style="font-family: var(--font-display); font-size: 28px; font-style: italic; line-height: 1.4;">
+                        "É sobre alinhar quem você é, o valor que entrega e a forma como o ambiente profissional percebe isso."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTRUTURA -->
+    <section class="section-padding" id="estrutura">
+        <div class="container">
+            <div class="grid-2" style="align-items: start;">
+                <div>
+                    <h2 class="section-title">Estrutura.</h2>
+                    <p style="margin-bottom: 60px; opacity: 0.6;">Encontros quinzenais, às quintas-feiras, das 20h às 21h30 via Zoom.</p>
+                    
+                    <div class="agenda-item">
+                        <span class="agenda-num">01</span>
+                        <div>
+                            <span class="agenda-date">22 de Abril de 2026</span>
+                            <h3 style="font-size: 24px; margin-top: 8px;">Presença executiva e percepção profissional</h3>
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <span class="agenda-num">02</span>
+                        <div>
+                            <span class="agenda-date">06 de Maio de 2026</span>
+                            <h3 style="font-size: 24px; margin-top: 8px;">Posicionamento e narrativa de carreira</h3>
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <span class="agenda-num">03</span>
+                        <div>
+                            <span class="agenda-date">20 de Maio de 2026</span>
+                            <h3 style="font-size: 24px; margin-top: 8px;">Relações estratégicas e influência</h3>
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <span class="agenda-num">04</span>
+                        <div>
+                            <span class="agenda-date">03 de Junho de 2026</span>
+                            <h3 style="font-size: 24px; margin-top: 8px;">Construção da Marca Intencional</h3>
+                        </div>
                     </div>
                 </div>
-                <div class="intro-img-wrapper">
-                    <img src="https://i.ibb.co/PG74Lqyg/Gemini-Generated-Image-fpo6d7fpo6d7fpo6.png" alt="Marca Pessoal" class="intro-img">
+                
+                <div style="background-color: var(--brand-cream-light); padding: 60px; border-radius: 40px;">
+                    <img src="https://i.ibb.co/PG74Lqyg/Gemini-Generated-Image-fpo6d7fpo6d7fpo6.png" alt="Extras" style="width: 100%; border-radius: 20px; margin-bottom: 40px;">
+                    <h4 style="font-family: var(--font-body); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700; margin-bottom: 24px; color: var(--brand-green);">Além dos encontros em grupo</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px; font-size: 14px; opacity: 0.7;">
+                        <li>• Kit de boas-vindas personalizado</li>
+                        <li>• Sessão individual de Leitura de Posicionamento</li>
+                        <li>• Diagnóstico de Posicionamento no LinkedIn</li>
+                        <li>• Encontros "Café com Mentoria"</li>
+                        <li>• Acesso às gravações e materiais complementares</li>
+                        <li>• Curadoria exclusiva de referências</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pillars-section">
+    <!-- INVESTIMENTO -->
+    <section class="invest-section" id="investimento">
         <div class="container">
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <span class="pillar-icon">🎯</span>
-                    <h3>Clareza de Propósito</h3>
-                    <p>Defina exatamente para onde você quer ir e quais marcas deseja deixar por onde passar.</p>
+            <div class="grid-2">
+                <div class="invest-card">
+                    <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--brand-gold);">Edição 1 — Turma Fundadora</span>
+                    <div class="price">10x 220</div>
+                    <p style="opacity: 0.4; margin-bottom: 40px;">R$ 1.900,00 à vista</p>
+                    <a href="https://wa.me/5511940803333" class="btn-dark" style="width: 100%; justify-content: center;">Quero minha vaga</a>
                 </div>
-                <div class="pillar-card">
-                    <span class="pillar-icon">🗣️</span>
-                    <h3>Comunicação Estratégica</h3>
-                    <p>Alinhe o que você faz com o que você diz. Una competência técnica with percepção de valor.</p>
-                </div>
-                <div class="pillar-card">
-                    <span class="pillar-icon">🤝</span>
-                    <h3>Networking de Ativos</h3>
-                    <p>Construa conexões que não são apenas contatos, mas ativos reais para sua evolução profissional.</p>
+                <div>
+                    <h2 class="section-title" style="color: white;">Investimento.</h2>
+                    <p style="font-size: 24px; font-family: var(--font-display); line-height: 1.4; opacity: 0.9; margin-bottom: 32px;">
+                        Se você sente que possui competência, experiência e potencial para ocupar espaços maiores, talvez seja hora de investir na sua marca com intencionalidade.
+                    </p>
+                    <p style="opacity: 0.6; font-size: 14px;">As vagas para a turma fundadora são limitadas para garantir a profundidade das trocas no grupo.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
-        <div class="container text-center">
-            <h2 style="font-size: clamp(32px, 5vw, 64px); margin-bottom: 40px;">Seja <br> <i>Inesquecível</i>.</h2>
-            <a href="https://wa.me/5511940803333" class="btn">Começar Mentoria de Marca</a>
+    <!-- FAQ -->
+    <section class="section-padding" id="faq">
+        <div class="container">
+            <h2 class="section-title text-center">Perguntas <i>frequentes.</i></h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">A mentoria é individual ou em grupo? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+                    <div class="faq-answer">A mentoria acontece em formato de grupo reduzido para permitir a troca entre profissionais, mas inclui uma sessão individual (Leitura de Posicionamento) dedicada exclusivamente à sua carreira.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Preciso ter um cargo de liderança para participar? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+                    <div class="faq-answer">Não necessariamente. O programa é voltado para profissionais experientes que buscam crescer, seja em cargos formais de gestão ou como especialistas que influenciam grandes decisões.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Os encontros ficam gravados? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+                    <div class="faq-answer">Sim. Embora a participação ao vivo seja altamente recomendada para aproveitar a dinâmica do grupo, todas as sessões são gravadas e disponibilizadas na plataforma.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quais as formas de pagamento? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+                    <div class="faq-answer">Aceitamos pagamento à vista (Pix ou boleto) ou parcelamento em até 10x no cartão de crédito.</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>© 2026 Débora Bolangno · Estratégia de Marca Pessoal</p>
-            <p style="margin-top: 10px; opacity: 0.5;">Todos os direitos reservados.</p>
+            <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" style="width: 44px; margin-bottom: 24px; filter: brightness(0) invert(1);">
+            <h4 style="color: white; font-size: 24px; margin-bottom: 8px;">Débora Bolangno</h4>
+            <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.4; margin-bottom: 40px;">Estratégia de Carreira & Liderança</p>
+            <div style="display: flex; gap: 32px; justify-content: center; margin-bottom: 60px;">
+                <a href="https://www.linkedin.com/in/deborabolangno" style="color: white; opacity: 0.6;">LinkedIn</a>
+                <a href="https://www.instagram.com/deborabolangno" style="color: white; opacity: 0.6;">Instagram</a>
+            </div>
+            <p style="font-size: 10px; opacity: 0.2; text-transform: uppercase; letter-spacing: 0.1em;">© 2026 Débora Bolangno · Todos os direitos reservados</p>
         </div>
     </footer>
 
-    <div class="floating-actions">
-        <a href="https://wa.me/5511940803333" target="_blank" class="float-btn btn-whatsapp">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-2.32 0-4.591.4-6.738 1.189-.13.048-.225.105-.33.155a9.034 9.034 0 0 0-4.8 5.6c-.32 1.11-.274 2.274.135 3.363.04.1.096.195.14.286l-.5 2.112c-.04.168.04.34.2.428a.4.4 0 0 0 .195.05.41.41 0 0 0 .19-.047l2.253-.94a9.1 9.1 0 0 0 3.19.57c2.32 0 4.59-.4 6.737-1.19.13-.047.233-.1.33-.153a9.034 9.034 0 0 0 4.801-5.6c.32-1.11.274-2.274-.135-3.364-.04-.1-.1-.2-.14-.294l.5-2.112c.04-.168-.04-.34-.2-.428a.4.4 0 0 0-.195-.05.41.41 0 0 0-.39.247l-2.255.942a9.11 9.11 0 0 0-3.19-.571zM8.332 9.108c.18 0 .36.002.54.004.162.003.32.007.47.012.155.005.3.01.442.02.43 0 .807.13 1.1.37.28.25.43.59.43 1.01 0 .2-.04.4-.11.58-.12.35-.41.67-.86.95-.31.19-.7.34-1.18.45-.15.03-.3.05-.44.07a8.7 8.7 0 0 0-.442.02c-.15.005-.31.009-.47.012-.18.002-.36.004-.54.004h-.01c-.18 0-.36-.002-.54-.004-.16-.003-.32-.007-.47-.012-.15-.005-.3-.01-.44-.02l-.08-.002a8.7 8.7 0 0 0-.36-.02c-.15-.005-.3-.01-.442-.02-.15-.005-.31-.01-.47-.012-.18-.002-.36-.004-.54-.004h-.01c-.18 0-.36.002-.54.004-.16.003-.32.007-.47.012-.15.005-.3.01-.44.02l-.08.002c-.2.01-.4 0-.58-.06-.35-.12-.67-.34-.95-.71-.24-.31-.38-.68-.38-1.1 0-.43.15-.81.44-1.1.25-.25.57-.4.99-.4h.01c.18 0 .36.002.54.004.16.003.31.007.46.012.15.005.3.01.44.02.43.01.81.14 1.1.38.28.25.43.59.43 1.01 0 .2-.04.4-.11.58-.12.35-.41.67-.86.95-.31.19-.7.34-1.18.45-.15.03-.3.05-.44.07l-.02.003c.18.01.36.02.54.02h.01c.18 0 .36-.01.54-.02l.02-.003c.14-.02.29-.04.44-.07.48-.11.87-.26 1.18-.45.45-.28.74-.6.86-.95.07-.18.11-.38.11-.58 0-.42-.15-.76-.43-1.01-.29-.24-.67-.37-1.1-.37-.14-.01-.29-.015-.442-.02-.15-.005-.31-.009-.47-.012-.18-.002-.36-.004-.54-.004h.01c.18 0 .36.002.54.004.16.003.31.007.46.012.15.005.3.009.442.02.443.003.443.003.443.003z"/></svg>
-        </a>
-        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="float-btn btn-up">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
-        </button>
-    </div>
-
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all others
+                document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
+                
+                if (!isOpen) answer.style.display = 'block';
+            });
+        });
+    </script>
 </body>
 </html>

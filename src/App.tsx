@@ -41,7 +41,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on Esc key
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsMobileMenuOpen(false);
@@ -50,7 +49,6 @@ const Navbar = () => {
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -61,13 +59,14 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Sobre", href: "#sobre" },
-    { name: "Resultados", href: "#resultados" },
+    { name: "Depoimentos", href: "#depoimentos" },
     { name: "Programas", href: "#programas" },
     { name: "Palestras", href: "#palestras" },
     { name: "Contato", href: "#contato" },
   ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.endsWith('.html')) return; // Allow normal links to .html files
     e.preventDefault();
     setIsMobileMenuOpen(false);
     
@@ -75,7 +74,7 @@ const Navbar = () => {
     const element = document.getElementById(targetId);
     
     if (element) {
-      const offset = 80; // Navbar height offset
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -95,204 +94,139 @@ const Navbar = () => {
 
   return (
     <nav 
-      aria-label="Menu principal"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[100] border-b transition-all duration-400 ${
         isScrolled 
-          ? "bg-cream/95 backdrop-blur-xl border-b border-brand-900/5 py-3 shadow-lg shadow-brand-900/5" 
-          : "bg-cream md:bg-transparent py-4 md:py-6"
+          ? "bg-creme/96 backdrop-blur-md border-ink/6 shadow-lg shadow-verde/6" 
+          : "bg-creme border-ink/6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
         <a 
           href="#" 
           onClick={(e) => scrollToSection(e, "#")}
-          className="flex items-center gap-3 group shrink-0" 
-          aria-label="Débora Bolangno - Home"
+          className="flex items-center gap-3 group" 
         >
-          <div className="w-12 h-12 flex items-center justify-center transition-all duration-300">
-            <img 
-              src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
-              alt="Logo Débora Bolangno" 
-              className="w-full h-full object-contain group-hover:scale-110 transition-transform"
-              referrerPolicy="no-referrer"
-            />
-          </div>
+          <img 
+            src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
+            alt="Logo Débora Bolangno" 
+            className="w-11 h-11 object-contain group-hover:scale-110 transition-transform"
+            referrerPolicy="no-referrer"
+          />
           <div className="flex flex-col">
-            <span className="font-serif text-base md:text-xl font-bold tracking-tight text-ink group-hover:text-brand-700 transition-colors">
+            <span className="font-serif text-lg font-bold text-ink leading-tight">
               Débora Bolangno
             </span>
-            <span className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-ink/40 font-medium">
+            <span className="text-[9px] uppercase tracking-[0.2em] text-ink/40 font-medium">
               Estratégia de Carreira & Liderança
             </span>
           </div>
         </a>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8 lg:gap-10">
-          <div className="flex items-center gap-4">
-            <a 
-              href="https://www.instagram.com/deborabolangno" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-ink/40 hover:text-brand-700 transition-colors p-2"
-              aria-label="Instagram"
-            >
-              <Instagram size={18} />
+        <div className="hidden min-[900px]:flex items-center gap-10">
+          <div className="flex gap-1">
+            <a href="https://www.instagram.com/deborabolangno" target="_blank" rel="noopener" className="w-9 h-9 flex items-center justify-center text-ink/35 hover:text-verde transition-colors">
+              <Instagram size={17} />
             </a>
-            <a 
-              href="https://www.linkedin.com/in/deborabolangno" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-ink/40 hover:text-brand-700 transition-colors p-2"
-              aria-label="LinkedIn Profissional"
-            >
-              <Linkedin size={18} />
+            <a href="https://www.linkedin.com/in/deborabolangno" target="_blank" rel="noopener" className="w-9 h-9 flex items-center justify-center text-ink/35 hover:text-verde transition-colors">
+              <Linkedin size={17} />
             </a>
-            <a 
-              href="mailto:deborabolangno@outlook.com" 
-              className="text-ink/40 hover:text-brand-700 transition-colors p-2"
-              aria-label="Enviar E-mail"
-            >
-              <Mail size={18} />
+            <a href="mailto:deborabolangno@outlook.com" className="w-9 h-9 flex items-center justify-center text-ink/35 hover:text-verde transition-colors">
+              <Mail size={17} />
             </a>
           </div>
-          <div className="flex items-center gap-6 lg:gap-8">
+          <div className="flex gap-7">
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href} 
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="text-[10px] lg:text-xs uppercase tracking-[0.2em] font-semibold text-ink/60 hover:text-brand-700 transition-all relative group/link"
+                className="text-[10px] uppercase tracking-[0.2em] font-semibold text-ink/55 hover:text-verde transition-all relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-brand-700 transition-all duration-300 group-hover/link:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-verde transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </div>
           <a 
-            href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20maiores%20informações" 
+            href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20e%20gostaria%20de%20maiores%20informações" 
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand-700 text-white px-6 lg:px-8 py-3.5 rounded-full text-[11px] lg:text-xs uppercase tracking-[0.2em] font-bold hover:bg-brand-800 transition-all shadow-md hover:shadow-brand-700/20 active:scale-95 whitespace-nowrap"
+            className="bg-verde text-white px-6 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-[#112e28] hover:-translate-y-px transition-all whitespace-nowrap"
           >
             Solicitar Proposta
           </a>
         </div>
 
-        {/* Mobile Toggle & Icons */}
-        <div className="md:hidden flex items-center gap-2">
-          <a 
-            href="https://www.linkedin.com/in/deborabolangno" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-ink/60 p-2"
-            aria-label="LinkedIn Profissional"
-          >
-            <Linkedin size={20} />
-          </a>
-          <a 
-            href="mailto:deborabolangno@outlook.com" 
-            className="text-ink/60 p-2"
-            aria-label="Enviar E-mail"
-          >
-            <Mail size={20} />
-          </a>
-          <button 
-            className="text-ink p-2 hover:bg-brand-900/5 rounded-full transition-colors relative z-50 ml-1"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-menu"
-            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        <button 
+          className="min-[900px]:hidden text-ink p-2"
+          onClick={() => setIsMobileMenuOpen(true)}
+        >
+          <Menu size={24} />
+        </button>
       </div>
 
-      {/* Mobile Menu Overlay & Content */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-brand-950/40 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-verde/40 backdrop-blur-sm z-[190]"
             />
             
-            {/* Menu Content */}
             <motion.div 
-              id="mobile-menu"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-cream z-50 md:hidden flex flex-col p-8 shadow-2xl"
+              transition={{ type: "tween", duration: 0.35, ease: "easeOut" }}
+              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-[340px] bg-creme z-[200] flex flex-col p-8 shadow-2xl"
             >
               <div className="flex justify-between items-center mb-12">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center">
-                    <img 
-                      src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
-                      alt="Logo Débora Bolangno" 
-                      className="w-full h-full object-contain"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
+                <div className="flex items-center gap-3">
+                  <img 
+                    src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
+                    alt="Logo" 
+                    className="w-10 h-10 object-contain"
+                  />
                   <div className="flex flex-col">
-                    <span className="font-serif text-lg font-bold tracking-tight text-ink">
+                    <span className="font-serif text-base font-bold text-ink">
                       Débora Bolangno
                     </span>
-                    <span className="text-[9px] uppercase tracking-[0.2em] text-ink/40 font-medium leading-tight">
-                      Estratégia de Carreira & Liderança
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-ink/40 font-medium">
+                      Estratégia de Carreira
                     </span>
                   </div>
                 </div>
-                <button 
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 hover:bg-brand-900/5 rounded-full transition-colors"
-                  aria-label="Fechar menu"
-                >
+                <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-ink">
                   <X size={24} />
                 </button>
               </div>
 
-              <div className="flex flex-col gap-8">
-                {navLinks.map((link, i) => (
-                  <motion.a 
+              <div className="flex flex-col gap-7">
+                {navLinks.map((link) => (
+                  <a 
                     key={link.name} 
                     href={link.href} 
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + i * 0.1 }}
                     onClick={(e) => scrollToSection(e, link.href)}
-                    className="text-2xl font-serif font-bold text-ink hover:text-brand-700 transition-colors flex items-center justify-between group"
+                    className="text-2xl font-serif font-bold text-ink hover:text-verde transition-colors flex items-center justify-between"
                   >
                     {link.name}
-                    <ChevronRight size={24} className="opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
-                  </motion.a>
+                    <ChevronRight size={20} className="opacity-30" />
+                  </a>
                 ))}
               </div>
 
-              <div className="mt-auto pt-10 border-t border-brand-900/10">
-                <motion.a 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20maiores%20informações" 
+              <div className="mt-auto pt-8 border-t border-ink/8">
+                <a 
+                  href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20e%20gostaria%20de%20maiores%20informações" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="bg-brand-700 text-white px-8 py-5 rounded-full text-center text-xs uppercase tracking-[0.2em] font-bold block shadow-xl shadow-brand-700/20 active:scale-95 transition-all"
+                  className="bg-verde text-white p-[18px] rounded-full text-center text-[11px] uppercase tracking-[0.2em] font-bold block hover:bg-[#112e28] transition-all"
                 >
                   Solicitar Proposta
-                </motion.a>
-                <div className="mt-8 flex justify-center gap-6 text-brand-900/40">
-                  <Linkedin size={20} />
-                  <Mail size={20} />
-                </div>
+                </a>
               </div>
             </motion.div>
           </>
@@ -303,155 +237,58 @@ const Navbar = () => {
 };
 
 const Hero = () => {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 1000], [0, 100]);
-
-  const titlePart1 = "Clareza para tomar";
-  const titlePart2 = "decisões estratégicas";
-  const titlePart3 = "e acelerar sua carreira executiva.";
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.03,
-      },
-    },
-  };
-
-  const letterVariants = {
-    hidden: { opacity: 0, display: "none" },
-    visible: { 
-      opacity: 1, 
-      display: "inline",
-      transition: { duration: 0.01 }
-    },
-  };
-
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen pt-24 lg:pt-32 pb-12 lg:pb-20 flex items-center overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
-        <div className="relative z-10 order-2 lg:order-1">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex items-center gap-3 mb-4 lg:mb-6"
-          >
-            <div className="w-12 h-[1px] bg-brand-600"></div>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-brand-600 font-bold">
-              Mentoria Executiva · Débora Bolangno
+    <section className="min-h-screen pt-20 flex items-center bg-creme overflow-hidden">
+      <div className="max-w-7xl mx-auto px-8 py-[60px] grid grid-cols-1 min-[900px]:grid-cols-2 gap-20 items-center w-full">
+        <div>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-12 h-px bg-verde-med"></div>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold">
+              Estrategista de Carreira · Débora Bolangno
             </span>
-          </motion.div>
-          
-          <motion.h1 
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.1] text-ink mb-4 lg:mb-6"
-          >
-            {titlePart1.split("").map((char, i) => (
-              <motion.span key={i} variants={letterVariants}>{char}</motion.span>
-            ))}
-            <br />
-            <span className="italic text-highlight text-balance">
-              {titlePart2.split("").map((char, i) => (
-                <motion.span key={i} variants={letterVariants}>{char}</motion.span>
-              ))}
-            </span>
-            <br />
-            {titlePart3.split("").map((char, i) => (
-              <motion.span key={i} variants={letterVariants}>{char}</motion.span>
-            ))}
-          </motion.h1>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.2 }}
-            className="text-base md:text-lg lg:text-xl text-ink/70 mb-2 lg:mb-3 max-w-xl leading-relaxed"
-          >
-            Mentoria personalizada para líderes e executivos que buscam posicionamento de alto impacto, segurança na tomada de decisão e crescimento consistente.
-          </motion.p>
-
-          <div className="grid grid-cols-2 gap-6 md:gap-8 mb-6 lg:mb-8 py-3 lg:py-4 border-y border-ink/10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 2.4 }}
-            >
-              <div className="text-5xl md:text-7xl font-serif font-black text-turquoise mb-1">+20</div>
-              <div className="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-ink/40 leading-tight">
-                Anos de experiência <br className="hidden sm:block" /> no mundo corporativo
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 2.6 }}
-            >
-              <div className="text-5xl md:text-7xl font-serif font-black text-turquoise mb-1">+250</div>
-              <div className="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-ink/40 leading-tight">
-                Profissionais <br className="hidden sm:block" /> impactados e mentorados
-              </div>
-            </motion.div>
           </div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.8 }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
-          >
-            <a 
-              href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20agendar%20uma%20conversa%20estratégica" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-brand-700 text-white px-6 md:px-8 py-3.5 md:py-4 rounded-full text-[10px] md:text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-3 hover:bg-brand-800 transition-all shadow-lg hover:shadow-brand-700/20 group"
-            >
-              Agendar Conversa Estratégica
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          <h1 className="font-serif text-[clamp(36px,4.5vw,58px)] font-black leading-[1.08] text-ink mb-5">
+            <span className="block">Você não está travado</span>
+            <span className="block">por falta de capacidade.</span>
+            <span className="block italic text-highlight">Está travado por falta de estratégia.</span>
+          </h1>
+          <p className="text-lg text-ink/65 max-w-[520px] leading-[1.65] mb-8">
+            Mentoria para profissionais que já performam — mas ainda não avançam na velocidade que deveriam.
+          </p>
+          <div className="grid grid-cols-2 gap-6 py-6 border-y border-ink/10 mb-9">
+            <div>
+              <div className="font-serif text-[64px] font-black text-verde leading-none mb-1">+20</div>
+              <div className="text-[9px] uppercase tracking-[0.15em] font-semibold text-ink/40 leading-[1.4]">
+                Anos de experiência<br/>no mundo corporativo
+              </div>
+            </div>
+            <div>
+              <div className="font-serif text-[64px] font-black text-verde leading-none mb-1">+250</div>
+              <div className="text-[9px] uppercase tracking-[0.15em] font-semibold text-ink/40 leading-[1.4]">
+                Profissionais<br/>impactados e mentorados
+              </div>
+            </div>
+          </div>
+          <div className="flex gap-3.5 flex-wrap">
+            <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20estratégico" target="_blank" rel="noopener" className="inline-flex items-center gap-2.5 bg-verde text-white px-7 py-3.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-700 transition-all hover:bg-[#112e28] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(26,58,46,0.25)] group">
+              Agendar diagnóstico estratégico
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
             </a>
-            <a 
-              href="#programas" 
-              className="px-6 md:px-8 py-3.5 md:py-4 rounded-full text-[10px] md:text-xs uppercase tracking-widest font-bold text-ink border-2 border-ink/20 hover:bg-ink hover:text-white transition-all text-center"
-            >
-              Conhecer programas
+            <a href="#programas" className="inline-flex items-center gap-2.5 bg-transparent text-ink px-7 py-3.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-700 border-2 border-ink/20 transition-all hover:bg-ink hover:text-white">
+              Conhecer os programas
             </a>
-          </motion.div>
+          </div>
         </div>
-
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.98, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ 
-            duration: 1.5, 
-            delay: 1, 
-            ease: [0.22, 1, 0.36, 1] 
-          }}
-          className="relative aspect-[4/5] lg:aspect-auto lg:h-[550px] xl:h-[650px] bg-brand-900 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-ink/5 order-1 lg:order-2"
-        >
-          <motion.img 
-            style={{ y }}
+        <div className="relative rounded-[40px] overflow-hidden aspect-[4/5] bg-verde shadow-[0_40px_100px_rgba(26,58,46,0.2)] border border-ink/5 min-[900px]:order-none order-first min-[900px]:max-h-none max-h-[420px]">
+          <img 
             src="https://i.ibb.co/N6D2hPBM/debora01.png" 
-            alt="Débora Bolangno - Mentora de Carreira e Liderança Executiva"
-            className="w-full h-[110%] -top-[5%] absolute object-cover opacity-100 transition-all duration-1000 hover:scale-105"
+            alt="Débora Bolangno - Estrategista de Carreira e Liderança Executiva" 
+            className="absolute w-full h-[110%] -top-[5%] object-cover transition-transform duration-800 hover:scale-103"
             referrerPolicy="no-referrer"
-            fetchPriority="high"
-            decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-          
-          <div className="absolute top-6 right-6 md:top-10 md:right-10 w-32 md:w-48 opacity-10 pointer-events-none select-none">
-            <img 
-              src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
-              alt="Logo Background" 
-              className="w-full h-auto object-contain"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-        </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent"></div>
+          <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="" className="absolute top-7 right-7 w-20 opacity-8 pointer-events-none" referrerPolicy="no-referrer" />
+        </div>
       </div>
     </section>
   );
@@ -464,18 +301,18 @@ const Marquee = () => {
   ];
 
   return (
-    <div className="bg-brand-700 py-6 overflow-hidden whitespace-nowrap border-y border-white/10">
+    <div className="bg-verde py-5 overflow-hidden whitespace-nowrap border-y border-white/10">
       <motion.div 
         animate={{ x: [0, -1000] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
         className="flex gap-12 items-center"
       >
         {[...Array(4)].map((_, i) => (
           <div key={i} className="flex gap-12 items-center">
             {words.map((word) => (
               <div key={word} className="flex items-center gap-12">
-                <span className="font-serif italic text-lg text-white/90">{word}</span>
-                <span className="w-2 h-2 rounded-full bg-white/20"></span>
+                <span className="font-cormorant italic text-[18px] text-white/85">{word}</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-white/20"></span>
               </div>
             ))}
           </div>
@@ -485,55 +322,101 @@ const Marquee = () => {
   );
 };
 
+const ProofBar = () => {
+  const items = [
+    { num: "+250", label: "Profissionais\natendidos" },
+    { num: "+20", label: "Anos de experiência\nem RH e liderança" },
+    { num: "SP", label: "Osasco e\nGrande São Paulo" },
+    { num: "5", label: "Formatos de\natendimento" },
+  ];
+
+  return (
+    <div className="bg-[#0d2018] py-6 px-8">
+      <div className="max-w-7xl mx-auto flex justify-center items-center flex-wrap gap-y-6 sm:grid sm:grid-cols-2 md:flex md:flex-nowrap md:gap-0">
+        {items.map((item, i) => (
+          <div 
+            key={i} 
+            className="flex flex-col items-center px-6 md:px-10 text-center border-white/20 last:border-0 md:border-r w-full sm:w-auto"
+          >
+            <span className="font-serif text-[28px] font-black text-dourado leading-none">{item.num}</span>
+            <span className="text-[10px] uppercase tracking-[0.15em] text-white/50 font-medium mt-1 whitespace-pre-line leading-tight">
+              {item.label}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Identification = () => {
+  const points = [
+    "Você entrega resultado, mas não é reconhecido na mesma proporção",
+    "Sente que sua carreira depende mais de fatores externos do que deveria",
+    "Está ocupado, mas não necessariamente avançando",
+    "Já tentou \"se desenvolver\", mas sem uma direção clara",
+    "Sabe que poderia estar em um cargo maior, mas não sabe qual é o caminho",
+    "Quer tomar decisões mais estratégicas e com mais confiança",
+  ];
+
+  return (
+    <section className="bg-white py-24 px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="max-w-[620px] mx-auto text-center mb-16">
+          <span className="text-[10px] uppercase tracking-[0.35em] font-bold text-verde-med block mb-5">Você se reconhece aqui?</span>
+          <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink">
+            Se você sente que poderia estar<br />
+            em outro nível… <span className="italic text-highlight">você provavelmente está certo.</span>
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+          {points.map((point, i) => (
+            <div key={i} className="flex gap-4 bg-[#f8f6f2] border-l-4 border-dourado/40 p-6 transition-colors hover:border-dourado">
+              <span className="text-dourado font-bold text-lg leading-[1.6]">—</span>
+              <p className="text-[15px] text-ink/70 leading-[1.55]">{point}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-14 text-center font-cormorant text-[22px] font-semibold text-verde tracking-tight">
+          O problema não é esforço. É falta de clareza estratégica.
+        </p>
+      </div>
+    </section>
+  );
+};
+
 const About = () => {
   return (
-    <section id="sobre" className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-0 border border-ink/5 rounded-[2rem] overflow-hidden shadow-xl">
-        <div className="p-8 md:p-16 lg:p-20 bg-white flex flex-col justify-center order-2 lg:order-1">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-brand-600 font-bold mb-6 md:mb-8 block">
-            Sobre mim
-          </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-bold text-ink leading-tight mb-6 md:mb-8">
-            Estratégia, Liderança <br />
-            <span className="italic text-highlight">& Execução.</span>
-          </h2>
-          <div className="space-y-6 text-ink/70 leading-relaxed text-lg md:text-xl">
-            <p>
-              Com mais de 20 anos de experiência no mundo corporativo, Débora Bolangno especializou-se em desenvolver líderes e acelerar carreiras de alto nível.
-            </p>
-            <p>
-              Sua abordagem une visão estratégica, inteligência emocional e ferramentas práticas para quem não aceita o estancamento e busca o próximo nível de influência e resultado.
-            </p>
-            <p>
-              Hoje, ajudo você a ter clareza, tomar decisões com segurança e construir um caminho profissional consistente e de alto impacto.
-            </p>
-          </div>
-          <div className="mt-8 md:mt-10 p-6 md:p-8 bg-brand-50 border-l-4 border-brand-700 rounded-r-2xl italic font-cormorant text-lg md:text-xl text-brand-900">
-            "Meu trabalho conecta autoconhecimento, estratégia de carreira e prática de liderança — 
-            sempre com foco em resultado, posicionamento e crescimento sustentável."
-          </div>
-        </div>
-
-        <div className="bg-brand-900 relative overflow-hidden order-1 lg:order-2 min-h-[400px] lg:min-h-full">
-          <motion.img 
-            initial={{ scale: 1.1 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+    <section id="sobre" className="bg-creme py-24 px-8 border-y border-ink/5">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 min-[900px]:grid-cols-2 gap-20 items-center">
+        <div className="relative rounded-[32px] overflow-hidden shadow-2xl aspect-square min-[900px]:aspect-auto min-[900px]:h-[680px]">
+          <img 
             src="https://i.ibb.co/KpxMJ3Yq/deb04.jpg" 
-            alt="Débora Bolangno em ambiente corporativo - Especialista em Liderança"
-            className="absolute inset-0 w-full h-full object-cover object-top opacity-90 transition-opacity duration-700 hover:opacity-100"
+            alt="Débora Bolangno - Mentora de Carreira" 
+            className="w-full h-full object-cover object-top"
             referrerPolicy="no-referrer"
-            loading="lazy"
-            decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent lg:hidden"></div>
-          <div className="absolute bottom-6 right-6 w-24 md:w-32 opacity-20 pointer-events-none">
-            <img 
-              src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
-              alt="Logo Overlay" 
-              className="w-full h-auto brightness-0 invert"
-              referrerPolicy="no-referrer"
-            />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        </div>
+        <div>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-6 block">Sobre Débora Bolangno</span>
+          <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink mb-8">
+            Estratégia, Liderança <br />
+            <span className="italic text-highlight">& Execução Real.</span>
+          </h2>
+          <div className="space-y-6 text-lg text-ink/75 leading-[1.65]">
+            <p>Com mais de 20 anos de trajetória no mundo corporativo, Débora Bolangno especializou-se em desenvolver líderes e acelerar carreiras de alto nível.</p>
+            <p>Sua abordagem une visão estratégica, inteligência emocional e ferramentas práticas para quem não aceita o estancamento e busca o próximo nível de influência e resultado.</p>
+            <p className="font-serif italic text-xl text-verde border-l-4 border-dourado pl-6 py-2">
+              "Meu papel é encurtar o seu caminho entre onde você está hoje e a posição que você sabe que merece ocupar."
+            </p>
+          </div>
+          <div className="mt-12 flex items-center gap-4 border-t border-ink/10 pt-8">
+            <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="" className="w-12 h-12 object-contain" referrerPolicy="no-referrer" />
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-ink/40 font-bold mb-1">Formação & Expertise</p>
+              <p className="text-sm text-ink/70 font-medium italic">Especialista em Desenvolvimento Humano e Estratégia de Carreira</p>
+            </div>
           </div>
         </div>
       </div>
@@ -545,102 +428,51 @@ const Testimonials = () => {
   const testimonials = [
     {
       text: "Eu estava há meses travado em uma decisão de mudança de posição. A mentoria me trouxe clareza e segurança para agir. Hoje estou em um novo momento da carreira, muito mais alinhado com o que eu buscava.",
-      author: "Carlos Mendes",
-      role: "Gerente de Relacionamento",
-      company: "Setor Bancário"
+      name: "Carlos Mendes",
+      role: "Gerente de TI"
     },
     {
       text: "O maior ganho foi conseguir organizar meu pensamento e me posicionar melhor como líder. Eu sabia tecnicamente o que fazer, mas faltava direção. Hoje consigo tomar decisões com muito mais confiança.",
-      author: "Rafael Souza",
-      role: "Tech Lead",
-      company: "Empresa de Tecnologia SaaS"
-    },
-    {
-      text: "Eu vivia no automático e não conseguia enxergar o próximo passo. O processo trouxe clareza prática, não ficou só na reflexão. Saí com decisões concretas que mudaram minha atuação.",
-      author: "Fernanda Oliveira",
-      role: "Coordenadora de Operações",
-      company: "Indústria Multinacional"
-    },
-    {
-      text: "Foi um divisor de águas. Hoje tenho muito mais segurança para me posicionar e conduzir minha carreira.",
-      author: "Juliana Ribeiro",
-      role: "Business Partner de RH",
-      company: "Empresa de Médio Porte"
+      name: "Ana Silveira",
+      role: "Diretora Comercial"
     }
   ];
 
   return (
-    <section id="resultados" className="py-24 bg-cream/50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-brand-600 font-bold mb-4 block">
-            Prova Social
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-black text-ink mb-6">
-            <span className="text-highlight">Resultados</span> reais de quem já passou pelo processo
-          </h2>
-          <p className="text-ink/50 max-w-2xl mx-auto text-lg">
-            Profissionais que destravaram decisões, ganharam clareza e avançaram com mais segurança na carreira.
-          </p>
+    <section id="depoimentos" className="bg-creme-light py-24 px-8 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col min-[900px]:flex-row justify-between items-start min-[900px]:items-end gap-10 mb-16">
+          <div className="max-w-[580px]">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-4 block">Prova Social</span>
+            <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink">
+              <span className="italic text-highlight">Resultados reais</span> de quem já passou pelo processo
+            </h2>
+          </div>
+          <div className="flex gap-4">
+            <div className="bg-creme p-4 md:p-6 rounded-2xl shadow-md border border-ink/5">
+              <span className="block font-serif text-3xl font-black text-verde">98%</span>
+              <span className="text-[9px] uppercase tracking-widest text-ink/40 font-bold">de satisfação</span>
+            </div>
+            <div className="bg-verde p-4 md:p-6 rounded-2xl shadow-md text-creme">
+              <span className="block font-serif text-3xl font-black">+250</span>
+              <span className="text-[9px] uppercase tracking-widest text-creme/50 font-bold">alcançados</span>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((t, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white p-8 md:p-10 rounded-[2rem] shadow-sm border border-ink/5 flex flex-col justify-between hover:shadow-xl transition-all group"
-            >
-              <div className="mb-6 md:mb-8">
-                <div className="flex gap-1 mb-4 md:mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Zap key={i} size={14} className="text-brand-500 fill-brand-500" />
-                  ))}
-                </div>
-                <p className="text-ink/70 text-base md:text-lg leading-relaxed italic">
-                  “{t.text}”
-                </p>
-              </div>
-              <div className="flex items-center gap-4 border-t border-ink/5 pt-6">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-100 rounded-full flex items-center justify-center text-brand-700 font-bold text-sm md:text-base">
-                  {t.author[0]}
-                </div>
+            <div key={i} className="bg-creme p-10 rounded-[28px] border border-ink/4 shadow-sm relative group hover:shadow-xl transition-all">
+              <div className="absolute top-8 right-10 text-dourado/20 font-serif text-[80px] leading-none select-none">"</div>
+              <p className="text-[17px] text-ink/75 leading-[1.65] italic mb-10 relative z-10">"{t.text}"</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-verde flex items-center justify-center text-creme font-bold">{t.name[0]}</div>
                 <div>
-                  <div className="font-bold text-ink text-sm md:text-base">{t.author}</div>
-                  <div className="text-[10px] text-ink/40 uppercase tracking-widest">{t.role} · {t.company}</div>
-                </div>
-                <div className="ml-auto flex gap-1 sm:gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
-                  <a 
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 hover:bg-brand-50 rounded-full text-ink/30 hover:text-brand-700 transition-colors"
-                    title="Compartilhar no LinkedIn"
-                  >
-                    <Linkedin size={16} />
-                  </a>
-                  <a 
-                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Confira este depoimento sobre a mentoria de Débora Bolangno: "${t.text}"`)}&url=${encodeURIComponent(window.location.href)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 hover:bg-brand-50 rounded-full text-ink/30 hover:text-brand-700 transition-colors"
-                    title="Compartilhar no Twitter"
-                  >
-                    <Twitter size={16} />
-                  </a>
-                  <a 
-                    href={`mailto:?subject=${encodeURIComponent("Depoimento sobre Débora Bolangno")}&body=${encodeURIComponent(`Confira este depoimento: "${t.text}"\n\nSaiba mais em: ${window.location.href}`)}`}
-                    className="p-2 hover:bg-brand-50 rounded-full text-ink/30 hover:text-brand-700 transition-colors"
-                    title="Compartilhar por E-mail"
-                  >
-                    <Mail size={16} />
-                  </a>
+                  <p className="text-sm font-bold text-ink mb-0.5">{t.name}</p>
+                  <p className="text-[10px] uppercase tracking-widest text-ink/40 font-medium">{t.role}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -648,293 +480,170 @@ const Testimonials = () => {
   );
 };
 
-const Programs = () => {
+const Qualification = () => {
+  return (
+    <section className="bg-verde py-20 px-8 text-creme text-center overflow-hidden relative">
+      <div className="max-w-[800px] mx-auto relative z-10">
+        <h2 className="font-serif text-[clamp(24px,2.5vw,36px)] font-bold italic leading-tight mb-8">
+          "Para quem o sucesso atual já não é mais suficiente e a próxima etapa exige uma nova versão de si mesmo."
+        </h2>
+        <div className="w-16 h-px bg-creme/20 mx-auto mb-8"></div>
+        <p className="font-cormorant text-[20px] text-creme/70 tracking-wide font-medium">
+          Mentoria focada em posições de liderança, gestão e transições estratégicas.
+        </p>
+      </div>
+      <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] opacity-5 pointer-events-none" referrerPolicy="no-referrer" />
+    </section>
+  );
+};
+
+const ProgramsGrid = () => {
   const cards = [
     {
-      id: "individual",
-      icon: <TrendingUp className="text-gold" strokeWidth={1} size={72} />,
-      badge: "MENTORIA INDIVIDUAL",
-      journey: "Clareza e Direção",
-      program: "Coaching & Mentoria de Carreira",
-      description: "Processo estruturado com técnicas de coaching e mentoria para quem busca acelerar sua evolução e conquistar novos patamares profissionais.",
-      bullets: [
-        "8 sessões individuais quinzenais",
-        "Acompanhamento estratégico próximo",
-        "Plano de voo customizado"
-      ],
-      ctaText: "Agendar Conversa",
-      ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, tenho interesse na mentoria individual.")}`,
-      ctaType: "solid",
-      pageLink: "mentoria-individual.html"
+      title: "Mentoria Individual",
+      subtitle: "GESTÃO DE CARREIRA",
+      desc: "Processo personalizado de 8 sessões para quem busca clareza, segurança na tomada de decisão e avanço na velocidade que merece.",
+      features: ["Diagnóstico 360º", "Plano de Voo Individual", "Sessões Online de 1h"],
+      icon: <Target size={24} />,
+      link: "mentoria-individual.html",
+      whatsapp: "Olá, gostaria de saber mais sobre a mentoria individual."
     },
     {
-      id: "marca",
-      icon: <Target className="text-gold" strokeWidth={1} size={72} />,
-      badge: "POSICIONAMENTO",
-      journey: "Marca Intencional",
-      program: "Mentoria de Autoridade",
-      description: "Domine sua narrativa, construa autoridade inquestionável e torne-se a primeira opção nos grandes projetos e decisões do mercado.",
-      bullets: [
-        "Definição de diferenciais competitivos",
-        "Estratégia de LinkedIn e imagem digital",
-        "Gestão de reputação e influência"
-      ],
-      ctaText: "Construir Autoridade",
-      ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, gostaria de saber mais informações sobre a Mentoria Marca Intencional.")}`,
-      ctaType: "outline",
-      pageLink: "marca-intencional.html"
+      title: "Marca Intencional",
+      subtitle: "POSICIONAMENTO",
+      desc: "Domine sua narrativa e construa autoridade inquestionável para ser a primeira opção nos grandes projetos do mercado.",
+      features: ["Estratégia de LinkedIn", "Netweaving de Valor", "Personal Branding"],
+      icon: <Award size={24} />,
+      link: "marca-intencional.html",
+      whatsapp: "Olá, gostaria de saber mais sobre o programa Marca Intencional."
     },
     {
-      id: "lider",
-      icon: <Users className="text-gold" strokeWidth={1} size={72} />,
-      badge: "MENTORIA EM GRUPO",
-      journey: "Liderança Atualizada",
-      program: "Gestão Moderna & Performance",
-      description: "Saia do operacional e torne-se um gestor que inspira, delega com segurança e constrói times de alta performance e autogerenciáveis.",
-      bullets: [
-        "Sessões ao vivo (Próxima turma)",
-        "Lista de espera prioritária",
-        "Métodos práticos de gestão"
-      ],
-      ctaText: "Entrar na Lista",
-      ctaLink: "https://forms.gle/H79mZQTr5WbQpuwD8",
-      ctaType: "solid",
-      pageLink: "lideranca-atualizada.html"
+      title: "Liderança Atualizada",
+      subtitle: "MENTORIA EM GRUPO",
+      desc: "Saia do operacional e torne-se o gestor que inspira, delega com segurança e constrói times de alta performance.",
+      features: ["Aulas em Grupo", "Ferramentas Gerenciais", "Próxima Turma em Breve"],
+      icon: <Users size={24} />,
+      link: "lideranca-atualizada.html",
+      whatsapp: "Olá, gostaria de entrar na lista de espera para a mentoria em grupo."
     },
     {
-      id: "comunidade",
-      icon: <Trees className="text-gold" strokeWidth={1} size={72} />,
-      badge: "COMUNIDADE · ANUAL",
-      journey: "Comunidade Sequoia",
-      program: "Rede de Alta Performance",
-      description: "Um ecossistema de líderes onde as raízes se entrelaçam para sustentar um crescimento inabalável e conexões de alto valor.",
-      bullets: [
-        "Encontros quinzenais ao vivo",
-        "Inteligência coletiva e networking",
-        "Sessão individual bônus"
-      ],
-      ctaText: "Acessar Sequoia",
-      ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, me interessei em entrar no grupo da Sequoia.")}`,
-      ctaType: "outline",
-      pageLink: "sequoia.html",
-      urgency: "⚡ 97% das vagas preenchidas"
+      title: "Comunidade Sequoia",
+      subtitle: "ECOSSISTEMA",
+      desc: "Um grupo seleto de líderes onde as raízes se entrelaçam para sustentar um crescimento inabalável e conexões de alto valor.",
+      features: ["Encontros Quinzenais", "Networking Estratégico", "Sessão Individual Bônus"],
+      icon: <Trees size={24} />,
+      link: "sequoia.html",
+      whatsapp: "Olá, gostaria de saber mais sobre a Comunidade Sequoia."
     },
     {
-      id: "empresa",
-      icon: <Mic className="text-gold" strokeWidth={1} size={72} />,
-      badge: "CORPORATIVO",
-      journey: "Palestras & Workshops",
-      program: "Desenvolvimento de Times",
-      description: "Conteúdos customizados sobre liderança e carreira para empresas que desejam elevar o patamar de seus talentos e gestores.",
-      bullets: [
-        "Workshops interativos de alto impacto",
-        "Conteúdo desenhado sob medida",
-        "Formatos flexíveis (Online/Presencial)"
-      ],
-      ctaText: "Solicitar Proposta",
-      ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, me interessei no desenvolvimento para minha empresa. Gostaria de mais informações.")}`,
-      ctaType: "outline",
-      pageLink: "palestras.html"
+      title: "Palestras & Workshops",
+      subtitle: "CORPORATIVO",
+      desc: "Treinamentos customizados sobre liderança e carreira para empresas que desejam elevar o patamar de seus talentos.",
+      features: ["Conteúdo sob medida", "Formato Presencial/Online", "Foco em Engajamento"],
+      icon: <Mic size={24} />,
+      link: "palestras.html",
+      whatsapp: "Olá, gostaria de solicitar uma proposta de palestra para minha empresa."
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.8, ease: [0.165, 0.84, 0.44, 1] }
-    }
-  };
-
   return (
-    <motion.section 
-      id="programas" 
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      className="py-32 bg-[#020a08] relative overflow-hidden"
-    >
-      {/* Dynamic Background Effects */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-900/10 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/4 animate-pulse"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold/5 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/4"></div>
-
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10"
-      >
-        <div className="flex flex-col items-center mb-24">
-          <motion.div 
-            variants={itemVariants}
-            className="flex items-center gap-4 mb-8"
-          >
-            <div className="w-12 h-px bg-gold/40"></div>
-            <span className="text-[11px] text-gold tracking-[0.5em] uppercase font-black">
-              Ecosssistema de Soluções
-            </span>
-            <div className="w-12 h-px bg-gold/40"></div>
-          </motion.div>
-          
-          <motion.h2 
-            variants={itemVariants}
-            className="font-serif text-5xl md:text-8xl text-white font-black mb-10 text-center leading-[1.1]"
-          >
-            Seu próximo <span className="italic font-light text-gold/90 serif">salto</span> estratégico
-          </motion.h2>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-white/40 text-lg max-w-2xl text-center font-light tracking-wide"
-          >
-            Escolha o caminho ideal para sua atual fase de carreira e desenvolvimento.
-          </motion.p>
+    <section id="programas" className="bg-white py-24 px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-20">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-4 block">Ecossistema de Soluções</span>
+          <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink">
+            O seu próximo <span className="italic text-highlight">salto estratégico</span> começa aqui.
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cards.map((card) => (
-            <motion.div
-              key={card.id}
-              variants={itemVariants}
-              whileHover={{ 
-                y: -15,
-                transition: { duration: 0.5, ease: [0.165, 0.84, 0.44, 1] }
-              }}
-              className="group bg-white/[0.03] backdrop-blur-xl border border-white/10 p-10 md:p-12 rounded-[3.5rem] flex flex-col text-left transition-all duration-700 hover:bg-white/[0.06] hover:border-gold/40 hover:shadow-[0_30px_100px_rgba(0,0,0,0.5)]"
-            >
-              <div className="flex justify-between items-start mb-12">
-                <motion.div 
-                  className="relative"
-                >
-                  <div className="absolute inset-0 bg-gold/20 blur-2xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-700"></div>
-                  <div className="relative text-gold transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-700">
-                    {card.icon}
-                  </div>
-                </motion.div>
-                <div className="text-[9px] uppercase tracking-[0.2em] font-black text-gold/50 py-2.5 px-5 rounded-full border border-gold/10 bg-gold/5 group-hover:border-gold/30 group-hover:text-gold/80 transition-all">
-                  {card.badge}
-                </div>
+          {cards.map((card, i) => (
+            <div key={i} className="bg-white p-12 border border-ink/6 rounded-[40px] flex flex-col hover:border-verde-med/20 hover:shadow-[0_20px_50px_rgba(26,58,46,0.08)] transition-all group">
+              <div className="w-14 h-14 bg-creme rounded-2xl flex items-center justify-center text-verde mb-8 group-hover:bg-verde group-hover:text-creme transition-colors">
+                {card.icon}
               </div>
-
-              <h3 className="font-serif text-3xl lg:text-5xl text-white font-bold mb-5 leading-tight group-hover:text-gold transition-colors duration-500">
-                {card.journey}
-              </h3>
-
-              <div className="text-[11px] text-gold/40 uppercase tracking-[0.3em] font-black mb-8 group-hover:text-gold/60 transition-colors">
-                {card.program}
-              </div>
-
-              <p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 min-h-[5rem]">
-                {card.description}
-              </p>
-
-              <div className="space-y-4 mb-12">
-                {card.bullets.map((bullet, idx) => (
-                  <div key={idx} className="flex items-center gap-4 text-sm text-white/40 group-hover:text-white/60 transition-colors">
-                    <div className="w-1.5 h-1.5 rounded-full bg-gold/30 group-hover:bg-gold/60 transition-colors"></div>
-                    <span className="font-light">{bullet}</span>
-                  </div>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-ink/35 font-black mb-4">{card.subtitle}</p>
+              <h3 className="font-serif text-[28px] font-bold text-ink leading-tight mb-6">{card.title}</h3>
+              <p className="text-[15px] text-ink/65 leading-[1.65] mb-8">{card.desc}</p>
+              
+              <ul className="space-y-3 mb-10">
+                {card.features.map((f, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-[13px] text-ink/75">
+                    <Check size={14} className="text-verde" />
+                    {f}
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              {card.urgency && (
-                <div className="mb-10 p-4 rounded-3xl bg-gold/5 border border-gold/10 text-[9px] uppercase font-black tracking-[0.2em] text-gold/70 text-center">
-                  {card.urgency}
-                </div>
-              )}
-
-              <div className="mt-auto flex flex-col gap-4">
-                <a
-                  href={card.ctaLink}
+              <div className="mt-auto space-y-3">
+                <a 
+                  href={`https://wa.me/5511940803333?text=${encodeURIComponent(card.whatsapp)}`}
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-5 px-8 rounded-full text-center text-[11px] uppercase tracking-[0.2em] font-black transition-all duration-500 bg-gold text-[#0a1a14] hover:bg-white hover:text-brand-950 shadow-2xl shadow-gold/10 flex items-center justify-center gap-3 group/btn hover:scale-[1.02]"
+                  rel="noopener"
+                  className="block w-full bg-verde text-creme py-4 rounded-full text-[10px] uppercase tracking-[0.25em] font-bold text-center hover:bg-[#112e28] transition-colors"
                 >
-                  {card.ctaText}
-                  <ChevronRight size={16} className="group-hover/btn:translate-x-1.5 transition-transform" />
+                  Agendar conversa
                 </a>
-                
-                <a
-                  href={card.pageLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-5 px-8 rounded-full text-center text-[10px] uppercase tracking-[0.2em] font-black text-white/30 border border-white/5 hover:border-gold/30 hover:bg-white/5 hover:text-white transition-all duration-500"
+                <a 
+                  href={card.link}
+                  className="block w-full border-2 border-ink/10 py-4 rounded-full text-[10px] uppercase tracking-[0.25em] font-bold text-center text-ink/60 hover:bg-ink hover:text-white transition-all"
                 >
-                  Explorar Detalhes
+                  Ver detalhes
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 
 
 const Lectures = () => {
-  const topics = [
-    { title: "Como se manter relevante no mercado atual", desc: "Competências essenciais para relevância no mundo em transformação." },
-    { title: "Comunicação com clareza e influência", desc: "Como desenvolver autoridade e impacto na comunicação profissional." },
-    { title: "Liderança que gera engajamento", desc: "Como gerir pessoas e times com mais resultado e menos desgaste." },
-    { title: "Tomada de decisão com mais segurança", desc: "Clareza sobre si mesmo como ponto de partida para decisões melhores." },
-    { title: "Gestão de tempo e prioridades", desc: "Foco estratégico e priorização em ambientes de alta demanda." },
-    { title: "Protagonismo na carreira", desc: "Posicionamento intencional para profissionais que querem mais." },
+  const lectures = [
+    {
+      title: "Liderança na Era da Incerteza",
+      desc: "Como guiar times de alta performance em cenários de mudança constante e pressão por resultados."
+    },
+    {
+      title: "Comunicação de Impacto",
+      desc: "Domine a arte de influenciar, negociar e se posicionar com autoridade em reuniões de alto nível."
+    },
+    {
+      title: "Estratégia de Carreira 360º",
+      desc: "Saia do operacional e assuma o protagonismo da sua trajetória profissional com foco em crescimento."
+    }
   ];
 
   return (
-    <section id="palestras" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-20">
-        <div className="lg:sticky lg:top-32 h-fit mb-12 lg:mb-0">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-brand-600 font-bold mb-6 md:mb-8 block">
-            Temas validados
-          </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-black text-ink leading-tight mb-6 md:mb-8">
-            Palestras<br />
-            <span className="italic text-highlight">& Workshops</span><br />
-            Corporativos
-          </h2>
-          <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 md:mb-8 shadow-xl">
-            <img 
-              src="https://i.ibb.co/zW1TqSXh/Chat-GPT-Image-10-de-abr-de-2026-23-28-47.png" 
-              alt="Débora Bolangno realizando palestra sobre liderança executiva"
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-brand-900/20"></div>
+    <section id="palestras" className="bg-creme py-24 px-8 border-t border-ink/5">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col min-[900px]:flex-row justify-between items-start min-[900px]:items-end gap-10 mb-16">
+          <div className="max-w-[620px]">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-4 block">Palestras & Workshops</span>
+            <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink">
+              Conteúdo de <span className="italic text-highlight">alto impacto</span> para o seu time.
+            </h2>
           </div>
-          <p className="text-base md:text-lg text-ink/60 leading-relaxed">
-            Cada encontro pode ser customizado conforme a cultura e os desafios específicos da sua empresa.
-          </p>
+          <a 
+            href="https://wa.me/5511940803333?text=Olá,%20gostaria%20de%20receber%20um%20orçamento%20para%20palestras" 
+            target="_blank"
+            rel="noopener"
+            className="bg-verde text-white px-8 py-4 rounded-full text-[10px] uppercase tracking-[0.25em] font-bold hover:bg-[#112e28] transition-all"
+          >
+            Solicitar orçamento
+          </a>
         </div>
 
-        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-px bg-ink/5 border border-ink/5 rounded-3xl overflow-hidden">
-          {topics.map((topic, i) => (
-            <div key={i} className="bg-white p-8 md:p-10 hover:bg-brand-50/30 transition-colors group">
-              <div className="font-serif text-3xl md:text-4xl font-black text-brand-300/40 mb-4 md:mb-6 group-hover:text-brand-500/50 transition-colors">
-                {String(i + 1).padStart(2, '0')}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {lectures.map((l, i) => (
+            <div key={i} className="bg-white p-10 rounded-[32px] border border-ink/6 shadow-sm hover:shadow-xl transition-all">
+              <div className="w-10 h-10 bg-creme rounded-full flex items-center justify-center text-verde font-serif text-xl font-bold mb-6 italic">
+                {i + 1}.
               </div>
-              <h4 className="text-xl md:text-2xl font-bold text-ink mb-3 md:mb-4 group-hover:text-brand-800 transition-colors">
-                {topic.title}
-              </h4>
-              <p className="text-base md:text-lg text-ink/60 leading-relaxed">
-                {topic.desc}
-              </p>
+              <h3 className="font-serif text-2xl font-bold text-ink leading-tight mb-4">{l.title}</h3>
+              <p className="text-[15px] text-ink/65 leading-[1.6]">{l.desc}</p>
             </div>
           ))}
         </div>
@@ -944,51 +653,38 @@ const Lectures = () => {
 };
 
 const Differentials = () => {
+  const diffs = [
+    {
+      title: "+20 Anos de Mercado",
+      desc: "Experiência real em grandes corporações, vivendo na prática os desafios que você enfrenta hoje."
+    },
+    {
+      title: "Método Validado",
+      desc: "Processos estruturados que unem ferramentas executivas com inteligência emocional e prática."
+    },
+    {
+      title: "Foco em Execução",
+      desc: "Menos teoria abstrata e mais planos de ação concretos para resultados visíveis em curto prazo."
+    }
+  ];
+
   return (
-    <section className="py-24 bg-ink relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-[40rem] opacity-[0.03] pointer-events-none select-none -translate-x-1/4 -translate-y-1/4">
-        <img 
-          src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
-          alt="Logo Background Large" 
-          className="w-full h-auto object-contain"
-          referrerPolicy="no-referrer"
-        />
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
-        <div>
-          <span className="text-[10px] uppercase tracking-[0.3em] text-brand-400 font-bold mb-8 block">
-            Por que a Débora
-          </span>
-          <h2 className="font-serif text-4xl md:text-6xl font-black text-white leading-tight mb-10 text-balance">
-            Por que confiar sua carreira à Débora Bolangno?
-          </h2>
-          <div className="border-l-4 border-brand-600 pl-8">
-            <p className="font-cormorant italic text-2xl text-white/60 leading-relaxed">
-              "Carreira não se constrói apenas com competência. Se constrói com posicionamento, comunicação, decisões e coragem."
-            </p>
-          </div>
+    <section className="bg-verde py-24 px-8 text-creme">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center max-w-[680px] mx-auto mb-20">
+          <span className="text-[10px] uppercase tracking-[0.35em] text-creme/50 font-bold mb-5 block">Diferenciais</span>
+          <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15]">Por que Débora Bolangno?</h2>
         </div>
 
-        <div className="space-y-6">
-          {[
-            { num: "01", title: "Visão de Quem Vive o Jogo", desc: "Experiência prática e real em cargos de decisão no mundo corporativo. Não é apenas teoria, é vivência executiva." },
-            { num: "02", title: "Metodologia Sob Medida", desc: "Processos exclusivos e adaptados para os desafios específicos da alta gestão e liderança sênior." },
-            { num: "03", title: "Networking e Posicionamento", desc: "Foco estratégico em como ser visto, ouvido e respeitado nos círculos de influência e decisão." },
-          ].map((item) => (
-            <motion.div 
-              key={item.num}
-              whileHover={{ x: 10 }}
-              className="p-8 bg-white/[0.07] border border-white/10 rounded-2xl flex gap-8 items-start group hover:border-brand-500/40 transition-all"
-            >
-              <div className="font-serif text-5xl font-black text-brand-300/20 group-hover:text-brand-400/30 transition-colors">
-                {item.num}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {diffs.map((d, i) => (
+            <div key={i} className="bg-white/5 border border-white/10 p-12 rounded-[40px] hover:bg-white/10 transition-colors">
+              <div className="w-12 h-12 bg-dourado/20 rounded-2xl flex items-center justify-center text-dourado mb-8">
+                <Check size={24} />
               </div>
-              <div>
-                <h4 className="text-cream font-bold mb-2 group-hover:text-brand-300 transition-colors">{item.title}</h4>
-                <p className="text-sm text-cream/70 leading-relaxed">{item.desc}</p>
-              </div>
-            </motion.div>
+              <h3 className="font-serif text-2xl font-bold mb-4">{d.title}</h3>
+              <p className="text-creme/65 text-base leading-[1.65]">{d.desc}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -1012,7 +708,7 @@ const ContactModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-0 m-auto w-[92%] max-w-lg h-fit max-h-[90vh] bg-cream rounded-[2rem] md:rounded-[2.5rem] z-[70] overflow-hidden shadow-2xl flex flex-col"
+            className="fixed inset-0 m-auto w-[92%] max-w-lg h-fit max-h-[90vh] bg-creme rounded-[2rem] md:rounded-[2.5rem] z-[70] overflow-hidden shadow-2xl flex flex-col"
           >
             <div className="p-6 md:p-12 overflow-y-auto">
               <div className="flex justify-between items-start mb-6 md:mb-8">
@@ -1089,77 +785,24 @@ const ContactModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
   );
 };
 
-const CTA = ({ onOpenContact }: { onOpenContact: () => void }) => {
+const CTA = () => {
   return (
-    <section id="contato" className="py-24 bg-brand-700 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <img 
-          src="https://i.ibb.co/PG74Lqyg/Gemini-Generated-Image-fpo6d7fpo6d7fpo6.png" 
-          alt="Background Texture"
-          className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-        <div className="text-center lg:text-left">
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-7xl font-black text-white leading-[1.1] mb-6 md:mb-8 text-balance">
-            O próximo nível da sua carreira começa com uma <span className="opacity-50 italic">decisão estratégica.</span>
-          </h2>
-          <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8 md:mb-12 max-w-md mx-auto lg:mx-0">
-            Clique no botão abaixo para agendar uma breve conversa e entender como posso acelerar seus resultados.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4">
-            <motion.a 
-              href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20agendar%20uma%20conversa%20estratégica" 
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ scale: 1 }}
-              whileInView={{ 
-                scale: [1, 1.03, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              viewport={{ once: false }}
-              className="bg-white text-brand-700 px-8 md:px-10 py-4 md:py-5 rounded-full text-xs md:text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-3 hover:bg-brand-50 transition-all shadow-xl w-full sm:w-auto"
-            >
-              Quero agendar minha sessão
-              <ArrowRight size={18} />
-            </motion.a>
-            <button 
-              onClick={onOpenContact}
-              className="bg-transparent border border-white/30 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-xs md:text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-3 hover:bg-white/10 transition-all cursor-pointer w-full sm:w-auto"
-            >
-              Falar no WhatsApp
-              <MessageCircle size={18} />
-            </button>
-          </div>
-        </div>
-        
-        <div className="space-y-4">
-          {[
-            { icon: <Instagram size={20} />, label: "Instagram · @deborabolangno", href: "https://www.instagram.com/deborabolangno" },
-            { icon: <Linkedin size={20} />, label: "LinkedIn · Débora Bolangno", href: "https://www.linkedin.com/in/deborabolangno" },
-            { icon: <Mail size={20} />, label: "deborabolangno@outlook.com", href: "mailto:deborabolangno@outlook.com" },
-          ].map((link, i) => (
-            <a 
-              key={i}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 p-5 bg-white/10 border border-white/20 rounded-2xl text-white hover:bg-white/20 transition-all group"
-            >
-              <div className="text-brand-300 group-hover:scale-110 transition-transform">{link.icon}</div>
-              <span className="text-sm font-medium tracking-wide">{link.label}</span>
-              <ChevronRight size={16} className="ml-auto opacity-30 group-hover:opacity-100 transition-opacity" />
-            </a>
-          ))}
+    <section className="bg-creme-light py-24 text-center px-8 border-y border-ink/4">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="font-serif text-[clamp(28px,3.5vw,48px)] font-black text-ink leading-[1.1] mb-8 max-w-[800px] mx-auto">
+          Pronto para o seu <span className="italic text-highlight">próximo nível</span> na carreira?
+        </h2>
+        <p className="text-[18px] text-ink/70 max-w-[600px] mx-auto mb-10 leading-[1.6]">
+          Agende agora um diagnóstico estratégico e entenda como podemos acelerar seu crescimento e resultados.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20estratégico" target="_blank" rel="noopener" className="bg-verde text-white px-10 py-5 rounded-full text-[11px] uppercase tracking-[0.25em] font-bold hover:bg-[#112e28] transition-all flex items-center gap-3">
+            Agendar diagnóstico agora
+            <ArrowRight size={18} />
+          </a>
+          <a href="https://www.linkedin.com/in/deborabolangno" target="_blank" rel="noopener" className="border-2 border-ink/10 text-ink px-10 py-5 rounded-full text-[11px] uppercase tracking-[0.25em] font-bold hover:bg-ink hover:text-white transition-all">
+            Ver LinkedIn
+          </a>
         </div>
       </div>
     </section>
@@ -1168,37 +811,33 @@ const CTA = ({ onOpenContact }: { onOpenContact: () => void }) => {
 
 const Footer = () => {
   return (
-    <footer className="bg-ink py-16 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center sm:flex-row sm:justify-between gap-12 sm:gap-8 text-center sm:text-left">
-        {/* Logo & Name */}
-        <div className="flex flex-col items-center sm:items-start gap-4">
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-            <div className="w-10 h-10 flex items-center justify-center shrink-0">
-              <img 
-                src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
-                alt="Logo Débora Bolangno" 
-                className="w-full h-full object-contain brightness-0 invert"
-                referrerPolicy="no-referrer"
-              />
+    <footer className="bg-verde py-16 px-8 text-creme">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+        <div className="flex flex-col items-center md:items-start gap-4">
+          <div className="flex items-center gap-4">
+            <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" className="w-10 h-10 object-contain brightness-0 invert" />
+            <div className="flex flex-col">
+              <span className="font-serif text-xl font-bold leading-none mb-1">Débora Bolangno</span>
+              <span className="text-[9px] uppercase tracking-widest text-creme/40">Estratégia de Carreira & Liderança</span>
             </div>
-            <div className="font-serif text-white text-lg md:text-xl font-bold tracking-tight">
-              Débora Bolangno
-            </div>
-          </div>
-          <div className="text-white/30 text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-medium">
-            DB Consultoria & Estratégia
           </div>
         </div>
         
-        {/* Dev Info */}
-        <div className="flex flex-col items-center gap-3">
-          <div className="text-white/40 text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-medium flex flex-col sm:flex-row items-center gap-2">
-            <span>Desenvolvido por</span>
-            <a href="https://www.orvalia.com.br" target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:text-brand-300 transition-colors font-bold">Orvalia Studio</a>
-          </div>
-          <div className="text-white/20 text-[8px] md:text-[9px] uppercase tracking-widest">
-            © 2026 · Todos os direitos reservados
-          </div>
+        <div className="flex gap-6">
+          <a href="https://www.instagram.com/deborabolangno" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+            <Instagram size={18} />
+          </a>
+          <a href="https://www.linkedin.com/in/deborabolangno" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+            <Linkedin size={18} />
+          </a>
+          <a href="mailto:deborabolangno@outlook.com" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+            <Mail size={18} />
+          </a>
+        </div>
+
+        <div className="text-center md:text-right">
+          <p className="text-creme/40 text-[10px] uppercase tracking-[0.2em] font-medium mb-1">Desenvolvido por Orvalia Studio</p>
+          <p className="text-[10px] text-creme/20 uppercase tracking-widest">© 2026 Débora Bolangno · Todos os direitos reservados</p>
         </div>
       </div>
     </footer>
@@ -1249,16 +888,20 @@ export default function App() {
   };
 
   return (
-    <div className="selection:bg-brand-200 selection:text-brand-900 relative">
+    <div className="selection:bg-verde selection:text-white relative">
       <Navbar />
       <main>
         <Hero />
         <Marquee />
+        <SectionReveal><Identification /></SectionReveal>
+        <SectionReveal><ProofBar /></SectionReveal>
         <SectionReveal><About /></SectionReveal>
         <SectionReveal><Testimonials /></SectionReveal>
-        <Programs />
+        <SectionReveal><Qualification /></SectionReveal>
+        <ProgramsGrid />
+        <SectionReveal><Lectures /></SectionReveal>
         <SectionReveal><Differentials /></SectionReveal>
-        <CTA onOpenContact={() => setIsContactModalOpen(true)} />
+        <CTA />
       </main>
       <Footer />
 
@@ -1286,7 +929,7 @@ export default function App() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             onClick={scrollToTop}
-            className="p-4 bg-ink text-white rounded-full shadow-2xl hover:bg-brand-700 transition-all"
+            className="p-4 bg-verde text-creme rounded-full shadow-2xl hover:bg-verde-med transition-all"
           >
             <ArrowUp size={20} />
           </motion.button>
