@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -183,19 +183,6 @@
             object-position: center;
         }
 
-        @media (max-width: 1024px) {
-            .page-intro-inner { 
-                grid-template-columns: 1fr !important; 
-                text-align: center;
-                gap: 48px;
-            }
-            .intro-img { height: 400px; }
-        }
-        @media (max-width: 640px) {
-            .intro-img { height: 300px; }
-            .title-display { font-size: 40px !important; }
-        }
-    </style>
         /* Design based on Home Page Title Aesthetics */
         .page-intro {
             padding: 140px 0 80px;
@@ -335,9 +322,11 @@
         .btn-up { background-color: var(--brand-green); color: white; }
 
         @media (max-width: 1024px) {
+            .nav-menu { display: none; }
+            .nav-inner { padding: 0 24px; }
             .page-intro { padding: 120px 0 60px; }
             .page-intro-inner { 
-                grid-template-columns: 1fr; 
+                grid-template-columns: 1fr !important; 
                 gap: 48px;
                 text-align: center;
             }
@@ -347,7 +336,6 @@
             }
             .intro-subtitle { margin: 32px auto 0; }
             .title-divider { margin: 0 auto 40px !important; }
-            
             .pillars-grid { grid-template-columns: 1fr; }
         }
 
@@ -370,17 +358,17 @@
                 </div>
             </a>
             
-            <div class="nav-right">
-                <div class="nav-menu">
-                    <a href="index.html#sobre">Sobre</a>
-                    <a href="index.html#depoimentos">Depoimentos</a>
-                    <a href="index.html#programas">Programas</a>
-                    <a href="index.html#palestras">Palestras</a>
-                    <a href="index.html#contato">Contato</a>
+                <div class="nav-right">
+                    <div class="nav-menu">
+                        <a href="index.html#sobre">Sobre</a>
+                        <a href="index.html#depoimentos">Depoimentos</a>
+                        <a href="index.html#programas">Programas</a>
+                        <a href="index.html#palestras">Palestras</a>
+                        <a href="index.html#contato">Contato</a>
+                    </div>
+    
+                    <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20maiores%20informações" target="_blank" class="btn-nav">Solicitar Proposta</a>
                 </div>
-
-                <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20maiores%20informações" target="_blank" class="btn-nav">Solicitar Proposta</a>
-            </div>
         </div>
     </header>
 

@@ -237,59 +237,93 @@ const Navbar = () => {
 };
 
 const Hero = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+  };
+
   return (
     <section className="min-h-screen pt-20 flex items-center bg-creme overflow-hidden">
-      <div className="max-w-7xl mx-auto px-8 py-[60px] grid grid-cols-1 min-[900px]:grid-cols-2 gap-20 items-center w-full">
+      <motion.div 
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="max-w-7xl mx-auto px-8 py-[60px] grid grid-cols-1 min-[900px]:grid-cols-2 gap-20 items-center w-full"
+      >
         <div>
-          <div className="flex items-center gap-3 mb-5">
+          <motion.div variants={item} className="flex items-center gap-3 mb-5">
             <div className="w-12 h-px bg-verde-med"></div>
             <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold">
               Estrategista de Carreira · Débora Bolangno
             </span>
-          </div>
-          <h1 className="font-serif text-[clamp(36px,4.5vw,58px)] font-black leading-[1.08] text-ink mb-5">
+          </motion.div>
+          <motion.h1 variants={item} className="font-serif text-[clamp(42px,5vw,64px)] font-black leading-[1.05] text-ink mb-6">
             <span className="block">Você não está travado</span>
             <span className="block">por falta de capacidade.</span>
             <span className="block italic text-highlight">Está travado por falta de estratégia.</span>
-          </h1>
-          <p className="text-lg text-ink/65 max-w-[520px] leading-[1.65] mb-8">
+          </motion.h1>
+          <motion.p variants={item} className="text-xl text-ink/65 max-w-[520px] leading-[1.6] mb-10">
             Mentoria para profissionais que já performam — mas ainda não avançam na velocidade que deveriam.
-          </p>
-          <div className="grid grid-cols-2 gap-6 py-6 border-y border-ink/10 mb-9">
+          </motion.p>
+          <motion.div variants={item} className="grid grid-cols-2 gap-10 py-8 border-y border-ink/10 mb-10">
             <div>
-              <div className="font-serif text-[64px] font-black text-verde leading-none mb-1">+20</div>
-              <div className="text-[9px] uppercase tracking-[0.15em] font-semibold text-ink/40 leading-[1.4]">
+              <div className="font-serif text-[64px] font-black text-verde leading-none mb-2">+20</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-ink/40 leading-[1.4]">
                 Anos de experiência<br/>no mundo corporativo
               </div>
             </div>
             <div>
-              <div className="font-serif text-[64px] font-black text-verde leading-none mb-1">+250</div>
-              <div className="text-[9px] uppercase tracking-[0.15em] font-semibold text-ink/40 leading-[1.4]">
+              <div className="font-serif text-[64px] font-black text-verde leading-none mb-2">+250</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-ink/40 leading-[1.4]">
                 Profissionais<br/>impactados e mentorados
               </div>
             </div>
-          </div>
-          <div className="flex gap-3.5 flex-wrap">
-            <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20estratégico" target="_blank" rel="noopener" className="inline-flex items-center gap-2.5 bg-verde text-white px-7 py-3.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-700 transition-all hover:bg-[#112e28] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(26,58,46,0.25)] group">
+          </motion.div>
+          <motion.div variants={item} className="flex gap-4 flex-wrap">
+            <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20estratégico" target="_blank" rel="noopener" className="inline-flex items-center gap-3 bg-verde text-white px-8 py-4 rounded-full text-[11px] uppercase tracking-[0.25em] font-bold transition-all hover:bg-[#112e28] hover:-translate-y-1 hover:shadow-2xl hover:shadow-verde/20 group">
               Agendar diagnóstico estratégico
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </a>
-            <a href="#programas" className="inline-flex items-center gap-2.5 bg-transparent text-ink px-7 py-3.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-700 border-2 border-ink/20 transition-all hover:bg-ink hover:text-white">
-              Conhecer os programas
+            <a href="#programas" className="inline-flex items-center gap-3 bg-transparent text-ink px-10 py-4 rounded-full text-[11px] uppercase tracking-[0.25em] font-bold border-2 border-ink/20 transition-all hover:bg-ink hover:text-white">
+              Ver programas
             </a>
-          </div>
+          </motion.div>
         </div>
-        <div className="relative rounded-[40px] overflow-hidden aspect-[4/5] bg-verde shadow-[0_40px_100px_rgba(26,58,46,0.2)] border border-ink/5 min-[900px]:order-none order-first min-[900px]:max-h-none max-h-[420px]">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95, x: 20 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+          className="relative rounded-[48px] overflow-hidden aspect-[4/5] bg-verde shadow-2xl border border-ink/5 min-[900px]:order-none order-first"
+        >
           <img 
             src="https://i.ibb.co/N6D2hPBM/debora01.png" 
-            alt="Débora Bolangno - Estrategista de Carreira e Liderança Executiva" 
-            className="absolute w-full h-[110%] -top-[5%] object-cover transition-transform duration-800 hover:scale-103"
+            alt="Débora Bolangno" 
+            className="absolute w-full h-[110%] -top-[5%] object-cover transition-transform duration-[2s] hover:scale-105"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent"></div>
-          <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="" className="absolute top-7 right-7 w-20 opacity-8 pointer-events-none" referrerPolicy="no-referrer" />
-        </div>
-      </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+          <motion.img 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 0.1, x: 0 }}
+            transition={{ delay: 1.5, duration: 1 }}
+            src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
+            alt="" 
+            className="absolute top-10 right-10 w-24 pointer-events-none" 
+            referrerPolicy="no-referrer" 
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
@@ -362,24 +396,54 @@ const Identification = () => {
   return (
     <section className="bg-white py-24 px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="max-w-[620px] mx-auto text-center mb-16">
-          <span className="text-[10px] uppercase tracking-[0.35em] font-bold text-verde-med block mb-5">Você se reconhece aqui?</span>
-          <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink">
-            Se você sente que poderia estar<br />
-            em outro nível… <span className="italic text-highlight">você provavelmente está certo.</span>
-          </h2>
+        <div className="max-w-[700px] mx-auto text-center mb-20">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[10px] uppercase tracking-[0.35em] font-bold text-verde-med block mb-6"
+          >
+            Sintomas do Estancamento
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-serif text-[clamp(36px,4vw,56px)] font-black leading-[1.05] text-ink"
+          >
+            Se você sente que deveria estar<br />
+            em outro nível… <span className="italic text-highlight">provavelmente está certo.</span>
+          </motion.h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
           {points.map((point, i) => (
-            <div key={i} className="flex gap-4 bg-[#f8f6f2] border-l-4 border-dourado/40 p-6 transition-colors hover:border-dourado">
-              <span className="text-dourado font-bold text-lg leading-[1.6]">—</span>
-              <p className="text-[15px] text-ink/70 leading-[1.55]">{point}</p>
-            </div>
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
+              className="flex gap-6 bg-creme/30 p-8 rounded-[32px] border-l-4 border-transparent hover:border-dourado transition-all hover:bg-creme/50 group"
+            >
+              <div className="w-10 h-10 rounded-full bg-dourado/10 flex items-center justify-center shrink-0 group-hover:bg-dourado/20 transition-colors">
+                <Check size={18} className="text-dourado" />
+              </div>
+              <p className="text-[17px] text-ink/75 leading-relaxed font-medium">{point}</p>
+            </motion.div>
           ))}
         </div>
-        <p className="mt-14 text-center font-cormorant text-[22px] font-semibold text-verde tracking-tight">
-          O problema não é esforço. É falta de clareza estratégica.
-        </p>
+        
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8 }}
+          className="mt-20 text-center font-cormorant text-[26px] font-semibold text-verde/60 italic max-w-2xl mx-auto"
+        >
+          "O esforço desgovernado consome você. A estratégia clara liberta você."
+        </motion.p>
       </div>
     </section>
   );
@@ -544,24 +608,51 @@ const PresenceGallery = () => {
   return (
     <section className="bg-creme py-24 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-verde-med block mb-12 text-center">Presença & Atuação Executiva</span>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="relative rounded-[40px] overflow-hidden aspect-[4/3] shadow-2xl group">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="text-[10px] uppercase tracking-[0.4em] font-black text-verde-med block mb-4">Presença & Atuação</span>
+          <h2 className="font-serif text-[ clamp(32px,3vw,48px) ] font-black text-ink italic leading-none">A liderança através do olhar.</h2>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <motion.div 
+            initial={{ opacity: 0, scale: 1.05 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative rounded-[56px] overflow-hidden aspect-[4/3] shadow-2xl group cursor-none"
+          >
              <img 
               src="https://i.ibb.co/FkxQ8zKG/deborabolangoimage1.jpg" 
               alt="Débora Bolangno Atuação" 
-              className="w-full h-full object-cover object-[50%_20%] brightness-[1.08] contrast-[1.02] transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover object-[50%_20%] brightness-[1.08] contrast-[1.02] transition-transform duration-[2.5s] group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-          </div>
-          <div className="relative rounded-[40px] overflow-hidden aspect-[4/3] shadow-2xl group">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
+            <div className="absolute bottom-10 left-10 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+              <span className="text-[10px] uppercase tracking-widest font-bold">Domínio Legislativo</span>
+            </div>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 1.05 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="relative rounded-[56px] overflow-hidden aspect-[4/3] shadow-2xl group cursor-none"
+          >
              <img 
               src="https://i.ibb.co/PZS5bDgy/DEBORA-MARCA-PESSOAL.jpg" 
               alt="Débora Bolangno Liderança" 
-              className="w-full h-full object-cover object-[50%_15%] brightness-[1.08] contrast-[1.02] transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover object-[50%_15%] brightness-[1.08] contrast-[1.02] transition-transform duration-[2.5s] group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-          </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
+            <div className="absolute bottom-10 left-10 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+              <span className="text-[10px] uppercase tracking-widest font-bold">Atuação Executiva</span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -572,34 +663,70 @@ const Triagem = () => {
   return (
     <section className="bg-brand-950 py-24 px-8 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
-        <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-highlight block mb-5 text-center">Seu momento</span>
-        <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-black text-creme leading-tight text-center mb-16">
+        <motion.span 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-[10px] uppercase tracking-[0.3em] font-bold text-highlight block mb-5 text-center"
+        >
+          Seu momento
+        </motion.span>
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="font-serif text-[clamp(28px,3.5vw,44px)] font-black text-creme leading-tight text-center mb-16"
+        >
           Qual desses momentos descreve você hoje?
-        </h2>
+        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="marca-intencional.html" className="group bg-white/5 border border-white/10 p-10 rounded-3xl transition-all hover:bg-highlight/10 hover:border-highlight hover:-translate-y-2">
-            <div className="font-serif text-[44px] font-black text-highlight/20 leading-none mb-6">01</div>
-            <h3 className="font-serif text-2xl font-bold text-creme mb-4">Falta de direção</h3>
-            <p className="text-sm text-creme/50 leading-relaxed mb-8">Tenho competência, mas me falta clareza. Sinto que estou aquém do meu potencial e não sei qual é o próximo passo certo.</p>
-            <span className="text-[10px] uppercase tracking-widest font-bold text-highlight flex items-center gap-2 group-hover:gap-4 transition-all">Marca Intencional <ArrowRight size={14} /></span>
-          </a>
-          <a href="mentoria-individual.html" className="group bg-white/5 border border-white/10 p-10 rounded-3xl transition-all hover:bg-highlight/10 hover:border-highlight hover:-translate-y-2">
-            <div className="font-serif text-[44px] font-black text-highlight/20 leading-none mb-6">02</div>
-            <h3 className="font-serif text-2xl font-bold text-creme mb-4">Liderança travada</h3>
-            <p className="text-sm text-creme/50 leading-relaxed mb-8">Meu time depende demais de mim. Preciso evoluir como líder e gerar resultado sem precisar estar em tudo.</p>
-            <span className="text-[10px] uppercase tracking-widest font-bold text-highlight flex items-center gap-2 group-hover:gap-4 transition-all">Mentoria <ArrowRight size={14} /></span>
-          </a>
-          <a href="sequoia.html" className="group bg-white/5 border border-white/10 p-10 rounded-3xl transition-all hover:bg-highlight/10 hover:border-highlight hover:-translate-y-2 relative overflow-hidden">
-            <img 
-              src="https://i.ibb.co/Rkvpdqkr/logo-sequoia.png" 
-              alt="" 
-              className="absolute -right-10 -top-10 w-40 h-40 opacity-5 grayscale brightness-200 pointer-events-none group-hover:opacity-10 transition-opacity" 
-            />
-            <div className="font-serif text-[44px] font-black text-highlight/20 leading-none mb-6">03</div>
-            <h3 className="font-serif text-2xl font-bold text-creme mb-4">Crescimento isolado</h3>
-            <p className="text-sm text-creme/50 leading-relaxed mb-8">Falta troca com pessoas no meu nível. Quero crescer junto com quem entende o jogo — não sozinho.</p>
-            <span className="text-[10px] uppercase tracking-widest font-bold text-highlight flex items-center gap-2 group-hover:gap-4 transition-all">Comunidade Sequoia <ArrowRight size={14} /></span>
-          </a>
+          {[
+            {
+              href: "marca-intencional.html",
+              num: "01",
+              title: "Falta de direção",
+              desc: "Tenho competência, mas me falta clareza. Sinto que estou aquém do meu potencial e não sei qual é o próximo passo certo.",
+              label: "Marca Intencional"
+            },
+            {
+              href: "mentoria-individual.html",
+              num: "02",
+              title: "Liderança travada",
+              desc: "Meu time depende demais de mim. Preciso evoluir como líder e gerar resultado sem precisar estar em tudo.",
+              label: "Mentoria"
+            },
+            {
+              href: "sequoia.html",
+              num: "03",
+              title: "Crescimento isolado",
+              desc: "Falta troca com pessoas no meu nível. Quero crescer junto com quem entende o jogo — não sozinho.",
+              label: "Comunidade Sequoia",
+              extra: (
+                <img 
+                  src="https://i.ibb.co/Rkvpdqkr/logo-sequoia.png" 
+                  alt="" 
+                  className="absolute -right-10 -top-10 w-40 h-40 opacity-5 grayscale brightness-200 pointer-events-none group-hover:opacity-10 transition-opacity" 
+                />
+              )
+            }
+          ].map((item, i) => (
+            <motion.a 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.7 }}
+              href={item.href} 
+              className="group bg-white/5 border border-white/10 p-10 rounded-3xl transition-all hover:bg-highlight/10 hover:border-highlight hover:-translate-y-2 relative overflow-hidden"
+            >
+              {item.extra}
+              <div className="font-serif text-[44px] font-black text-highlight/20 leading-none mb-6">{item.num}</div>
+              <h3 className="font-serif text-2xl font-bold text-creme mb-4">{item.title}</h3>
+              <p className="text-sm text-creme/50 leading-relaxed mb-8">{item.desc}</p>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-highlight flex items-center gap-2 group-hover:gap-4 transition-all">{item.label} <ArrowRight size={14} /></span>
+            </motion.a>
+          ))}
         </div>
       </div>
     </section>
@@ -830,15 +957,35 @@ const ProgramsGrid = () => {
     <section id="programas" className="bg-white py-24 px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-4 block">Ecossistema de Soluções</span>
-          <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink">
+          <motion.span 
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-4 block"
+          >
+            Ecossistema de Soluções
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink"
+          >
             O seu próximo <span className="italic text-highlight">salto estratégico</span> começa aqui.
-          </h2>
+          </motion.h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cards.map((card, i) => (
-            <div key={i} className="bg-white p-12 border border-ink/6 rounded-[40px] flex flex-col hover:border-verde-med/20 hover:shadow-[0_20px_50px_rgba(26,58,46,0.08)] transition-all group">
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.8 }}
+              className="bg-white p-12 border border-ink/6 rounded-[40px] flex flex-col hover:border-verde-med/20 hover:shadow-[0_40px_80px_rgba(26,58,46,0.08)] transition-all group"
+            >
               <div className="w-14 h-14 bg-creme rounded-2xl flex items-center justify-center text-verde mb-8 group-hover:bg-verde group-hover:text-creme transition-colors">
                 {card.icon}
               </div>
@@ -871,7 +1018,7 @@ const ProgramsGrid = () => {
                   Ver detalhes
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -903,30 +1050,54 @@ const Lectures = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col min-[900px]:flex-row justify-between items-start min-[900px]:items-end gap-10 mb-16">
           <div className="max-w-[620px]">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-4 block">Palestras & Workshops</span>
-            <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink">
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-4 block"
+            >
+              Palestras & Workshops
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink"
+            >
               Conteúdo de <span className="italic text-highlight">alto impacto</span> para o seu time.
-            </h2>
+            </motion.h2>
           </div>
-          <a 
+          <motion.a 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
             href="https://wa.me/5511940803333?text=Olá,%20gostaria%20de%20receber%20um%20orçamento%20para%20palestras" 
             target="_blank"
             rel="noopener"
             className="bg-verde text-white px-8 py-4 rounded-full text-[10px] uppercase tracking-[0.25em] font-bold hover:bg-[#112e28] transition-all"
           >
             Solicitar orçamento
-          </a>
+          </motion.a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {lectures.map((l, i) => (
-            <div key={i} className="bg-white p-10 rounded-[32px] border border-ink/6 shadow-sm hover:shadow-xl transition-all">
-              <div className="w-10 h-10 bg-creme rounded-full flex items-center justify-center text-verde font-serif text-xl font-bold mb-6 italic">
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.7 }}
+              className="bg-white p-10 rounded-[40px] border border-ink/6 shadow-sm hover:shadow-xl transition-all group"
+            >
+              <div className="w-12 h-12 bg-creme rounded-2xl flex items-center justify-center text-verde font-serif text-xl font-bold mb-8 italic group-hover:bg-verde group-hover:text-white transition-colors transition-duration-500">
                 {i + 1}.
               </div>
               <h3 className="font-serif text-2xl font-bold text-ink leading-tight mb-4">{l.title}</h3>
-              <p className="text-[15px] text-ink/65 leading-[1.6]">{l.desc}</p>
-            </div>
+              <p className="text-[17px] text-ink/65 leading-relaxed">{l.desc}</p>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -951,22 +1122,44 @@ const Differentials = () => {
   ];
 
   return (
-    <section className="bg-verde py-24 px-8 text-creme">
+    <section className="bg-verde py-24 px-8 text-creme overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-[680px] mx-auto mb-20">
-          <span className="text-[10px] uppercase tracking-[0.35em] text-creme/50 font-bold mb-5 block">Diferenciais</span>
-          <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15]">Por que Débora Bolangno?</h2>
+          <motion.span 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-[10px] uppercase tracking-[0.35em] text-creme/50 font-bold mb-5 block"
+          >
+            Diferenciais
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15]"
+          >
+            Por que Débora Bolangno?
+          </motion.h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {diffs.map((d, i) => (
-            <div key={i} className="bg-white/5 border border-white/10 p-12 rounded-[40px] hover:bg-white/10 transition-colors">
-              <div className="w-12 h-12 bg-dourado/20 rounded-2xl flex items-center justify-center text-dourado mb-8">
-                <Check size={24} />
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.7 }}
+              className="bg-white/5 border border-white/10 p-12 rounded-[48px] hover:bg-white/10 transition-all hover:scale-[1.02]"
+            >
+              <div className="w-14 h-14 bg-dourado/20 rounded-2xl flex items-center justify-center text-dourado mb-8">
+                <Check size={28} strokeWidth={3} />
               </div>
               <h3 className="font-serif text-2xl font-bold mb-4">{d.title}</h3>
-              <p className="text-creme/65 text-base leading-[1.65]">{d.desc}</p>
-            </div>
+              <p className="text-creme/65 text-lg leading-relaxed">{d.desc}</p>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -1128,10 +1321,10 @@ const Footer = () => {
 
 const SectionReveal = ({ children }: { children: React.ReactNode }) => (
   <motion.div
-    initial={{ opacity: 0, y: 40 }}
+    initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-100px" }}
-    transition={{ duration: 0.8, ease: "easeOut" }}
+    viewport={{ once: true, margin: "-120px" }}
+    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
   >
     {children}
   </motion.div>
