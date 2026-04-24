@@ -665,7 +665,7 @@ const Programs = () => {
       ctaText: "Agendar Conversa",
       ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, tenho interesse na mentoria individual.")}`,
       ctaType: "solid",
-      pageLink: "/mentoria-individual.html"
+      pageLink: "mentoria-individual.html"
     },
     {
       id: "marca",
@@ -682,7 +682,7 @@ const Programs = () => {
       ctaText: "Construir Autoridade",
       ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, gostaria de saber mais informações sobre a Mentoria Marca Intencional.")}`,
       ctaType: "outline",
-      pageLink: "/marca-intencional.html"
+      pageLink: "marca-intencional.html"
     },
     {
       id: "lider",
@@ -699,7 +699,7 @@ const Programs = () => {
       ctaText: "Entrar na Lista",
       ctaLink: "https://forms.gle/H79mZQTr5WbQpuwD8",
       ctaType: "solid",
-      pageLink: "/lideranca-atualizada.html"
+      pageLink: "lideranca-atualizada.html"
     },
     {
       id: "comunidade",
@@ -716,7 +716,7 @@ const Programs = () => {
       ctaText: "Acessar Sequoia",
       ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, me interessei em entrar no grupo da Sequoia.")}`,
       ctaType: "outline",
-      pageLink: "/sequoia.html",
+      pageLink: "sequoia.html",
       urgency: "⚡ 97% das vagas preenchidas"
     },
     {
@@ -734,7 +734,7 @@ const Programs = () => {
       ctaText: "Solicitar Proposta",
       ctaLink: `https://wa.me/5511940803333?text=${encodeURIComponent("Olá, me interessei no desenvolvimento para minha empresa. Gostaria de mais informações.")}`,
       ctaType: "outline",
-      pageLink: "/palestras.html"
+      pageLink: "palestras.html"
     }
   ];
 
@@ -869,6 +869,8 @@ const Programs = () => {
                 
                 <a
                   href={card.pageLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full py-5 px-8 rounded-full text-center text-[10px] uppercase tracking-[0.2em] font-black text-white/30 border border-white/5 hover:border-gold/30 hover:bg-white/5 hover:text-white transition-all duration-500"
                 >
                   Explorar Detalhes
