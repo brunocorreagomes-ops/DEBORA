@@ -403,7 +403,7 @@ const Identification = () => {
             viewport={{ once: true }}
             className="text-[10px] uppercase tracking-[0.35em] font-bold text-verde-med block mb-6"
           >
-            Sintomas do Estancamento
+            Sintomas da Estagnação
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -470,7 +470,7 @@ const About = () => {
           </h2>
           <div className="space-y-6 text-lg text-ink/75 leading-[1.65]">
             <p>Com mais de 20 anos de trajetória no mundo corporativo, Débora Bolangno especializou-se em desenvolver líderes e acelerar carreiras de alto nível.</p>
-            <p>Sua abordagem une visão estratégica, inteligência emocional e ferramentas práticas para quem não aceita o estancamento e busca o próximo nível de influência e resultado.</p>
+            <p>Sua abordagem une visão estratégica, inteligência emocional e ferramentas práticas para quem não aceita a estagnação e busca o próximo nível de influência e resultado.</p>
             <p className="font-serif italic text-xl text-verde border-l-4 border-dourado pl-6 py-2">
               "Meu papel é encurtar o seu caminho entre onde você está hoje e a posição que você sabe que merece ocupar."
             </p>
@@ -827,7 +827,7 @@ const Quiz = () => {
   const r = results[resultType];
 
   const handleSend = () => {
-    if (!nome || !wa) return alert("Por favor preencha nome e WhatsApp");
+    if (!nome || !wa) return alert("Por favor, preencha nome e WhatsApp");
     const msg = encodeURIComponent(`🔔 *Novo lead — diagnóstico*\n\nNome: ${nome}\nWhatsApp: ${wa}\nResultado: *${r.produto}*\n\n---\n${r.msg}`);
     window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
     setShowResult(true);
@@ -1304,10 +1304,10 @@ const Footer = () => {
         </div>
 
         <div className="text-center md:text-right">
-          <p className="text-creme/30 text-[10px] font-mono uppercase tracking-[0.4em] mb-1">
+          <p className="text-creme/60 text-[11px] font-mono uppercase tracking-[0.4em] mb-1">
             Desenvolvido por <a href="https://www.orvalia.com.br" target="_blank" rel="noopener" className="hover:text-creme transition-colors underline underline-offset-4">Orvalia Studio</a>
           </p>
-          <p className="text-[10px] font-mono text-creme/30 uppercase tracking-[0.4em]">© 2026 Débora Bolangno · Todos os direitos reservados</p>
+          <p className="text-[11px] font-mono text-creme/60 uppercase tracking-[0.4em]">© 2026 Débora Bolangno · Todos os direitos reservados</p>
         </div>
       </div>
     </footer>
