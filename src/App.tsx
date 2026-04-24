@@ -399,7 +399,7 @@ const About = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
         </div>
         <div>
-          <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-6 block">Sobre Débora Bolangno</span>
+          <span className="text-[9px] font-mono uppercase tracking-[0.4em] text-verde-med/30 mb-6 block">Sobre Débora Bolangno</span>
           <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink mb-8">
             Estratégia, Liderança <br />
             <span className="italic text-highlight">& Execução Real.</span>
@@ -414,7 +414,7 @@ const About = () => {
           <div className="mt-12 flex items-center gap-4 border-t border-ink/10 pt-8">
             <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="" className="w-12 h-12 object-contain" referrerPolicy="no-referrer" />
             <div>
-              <p className="text-[10px] uppercase tracking-widest text-ink/40 font-bold mb-1">Formação & Expertise</p>
+              <p className="text-[9px] font-mono uppercase tracking-[0.4em] text-ink/20 mb-1">Formação & Expertise</p>
               <p className="text-sm text-ink/70 font-medium italic">Especialista em Desenvolvimento Humano e Estratégia de Carreira</p>
             </div>
           </div>
@@ -424,56 +424,99 @@ const About = () => {
   );
 };
 
-const Testimonials = () => {
+const TestimonialsLuxury = () => {
   const testimonials = [
     {
-      text: "Eu estava há meses travado em uma decisão de mudança de posição. A mentoria me trouxe clareza e segurança para agir. Hoje estou em um novo momento da carreira, muito mais alinhado com o que eu buscava.",
-      name: "Carlos Mendes",
-      role: "Gerente de TI"
+      text: "Cada encontro foi transformador — inspiração, provocação e prática real. Já estou aplicando no meu dia a dia como líder.",
+      name: "Lívia Alves",
+      role: "Gerente de Agência Bradesco",
+      image: "https://i.ibb.co/cSFbNmc2/LIVIA-ALVES-GERENTE-DE-AGENCIA-BRADESCO.jpg"
     },
     {
-      text: "O maior ganho foi conseguir organizar meu pensamento e me posicionar melhor como líder. Eu sabia tecnicamente o que fazer, mas faltava direção. Hoje consigo tomar decisões com muito mais confiança.",
-      name: "Ana Silveira",
-      role: "Diretora Comercial"
+      text: "Semanas muito valiosas. Saio com determinação para implementar tudo.",
+      name: "Anderson Alves dos Santos",
+      role: "CFP®",
+      image: null
+    },
+    {
+      text: "Levarei esses aprendizados comigo em cada desafio profissional.",
+      name: "Fredie Abrantes",
+      role: "Gerente de Agência Bradesco",
+      image: "https://i.ibb.co/d0t8pY9V/fredieabrantes-gerente-de-agencia-bradesco.jpg"
+    },
+    {
+      text: "Uma experiência que trouxe evolução real para executar no dia a dia.",
+      name: "Sara Martins",
+      role: "CEA",
+      image: "https://i.ibb.co/bx6PJ2t/sara.png"
     }
   ];
 
   return (
-    <section id="depoimentos" className="bg-creme-light py-24 px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col min-[900px]:flex-row justify-between items-start min-[900px]:items-end gap-10 mb-16">
-          <div className="max-w-[580px]">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-4 block">Prova Social</span>
-            <h2 className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink">
-              <span className="italic text-highlight">Resultados reais</span> de quem já passou pelo processo
-            </h2>
-          </div>
-          <div className="flex gap-4">
-            <div className="bg-creme p-4 md:p-6 rounded-2xl shadow-md border border-ink/5">
-              <span className="block font-serif text-3xl font-black text-verde">98%</span>
-              <span className="text-[9px] uppercase tracking-widest text-ink/40 font-bold">de satisfação</span>
-            </div>
-            <div className="bg-verde p-4 md:p-6 rounded-2xl shadow-md text-creme">
-              <span className="block font-serif text-3xl font-black">+250</span>
-              <span className="text-[9px] uppercase tracking-widest text-creme/50 font-bold">alcançados</span>
-            </div>
+    <section id="depoimentos" className="bg-brand-950 text-creme py-24 px-6 overflow-hidden">
+      <div className="max-w-[900px] mx-auto">
+        <h2 className="font-serif text-[42px] font-bold text-center mb-4 text-creme leading-tight">
+          Resultados reais de quem já viveu essa transformação
+        </h2>
+        <p className="font-sans text-center text-creme/60 mb-20">
+          Clareza, evolução e aplicação prática no dia a dia da liderança.
+        </p>
+
+        {/* DESTAQUE RENATA */}
+        <div className="mb-24 flex flex-col md:flex-row items-center gap-10 bg-white/5 p-10 rounded-[40px] border border-white/10">
+          <img 
+            src="https://i.ibb.co/0yLb61HN/Renata-Nazareth-de-Jesus-CEA-GERENTEGERAL-BRADESCO.jpg" 
+            alt="Renata Nazareth de Jesus" 
+            className="w-32 h-32 md:w-48 md:h-48 rounded-[32px] object-cover grayscale hover:grayscale-0 transition-all duration-500"
+          />
+          <div className="text-center md:text-left">
+            <p className="font-cormorant text-[26px] leading-[1.6] italic text-creme/90">
+              “Uma jornada rica e transformadora. Saio com novos olhares, insights valiosos e a certeza de evolução real como líder.”
+            </p>
+            <span className="block mt-5 text-[14px] tracking-widest font-bold text-highlight uppercase">
+              — Renata Nazareth de Jesus, CEA
+            </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* LISTA LIMPA */}
+        <div className="flex flex-col gap-12 mb-24">
           {testimonials.map((t, i) => (
-            <div key={i} className="bg-creme p-10 rounded-[28px] border border-ink/4 shadow-sm relative group hover:shadow-xl transition-all">
-              <div className="absolute top-8 right-10 text-dourado/20 font-serif text-[80px] leading-none select-none">"</div>
-              <p className="text-[17px] text-ink/75 leading-[1.65] italic mb-10 relative z-10">"{t.text}"</p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-verde flex items-center justify-center text-creme font-bold">{t.name[0]}</div>
-                <div>
-                  <p className="text-sm font-bold text-ink mb-0.5">{t.name}</p>
-                  <p className="text-[10px] uppercase tracking-widest text-ink/40 font-medium">{t.role}</p>
+            <div key={i} className="flex gap-6 items-start border-l border-white/10 pl-8 transition-all hover:border-highlight/50 group">
+              {t.image && (
+                <img 
+                  src={t.image} 
+                  alt={t.name} 
+                  className="w-16 h-16 rounded-2xl object-cover grayscale group-hover:grayscale-0 transition-all"
+                />
+              )}
+              <div>
+                <p className="font-cormorant text-[20px] leading-[1.6] text-creme/80 italic group-hover:text-creme transition-colors">
+                  “{t.text}”
+                </p>
+                <div className="mt-4 flex flex-col">
+                  <span className="text-[10px] font-mono text-creme/30 uppercase tracking-[0.3em]">— {t.name}{t.role ? `, ${t.role}` : ''}</span>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* INSTITUCIONAL GLAUCIMAR */}
+        <div className="border-t border-white/10 pt-16 flex flex-col items-center gap-8">
+          <img 
+            src="https://i.ibb.co/8DcshQsd/Glaucimar-Peticov-CEO.jpg" 
+            alt="Glaucimar Peticov" 
+            className="w-24 h-24 rounded-full object-cover grayscale border-2 border-verde-med/30"
+          />
+          <div className="text-center max-w-2xl">
+            <p className="font-cormorant text-[20px] text-creme/70 italic leading-relaxed">
+              “Carreiras são construídas pela consistência, pelo tempo e pelas trocas. É na colaboração que fortalecemos nossa trajetória e ampliamos nosso impacto.”
+            </p>
+            <span className="block mt-6 text-[13px] font-bold text-verde-med uppercase tracking-[0.2em]">
+              — Glaucimar Peticov (C-level | Executiva Bradesco)
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -497,6 +540,34 @@ const Qualification = () => {
   );
 };
 
+const PresenceGallery = () => {
+  return (
+    <section className="bg-creme py-24 px-6 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-verde-med block mb-12 text-center">Presença & Atuação Executiva</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="relative rounded-[40px] overflow-hidden aspect-[4/3] shadow-2xl group">
+             <img 
+              src="https://i.ibb.co/FkxQ8zKG/deborabolangoimage1.jpg" 
+              alt="Débora Bolangno Atuação" 
+              className="w-full h-full object-cover object-[50%_20%] brightness-[1.08] contrast-[1.02] transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          </div>
+          <div className="relative rounded-[40px] overflow-hidden aspect-[4/3] shadow-2xl group">
+             <img 
+              src="https://i.ibb.co/PZS5bDgy/DEBORA-MARCA-PESSOAL.jpg" 
+              alt="Débora Bolangno Liderança" 
+              className="w-full h-full object-cover object-[50%_15%] brightness-[1.08] contrast-[1.02] transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const Triagem = () => {
   return (
     <section className="bg-brand-950 py-24 px-8 border-t border-white/5">
@@ -518,7 +589,12 @@ const Triagem = () => {
             <p className="text-sm text-creme/50 leading-relaxed mb-8">Meu time depende demais de mim. Preciso evoluir como líder e gerar resultado sem precisar estar em tudo.</p>
             <span className="text-[10px] uppercase tracking-widest font-bold text-highlight flex items-center gap-2 group-hover:gap-4 transition-all">Mentoria <ArrowRight size={14} /></span>
           </a>
-          <a href="sequoia.html" className="group bg-white/5 border border-white/10 p-10 rounded-3xl transition-all hover:bg-highlight/10 hover:border-highlight hover:-translate-y-2">
+          <a href="sequoia.html" className="group bg-white/5 border border-white/10 p-10 rounded-3xl transition-all hover:bg-highlight/10 hover:border-highlight hover:-translate-y-2 relative overflow-hidden">
+            <img 
+              src="https://i.ibb.co/Rkvpdqkr/logo-sequoia.png" 
+              alt="" 
+              className="absolute -right-10 -top-10 w-40 h-40 opacity-5 grayscale brightness-200 pointer-events-none group-hover:opacity-10 transition-opacity" 
+            />
             <div className="font-serif text-[44px] font-black text-highlight/20 leading-none mb-6">03</div>
             <h3 className="font-serif text-2xl font-bold text-creme mb-4">Crescimento isolado</h3>
             <p className="text-sm text-creme/50 leading-relaxed mb-8">Falta troca com pessoas no meu nível. Quero crescer junto com quem entende o jogo — não sozinho.</p>
@@ -1042,8 +1118,8 @@ const Footer = () => {
         </div>
 
         <div className="text-center md:text-right">
-          <p className="text-creme/40 text-[10px] uppercase tracking-[0.2em] font-medium mb-1">Desenvolvido por Orvalia Studio</p>
-          <p className="text-[10px] text-creme/20 uppercase tracking-widest">© 2026 Débora Bolangno · Todos os direitos reservados</p>
+          <p className="text-creme/10 text-[8px] font-mono uppercase tracking-[0.4em] mb-1">Desenvolvido por Orvalia Studio</p>
+          <p className="text-[8px] font-mono text-creme/10 uppercase tracking-[0.4em]">© 2026 Débora Bolangno · Todos os direitos reservados</p>
         </div>
       </div>
     </footer>
@@ -1099,6 +1175,7 @@ export default function App() {
       <main>
         <Hero />
         <Marquee />
+        <PresenceGallery />
         <SectionReveal><Triagem /></SectionReveal>
         <div className="bg-creme py-32 px-8 text-center border-y border-ink/5">
           <p className="font-serif text-[clamp(28px,4vw,48px)] font-black text-ink leading-tight max-w-[680px] mx-auto mb-6">
@@ -1111,7 +1188,7 @@ export default function App() {
         <SectionReveal><Identification /></SectionReveal>
         <SectionReveal><ProofBar /></SectionReveal>
         <SectionReveal><About /></SectionReveal>
-        <SectionReveal><Testimonials /></SectionReveal>
+        <SectionReveal><TestimonialsLuxury /></SectionReveal>
         <SectionReveal><Qualification /></SectionReveal>
         <ProgramsGrid />
         <SectionReveal><Lectures /></SectionReveal>
