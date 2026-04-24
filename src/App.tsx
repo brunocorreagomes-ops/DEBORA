@@ -701,14 +701,7 @@ const Triagem = () => {
               num: "03",
               title: "Crescimento isolado",
               desc: "Falta troca com pessoas no meu nível. Quero crescer junto com quem entende o jogo — não sozinho.",
-              label: "Comunidade Sequoia",
-              extra: (
-                <img 
-                  src="https://i.ibb.co/Rkvpdqkr/logo-sequoia.png" 
-                  alt="" 
-                  className="absolute -right-10 -top-10 w-40 h-40 opacity-5 grayscale brightness-200 pointer-events-none group-hover:opacity-10 transition-opacity" 
-                />
-              )
+              label: "Comunidade Sequoia"
             }
           ].map((item, i) => (
             <motion.a 
@@ -1311,8 +1304,10 @@ const Footer = () => {
         </div>
 
         <div className="text-center md:text-right">
-          <p className="text-creme/10 text-[8px] font-mono uppercase tracking-[0.4em] mb-1">Desenvolvido por Orvalia Studio</p>
-          <p className="text-[8px] font-mono text-creme/10 uppercase tracking-[0.4em]">© 2026 Débora Bolangno · Todos os direitos reservados</p>
+          <p className="text-creme/30 text-[10px] font-mono uppercase tracking-[0.4em] mb-1">
+            Desenvolvido por <a href="https://www.orvalia.com.br" target="_blank" rel="noopener" className="hover:text-creme transition-colors underline underline-offset-4">Orvalia Studio</a>
+          </p>
+          <p className="text-[10px] font-mono text-creme/30 uppercase tracking-[0.4em]">© 2026 Débora Bolangno · Todos os direitos reservados</p>
         </div>
       </div>
     </footer>
