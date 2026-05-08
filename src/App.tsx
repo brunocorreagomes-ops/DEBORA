@@ -93,7 +93,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav 
+    <header><nav 
       className={`fixed top-0 left-0 right-0 z-[100] border-b transition-all duration-400 ${
         isScrolled 
           ? "bg-creme/96 backdrop-blur-md border-ink/6 shadow-lg shadow-verde/6" 
@@ -233,6 +233,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </nav>
+  </header>
   );
 };
 
@@ -254,7 +255,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen pt-20 flex items-center bg-creme overflow-hidden">
+    <section id="hero" className="min-h-screen pt-20 flex items-center bg-creme overflow-hidden">
       <motion.div 
         variants={container}
         initial="hidden"
@@ -394,7 +395,7 @@ const Identification = () => {
   ];
 
   return (
-    <section className="bg-white py-24 px-8">
+    <section id="metodologia" className="bg-white py-24 px-8">
       <div className="max-w-7xl mx-auto">
         <div className="max-w-[700px] mx-auto text-center mb-20">
           <motion.span 
@@ -947,7 +948,7 @@ const ProgramsGrid = () => {
   ];
 
   return (
-    <section id="programas" className="bg-white py-24 px-8">
+    <section id="programa" className="bg-white py-24 px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
           <motion.span 
@@ -1077,7 +1078,7 @@ const Lectures = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {lectures.map((l, i) => (
-            <motion.div 
+            <motion.article 
               key={i} 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1090,7 +1091,7 @@ const Lectures = () => {
               </div>
               <h3 className="font-serif text-2xl font-bold text-ink leading-tight mb-4">{l.title}</h3>
               <p className="text-[17px] text-ink/65 leading-relaxed">{l.desc}</p>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
@@ -1255,7 +1256,7 @@ const ContactModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 
 const CTA = () => {
   return (
-    <section className="bg-creme-light py-24 text-center px-8 border-y border-ink/4">
+    <section id="contato" className="bg-creme-light py-24 text-center px-8 border-y border-ink/4">
       <div className="max-w-7xl mx-auto">
         <h2 className="font-serif text-[clamp(28px,3.5vw,48px)] font-black text-ink leading-[1.1] mb-8 max-w-[800px] mx-auto">
           Pronto para o seu <span className="italic text-highlight">próximo nível</span> na carreira?
@@ -1385,6 +1386,7 @@ export default function App() {
         <CTA />
       </main>
       <Footer />
+
 
       <ContactModal 
         isOpen={isContactModalOpen} 
