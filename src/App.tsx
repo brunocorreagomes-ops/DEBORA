@@ -93,87 +93,89 @@ const Navbar = () => {
   };
 
   return (
-    <header><nav 
-      className={`fixed top-0 left-0 right-0 z-[100] border-b transition-all duration-400 ${
-        isScrolled 
-          ? "bg-white backdrop-blur-md border-ink/6 shadow-lg shadow-verde/6" 
-          : "bg-white border-ink/6"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex justify-between items-center">
-        <a 
-          href="#" 
-          onClick={(e) => scrollToSection(e, "#")}
-          className="flex items-center gap-3 group" 
-        >
-          <img 
-            src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
-            alt="Logo Débora Bolangno" 
-            className="w-11 h-11 object-contain group-hover:scale-110 transition-transform"
-            referrerPolicy="no-referrer"
-          />
-          <div className="flex flex-col">
-            <span className="font-serif text-lg font-bold text-ink leading-tight">
-              Débora Bolangno
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.2em] text-ink/40 font-medium">
-              Estratégia de Carreira & Liderança
-            </span>
-          </div>
-        </a>
-
-        <div className="hidden min-[900px]:flex items-center gap-10">
-          <div className="flex gap-1">
-            <a href="https://www.instagram.com/deborabolangno" target="_blank" rel="noopener" className="w-9 h-9 flex items-center justify-center text-ink/35 hover:text-verde transition-colors">
-              <Instagram size={17} />
-            </a>
-            <a href="https://www.linkedin.com/in/deborabolangno" target="_blank" rel="noopener" className="w-9 h-9 flex items-center justify-center text-ink/35 hover:text-verde transition-colors">
-              <Linkedin size={17} />
-            </a>
-            <a href="mailto:deborabolangno@outlook.com" className="w-9 h-9 flex items-center justify-center text-ink/35 hover:text-verde transition-colors">
-              <Mail size={17} />
-            </a>
-          </div>
-          <div className="flex gap-7">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                onClick={(e) => scrollToSection(e, link.href)}
-                className="text-[10px] uppercase tracking-[0.2em] font-semibold text-ink/55 hover:text-verde transition-all relative group"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-verde transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
-          </div>
+    <header>
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-[100] border-b transition-all duration-400 ${
+          isScrolled 
+            ? "bg-white backdrop-blur-md border-ink/6 shadow-lg shadow-verde/6" 
+            : "bg-white border-ink/6"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex justify-between items-center">
           <a 
-            href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20e%20gostaria%20de%20maiores%20informações" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-verde text-white px-6 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-[#112e28] hover:-translate-y-px transition-all whitespace-nowrap"
+            href="#" 
+            onClick={(e) => scrollToSection(e, "#")}
+            className="flex items-center gap-3 group" 
           >
-            Solicitar Proposta
+            <img 
+              src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
+              alt="Logo Débora Bolangno" 
+              className="w-11 h-11 object-contain group-hover:scale-110 transition-transform"
+              referrerPolicy="no-referrer"
+            />
+            <div className="flex flex-col">
+              <span className="font-serif text-lg font-bold text-ink leading-tight">
+                Débora Bolangno
+              </span>
+              <span className="text-[9px] uppercase tracking-[0.2em] text-ink/40 font-medium">
+                Estratégia de Carreira & Liderança
+              </span>
+            </div>
           </a>
-        </div>
 
-        <button 
-          className="min-[900px]:hidden text-ink p-2"
-          onClick={() => setIsMobileMenuOpen(true)}
-        >
-          <Menu size={24} />
-        </button>
-      </div>
+          <div className="hidden min-[900px]:flex items-center gap-10">
+            <div className="flex gap-1">
+              <a href="https://www.instagram.com/deborabolangno" target="_blank" rel="noopener" className="w-9 h-9 flex items-center justify-center text-ink/35 hover:text-verde transition-colors">
+                <Instagram size={17} />
+              </a>
+              <a href="https://www.linkedin.com/in/deborabolangno" target="_blank" rel="noopener" className="w-9 h-9 flex items-center justify-center text-ink/35 hover:text-verde transition-colors">
+                <Linkedin size={17} />
+              </a>
+              <a href="mailto:deborabolangno@outlook.com" className="w-9 h-9 flex items-center justify-center text-ink/35 hover:text-verde transition-colors">
+                <Mail size={17} />
+              </a>
+            </div>
+            <div className="flex gap-7">
+              {navLinks.map((link) => (
+                <a 
+                  key={link.name} 
+                  href={link.href} 
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  className="text-[10px] uppercase tracking-[0.2em] font-semibold text-ink/55 hover:text-verde transition-all relative group"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-verde transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              ))}
+            </div>
+            <a 
+              href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20e%20gostaria%20de%20maiores%20informações" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-verde text-white px-6 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-[#112e28] hover:-translate-y-px transition-all whitespace-nowrap"
+            >
+              Solicitar Proposta
+            </a>
+          </div>
+
+          <button 
+            className="min-[900px]:hidden text-ink p-2"
+            onClick={() => setIsMobileMenuOpen(true)}
+          >
+            <Menu size={24} />
+          </button>
+        </div>
+      </nav>
 
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <>
+          <div className="fixed inset-0 z-[2000]">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-white z-[190]"
+              className="fixed inset-0 bg-white"
             />
             
             <motion.div 
@@ -181,7 +183,7 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.35, ease: "easeOut" }}
-              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-[340px] bg-white z-[200] flex flex-col p-8 shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-[360px] bg-white flex flex-col p-8 shadow-2xl"
             >
               <div className="flex justify-between items-center mb-12">
                 <div className="flex items-center gap-3">
@@ -229,11 +231,10 @@ const Navbar = () => {
                 </a>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
-    </nav>
-  </header>
+    </header>
   );
 };
 

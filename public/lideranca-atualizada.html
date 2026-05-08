@@ -420,75 +420,76 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
             </button>
         </div>
-    
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 z-[200] hidden">
-            <div id="menu-backdrop" class="absolute inset-0 bg-white"></div>
-            <div id="menu-content" class="absolute top-0 right-0 bottom-0 w-[80%] max-w-[340px] bg-white flex flex-col p-8 shadow-2xl translate-x-full transition-transform duration-300">
-                <div class="flex justify-between items-center mb-12">
-                    <div class="flex items-center gap-3">
-                        <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" class="w-10 h-10 object-contain">
-                        <div class="flex flex-col">
-                            <span class="font-serif text-base font-bold text-ink">Débora Bolangno</span>
-                            <span class="text-[9px] uppercase tracking-[0.2em] text-ink/40 font-medium">Estratégia de Carreira</span>
-                        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[2000] hidden">
+        <div id="menu-backdrop" class="absolute inset-0 bg-white"></div>
+        <div id="menu-content" class="absolute top-0 right-0 bottom-0 w-[85%] max-w-[360px] bg-white flex flex-col p-8 shadow-2xl translate-x-full transition-transform duration-300">
+            <div class="flex justify-between items-center mb-12">
+                <div class="flex items-center gap-3">
+                    <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" class="w-10 h-10 object-contain">
+                    <div class="flex flex-col">
+                        <span class="font-serif text-base font-bold text-ink">Débora Bolangno</span>
+                        <span class="text-[9px] uppercase tracking-[0.2em] text-ink/40 font-medium">Estratégia de Carreira</span>
                     </div>
-                    <button id="menu-close" class="p-2 text-ink">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-                    </button>
                 </div>
-                <nav class="flex flex-col gap-7">
-                    <a href="index.html#sobre" class="text-2xl font-serif font-bold text-ink hover:text-verde">Sobre</a>
-                    <a href="index.html#depoimentos" class="text-2xl font-serif font-bold text-ink hover:text-verde">Depoimentos</a>
-                    <a href="index.html#programas" class="text-2xl font-serif font-bold text-ink hover:text-verde">Programas</a>
-                    <a href="index.html#palestras" class="text-2xl font-serif font-bold text-ink hover:text-verde">Palestras</a>
-                    <a href="index.html#contato" class="text-2xl font-serif font-bold text-ink hover:text-verde">Contato</a>
-                </nav>
-                <div class="mt-auto pt-8 border-t border-ink/8">
-                    <a href="https://wa.me/5511940803333" target="_blank" class="bg-verde text-white p-[18px] rounded-full text-center text-[11px] uppercase tracking-[0.2em] font-bold block">Solicitar Proposta</a>
-                </div>
+                <button id="menu-close" class="p-2 text-ink">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-7">
+                <a href="index.html#sobre" class="text-2xl font-serif font-bold text-ink hover:text-verde">Sobre</a>
+                <a href="index.html#depoimentos" class="text-2xl font-serif font-bold text-ink hover:text-verde">Depoimentos</a>
+                <a href="index.html#programas" class="text-2xl font-serif font-bold text-ink hover:text-verde">Programas</a>
+                <a href="index.html#palestras" class="text-2xl font-serif font-bold text-ink hover:text-verde">Palestras</a>
+                <a href="index.html#contato" class="text-2xl font-serif font-bold text-ink hover:text-verde">Contato</a>
+            </nav>
+            <div class="mt-auto pt-8 border-t border-ink/8">
+                <a href="https://wa.me/5511940803333" target="_blank" class="bg-verde text-white p-[18px] rounded-full text-center text-[11px] uppercase tracking-[0.2em] font-bold block">Solicitar Proposta</a>
             </div>
         </div>
-    
-        <script>
-            const header = document.getElementById('header');
-            const menuToggle = document.getElementById('menu-toggle');
-            const menuClose = document.getElementById('menu-close');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuContent = document.getElementById('menu-content');
-            const menuBackdrop = document.getElementById('menu-backdrop');
-    
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('shadow-lg', 'shadow-verde/6');
-                } else {
-                    header.classList.remove('shadow-lg', 'shadow-verde/6');
-                }
-            });
-    
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.remove('hidden');
-                setTimeout(() => {
-                    menuContent.classList.remove('translate-x-full');
-                }, 10);
-                document.body.style.overflow = 'hidden';
-            });
-    
-            const closeMenu = () => {
-                menuContent.classList.add('translate-x-full');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300);
-                document.body.style.overflow = '';
-            };
-    
-            menuClose.addEventListener('click', closeMenu);
-            menuBackdrop.addEventListener('click', closeMenu);
-            mobileMenu.querySelectorAll('nav a').forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-        </script>
-    </header>
+    </div>
+
+    <script>
+        const header = document.getElementById('header');
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuContent = document.getElementById('menu-content');
+        const menuBackdrop = document.getElementById('menu-backdrop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg', 'shadow-verde/6');
+            } else {
+                header.classList.remove('shadow-lg', 'shadow-verde/6');
+            }
+        });
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                menuContent.classList.remove('translate-x-full');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        });
+
+        const closeMenu = () => {
+            menuContent.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = '';
+        };
+
+        menuClose.addEventListener('click', closeMenu);
+        menuBackdrop.addEventListener('click', closeMenu);
+        mobileMenu.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
+</header>
 
     <div class="pt-20"></div>
 
