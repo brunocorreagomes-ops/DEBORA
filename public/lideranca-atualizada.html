@@ -80,7 +80,7 @@
 
         /* Consistent Header Styling */
         header {
-            background-color: rgba(249, 247, 242, 0.95);
+            background-color: #ffffff;
             backdrop-filter: blur(10px);
             padding: 12px 0;
             position: fixed;
@@ -423,7 +423,7 @@
     
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 z-[200] hidden">
-            <div id="menu-backdrop" class="absolute inset-0 bg-verde/60 backdrop-blur-md"></div>
+            <div id="menu-backdrop" class="absolute inset-0 bg-white"></div>
             <div id="menu-content" class="absolute top-0 right-0 bottom-0 w-[80%] max-w-[340px] bg-white flex flex-col p-8 shadow-2xl translate-x-full transition-transform duration-300">
                 <div class="flex justify-between items-center mb-12">
                     <div class="flex items-center gap-3">
@@ -460,9 +460,9 @@
     
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
-                    header.classList.add('bg-white/96', 'backdrop-blur-md', 'shadow-lg', 'shadow-verde/6');
+                    header.classList.add('shadow-lg', 'shadow-verde/6');
                 } else {
-                    header.classList.remove('bg-white/96', 'backdrop-blur-md', 'shadow-lg', 'shadow-verde/6');
+                    header.classList.remove('shadow-lg', 'shadow-verde/6');
                 }
             });
     

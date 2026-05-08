@@ -96,7 +96,7 @@ const Navbar = () => {
     <header><nav 
       className={`fixed top-0 left-0 right-0 z-[100] border-b transition-all duration-400 ${
         isScrolled 
-          ? "bg-white/96 backdrop-blur-md border-ink/6 shadow-lg shadow-verde/6" 
+          ? "bg-white backdrop-blur-md border-ink/6 shadow-lg shadow-verde/6" 
           : "bg-white border-ink/6"
       }`}
     >
@@ -173,7 +173,7 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-verde/60 backdrop-blur-md z-[190]"
+              className="fixed inset-0 bg-white z-[190]"
             />
             
             <motion.div 
