@@ -9,6 +9,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        verde: '#1a3a2e',
+                        'verde-med': '#2d5a47',
+                        dourado: '#bca374',
+                        creme: '#F9F7F2',
+                        ink: '#121212',
+                        highlight: '#09778b',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        body: ['Jost', 'sans-serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
         :root {
@@ -16,10 +38,8 @@
             --brand-green-med: #2d5a47;
             --brand-gold: #bca374;
             --brand-cream: #F9F7F2;
-            --brand-cream-light: #f5f0e8;
             --brand-white: #ffffff;
             --brand-ink: #121212;
-            --brand-highlight: #09778b;
             
             --font-display: 'Playfair Display', serif;
             --font-body: 'Jost', sans-serif;
@@ -28,430 +48,408 @@
             --transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--font-body);
-            color: var(--brand-ink);
-            background-color: var(--brand-cream);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: var(--font-display);
-            color: var(--brand-green);
-        }
-
+        body { font-family: var(--font-body); color: var(--brand-ink); background-color: var(--brand-cream); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        h1, h2, h3, h4 { font-family: var(--font-display); color: var(--brand-green); }
         a { text-decoration: none; transition: var(--transition); }
 
-        /* Consistent Header Styling */
-        header {
-            background-color: rgba(249, 247, 242, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 12px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(26, 58, 46, 0.05);
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
+        .btn-back {
+            display: inline-flex;
             align-items: center;
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .logo-img {
-            width: 44px;
-            height: 44px;
-            object-fit: contain;
-        }
-
-        .logo-text-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-name {
-            font-family: var(--font-display);
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--brand-ink);
-            line-height: 1.1;
-            letter-spacing: -0.01em;
-        }
-
-        .logo-subtitle {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: var(--brand-green-med);
-            font-weight: 700;
-            margin-top: 2px;
-            opacity: 0.5;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-
-        .nav-menu a {
-            font-size: 11px;
+            gap: 8px;
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.25em;
-            color: rgba(18, 18, 18, 0.6);
-            padding: 4px 0;
-            position: relative;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--brand-green);
-            transition: width 0.3s ease;
-        }
-
-        .nav-menu a:hover { color: var(--brand-green); }
-        .nav-menu a:hover::after { width: 100%; }
-
-        .btn-nav {
-            background: var(--brand-green);
-            color: var(--brand-white);
-            padding: 12px 28px;
-            border-radius: 9999px;
-            font-size: 10px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            transition: all 0.3s ease;
-        }
-
-        .btn-nav:hover { 
-            background: #112e28;
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 1024px) {
-            .nav-menu { display: none; }
-            .nav-inner { padding: 0 24px; }
-        }
-
-        /* Responsive Img Adjustments */
-        .intro-img {
-            width: 100%;
-            height: clamp(300px, 40vw, 600px);
-            border-radius: 40px;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        /* Design based on Home Page Title Aesthetics */
-        .page-intro {
-            padding: 140px 0 80px;
-        }
-
-        .page-intro-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .tag {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 800;
-            color: var(--brand-gold);
-            margin-bottom: 24px;
-            display: block;
-        }
-
-        .title-display {
-            font-size: clamp(48px, 6vw, 84px);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 32px;
             color: var(--brand-green);
+            opacity: 0.6;
+            transition: var(--transition);
         }
+        .btn-back:hover { opacity: 1; transform: translateX(-5px); }
 
-        .title-display i {
-            font-style: italic;
-            font-weight: 400;
-            opacity: 0.7;
-        }
-
-        .intro-img-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .intro-img {
-            width: 100%;
-            height: 520px;
-            border-radius: 40px;
-            object-fit: cover;
-            object-position: center;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.1);
-            display: block;
-        }
-
-        .intro-subtitle {
-            font-size: 18px;
-            color: rgba(26, 58, 46, 0.6);
-            max-width: 500px;
-            line-height: 1.8;
-            margin-top: 40px;
-        }
-
-        /* Pillars Section */
-        .pillars-section {
-            padding: 120px 0;
-            background-color: var(--brand-white);
-        }
-
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background-color: rgba(26, 58, 46, 0.05);
-            border-radius: 40px;
+        .hero-section {
+            background-color: var(--brand-green);
+            color: #ffffff;
+            padding: 120px 0 60px;
             overflow: hidden;
-            border: 1px solid rgba(26, 58, 46, 0.05);
+            position: relative;
+        }
+        @media (min-width: 768px) {
+            .hero-section { padding: 160px 0 100px; }
         }
 
         .pillar-card {
-            background-color: var(--brand-white);
-            padding: 64px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 32px;
+            border-radius: 24px;
+            height: 100%;
             transition: var(--transition);
-        }
-
-        .pillar-card:hover { background-color: var(--brand-cream); }
-
-        .pillar-card h3 { font-size: 28px; margin-bottom: 16px; font-weight: 700; }
-        .pillar-card p { font-size: 17px; color: rgba(10, 26, 20, 0.5); }
-
-        /* CTA */
-        .cta-section { padding: 140px 0; text-align: center; }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 24px 64px;
-            background: var(--brand-gold);
-            color: var(--brand-green);
-            border-radius: 9999px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 12px;
-            transition: var(--transition);
-        }
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(201, 169, 110, 0.3);
-            background: var(--brand-green);
-            color: var(--brand-white);
-        }
-
-        footer {
-            background-color: var(--brand-green);
-            padding: 80px 0;
-            text-align: center;
-            color: rgba(245, 240, 232, 0.3);
-            font-size: 12px;
-        }
-
-        .floating-actions {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             display: flex;
-            gap: 16px;
-            z-index: 9999;
+            flex-direction: column;
         }
-        .float-btn {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        @media (min-width: 768px) {
+            .pillar-card { padding: 48px; border-radius: 32px; }
+        }
+        .pillar-card:hover { 
+            transform: translateY(-8px); 
+            background: #ffffff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: var(--brand-gold); 
+        }
+        
+        .why-card {
+            background: rgba(255, 255, 255, 0.4);
+            color: var(--brand-ink);
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
             transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.01);
         }
+        @media (min-width: 768px) {
+            .why-card { padding: 40px; border-radius: 24px; }
+        }
+        .why-card:hover { 
+            background: #ffffff;
+            border-color: var(--brand-gold); 
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .why-card h4 { color: var(--brand-green); font-family: var(--font-display); }
+
+        .faq-item { border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .faq-question { cursor: pointer; padding: 24px 0; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { display: none; padding-bottom: 24px; color: rgba(0,0,0,0.6); }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active svg { transform: rotate(180deg); }
+
+        .floating-actions { position: fixed; bottom: 32px; right: 32px; display: flex; gap: 16px; z-index: 9999; }
+        .float-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: var(--transition); }
         .float-btn:hover { transform: scale(1.1); }
         .btn-whatsapp { background-color: #25D366; color: white; }
         .btn-up { background-color: var(--brand-green); color: white; }
-
-        @media (max-width: 1024px) {
-            .nav-menu { display: none; }
-            .nav-inner { padding: 0 24px; }
-            .page-intro { padding: 120px 0 60px; }
-            .page-intro-inner { 
-                grid-template-columns: 1fr !important; 
-                gap: 48px;
-                text-align: center;
-            }
-            .intro-img { 
-                height: 400px; 
-                border-radius: 24px;
-            }
-            .intro-subtitle { margin: 32px auto 0; }
-            .title-divider { margin: 0 auto 40px !important; }
-            .pillars-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 640px) {
-            .intro-img { height: 320px; }
-            .page-intro { padding: 100px 0 40px; }
-            .title-display { font-size: 42px; }
-        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">
-                <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" class="logo-img">
-                <div class="logo-text-group">
-                    <span class="logo-name">Débora Bolangno</span>
-                    <span class="logo-subtitle">Estratégia de Carreira & Liderança</span>
+    <header class="fixed w-full z-50 transition-all bg-creme border-b border-ink/5">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex justify-between items-center">
+            <a href="index.html" class="text-[10px] md:text-[12px] uppercase tracking-[0.3em] font-bold text-ink">
+                VOLTAR
+            </a>
+            <a href="index.html" class="flex items-center gap-3 group text-left">
+                <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo Débora Bolangno" class="w-9 h-9 md:w-11 md:h-11 object-contain">
+                <div class="hidden sm:flex flex-col">
+                    <span class="font-serif text-base md:text-lg font-bold text-ink leading-tight tracking-tight">Débora Bolangno</span>
+                    <span class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-ink/40 font-medium whitespace-nowrap">Estratégia de Carreira & Liderança</span>
                 </div>
             </a>
-            
-                <div class="nav-right">
-                    <div class="nav-menu">
-                        <a href="index.html#sobre">Sobre</a>
-                        <a href="index.html#depoimentos">Depoimentos</a>
-                        <a href="index.html#programas">Programas</a>
-                        <a href="index.html#palestras">Palestras</a>
-                        <a href="index.html#contato">Contato</a>
-                    </div>
-    
-                    <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20maiores%20informações" target="_blank" class="btn-nav">Solicitar Proposta</a>
-                </div>
+            <a href="https://wa.me/5511940803333?text=Olá%20Débora,%20gostaria%20de%20saber%20mais%20e%20garantir%20minha%20vaga%20na%20Comunidade%20Sequoia!" target="_blank" class="bg-verde text-white px-5 md:px-8 py-2 md:py-3 rounded-full text-[9px] md:text-[11px] uppercase font-bold tracking-[0.2em] hover:bg-verde-med transition-all">
+                AGENDAR
+            </a>
         </div>
     </header>
 
-    <section class="page-intro">
+    <section class="hero-section py-24 md:py-40">
+        <div class="container grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+            <div class="text-center md:text-left order-last md:order-first">
+                <img src="https://i.ibb.co/rRdkVxkj/sequoia.png" alt="Comunidade Sequoia Logo" class="w-48 md:w-64 mb-10 mx-auto md:mx-0">
+                <blockquote class="text-lg md:text-2xl font-cormorant italic mb-12 opacity-90 leading-relaxed border-l-2 border-white/20 pl-8 text-left max-w-xl mx-auto md:mx-0">
+                    “Pertencer te traz poder, a ambiência te impulsiona e o provérbio ‘Diga-me com quem andas e te direi quem és’, é uma grande verdade para o nosso sucesso pessoal e profissional.”
+                </blockquote>
+                <a href="#investimento" class="bg-white text-verde px-10 py-5 rounded-full text-[12px] uppercase font-bold tracking-[0.2em] hover:bg-creme hover:-translate-y-px transition-all inline-block w-full sm:w-auto">
+                    Vem ser Sequoia
+                </a>
+            </div>
+            <div class="relative">
+                <img src="https://i.ibb.co/3ydbm1z4/Debora-marca-intencional-3.webp" alt="Débora Bolangno" class="rounded-[40px] shadow-2xl w-full h-80 md:h-[600px] object-cover">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-32 bg-creme">
+        <div class="container grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div class="relative order-first md:order-none">
+                <div class="absolute -inset-4 border border-verde/10 rounded-2xl translate-x-4 translate-y-4 -z-10 hidden md:block"></div>
+                <img src="https://i.ibb.co/6JVdcFbC/debora-secao-Sobre-Debora-Bolangno.webp" alt="Débora" class="rounded-xl w-full h-[350px] md:h-[550px] object-cover shadow-2xl">
+            </div>
+            <div class="text-center md:text-left">
+                <span class="text-[11px] uppercase tracking-[0.3em] font-extrabold text-dourado mb-6 display-block">A Idealizadora</span>
+                <h2 class="text-3xl md:text-5xl font-serif mb-6 md:mb-8 text-verde leading-tight">Olá! Aqui Débora Bolangno</h2>
+                <div class="space-y-6 text-base md:text-lg text-ink/70 leading-relaxed font-light">
+                    <p>Se você está aqui, já fez algum processo comigo então já me conhece! O que eu quero que você saiba sobre mim agora, é que com muito orgulho sou a fundadora da Comunidade Sequoia.</p>
+                    <p>Há algum tempo defini para mim um objetivo, muito especial, de aproximar pessoas boas e profissionais diferenciados no mundo corporativo. A Sequoia é a materialização disso!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 md:py-32 bg-white">
         <div class="container">
-            <div class="page-intro-inner">
-                <div>
-                    <span class="tag">Comunidade Sequoia</span>
-                    <h1 class="title-display">Conexões <i>de</i> Valor <i>e</i> Inteligência Coletiva</h1>
-                    <div class="title-divider" style="width: 100px; height: 1px; background: var(--brand-gold); margin-bottom: 40px;"></div>
-                    <p class="intro-subtitle">
-                        Um ecossistema exclusivo para líderes e profissionais que entendem que o topo é mais seguro quando compartilhado.
-                    </p>
-                    <div style="margin-top: 48px;">
-                        <a href="https://wa.me/5511940803333" class="btn">Candidatar-se à Sequoia</a>
+            <div class="text-center mb-16 md:mb-24">
+                <span class="text-[11px] uppercase tracking-[0.4em] font-extrabold text-verde-med opacity-40 mb-6 block">Nossa Essência</span>
+                <h2 class="text-4xl md:text-6xl font-serif text-ink leading-tight">Sobre a <i class="text-highlight">Sequoia</i></h2>
+                <div class="w-16 h-px bg-dourado mx-auto mt-10"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+                <div class="pillar-card p-10 md:p-14 rounded-[40px] bg-creme/30 border border-ink/5 hover:border-dourado/50 hover:bg-creme/50 transition-all group">
+                    <div class="w-16 h-16 bg-verde/5 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-verde group-hover:text-white transition-all duration-500">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="transition-colors"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl mb-6 font-serif font-bold text-verde">Propósito</h3>
+                    <p class="text-ink/65 leading-relaxed text-[17px] font-medium">Empoderar cada membro a explorar seu potencial ilimitado, fornecendo ferramentas e suporte necessários para inovar, liderar e evoluir.</p>
+                </div>
+                <div class="pillar-card p-10 md:p-14 rounded-[40px] bg-creme/30 border border-ink/5 hover:border-dourado/50 hover:bg-creme/50 transition-all group">
+                    <div class="w-16 h-16 bg-verde/5 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-verde group-hover:text-white transition-all duration-500">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="transition-colors"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl mb-6 font-serif font-bold text-verde">Perspectiva</h3>
+                    <p class="text-ink/65 leading-relaxed text-[17px] font-medium">Ser um ambiente de confiança mútua, onde profissionais de alta performance se reúnem para fortalecer seu valor de mercado.</p>
+                </div>
+                <div class="pillar-card p-10 md:p-14 rounded-[40px] bg-creme/30 border border-ink/5 hover:border-dourado/50 hover:bg-creme/50 transition-all group">
+                    <div class="w-16 h-16 bg-verde/5 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-verde group-hover:text-white transition-all duration-500">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="transition-colors"><path d="M4 22V4c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v18l-8-4-8 4z"/></svg>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl mb-6 font-serif font-bold text-verde">Pilares</h3>
+                    <p class="text-ink/65 leading-relaxed text-[17px] font-medium">Valorizamos a experimentação, o apoio mútuo e a troca genuína de conhecimentos que geram impacto real nos negócios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-32 bg-white">
+        <div class="container">
+            <div class="text-center mb-12 md:mb-20">
+                <span class="text-[11px] uppercase tracking-[0.3em] font-extrabold text-dourado mb-6 display-block">Diferenciais</span>
+                <h2 class="text-3xl md:text-5xl font-serif mb-8 text-verde">Por que você deve fazer parte?</h2>
+            </div>
+            <div class="grid md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="why-card bg-creme/40">
+                    <h4 class="text-xl mb-4 italic">Crescimento com clareza.</h4>
+                    <p class="text-ink/60 text-sm leading-relaxed">Incentivo constante para olhar para sua carreira de forma estratégica e tomar decisões com mais consciência e autonomia.</p>
+                </div>
+                <div class="why-card">
+                    <h4 class="text-xl mb-4 italic">Troca de experiências.</h4>
+                    <p class="text-ink/60 text-sm leading-relaxed">Conexão com profissionais que compartilham aprendizados reais sobre liderança e os desafios diários do mercado.</p>
+                </div>
+                <div class="why-card">
+                    <h4 class="text-xl mb-4 italic">Futuro seguro.</h4>
+                    <p class="text-ink/60 text-sm leading-relaxed">Espaço confidencial para explorar novas possibilidades, repensar caminhos e se preparar com confiança.</p>
+                </div>
+                <div class="why-card">
+                    <h4 class="text-xl mb-4 italic">Atualização constante.</h4>
+                    <p class="text-ink/60 text-sm leading-relaxed">Tendências, competências do futuro e práticas de liderança aplicáveis ao seu dia a dia profissional.</p>
+                </div>
+                <div class="why-card">
+                    <h4 class="text-xl mb-4 italic">Marca pessoal forte.</h4>
+                    <p class="text-ink/60 text-sm leading-relaxed">Posicionamento claro, comunicação de resultados e destaque dentro e fora da organização.</p>
+                </div>
+                <div class="why-card">
+                    <h4 class="text-xl mb-4 italic">Motivação e acolhimento.</h4>
+                    <p class="text-ink/60 text-sm leading-relaxed">A força da comunidade inspira, acolhe e impulsiona. Aqui você encontra sentido e apoio para seguir em frente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-12 bg-white">
+        <div class="container text-center">
+            <a href="#investimento" class="inline-block bg-verde text-white px-10 py-4 rounded-full text-xs uppercase font-bold tracking-[0.2em] hover:bg-verde-med transition-all shadow-lg hover:-translate-y-1">Vem ser Sequoia</a>
+        </div>
+    </section>
+
+
+    <section class="py-24 bg-creme">
+        <div class="container max-w-4xl">
+            <h2 class="text-2xl md:text-4xl font-serif text-center mb-4 uppercase tracking-tighter">Invista no seu CRESCIMENTO e PROTAGONISMO</h2>
+            <div class="w-16 h-1 bg-dourado mx-auto mb-10 md:mb-16"></div>
+            <ul class="space-y-6">
+                <li class="flex gap-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-verde shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+                    <span class="text-base md:text-lg text-ink/80">12 meses com meu acompanhamento próximo e personalizado contribuindo com seu posicionamento e decisões de carreira;</span>
+                </li>
+                <li class="flex gap-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-verde shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+                    <span class="text-base md:text-lg text-ink/80">Encontros quinzenais ao vivo, em grupo, com discussões de temas relevantes para carreira, apresentações, debates e convidados (Agenda enviada no início do mês para programação antecipada) Exemplos de temas já discutidos: Network, Transição de Carreira, Leitura de Cenários, entre outros.</span>
+                </li>
+                <li class="flex gap-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-verde shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+                    <span class="text-base md:text-lg text-ink/80">Mentorias em grupo, estilo hot seat, sobre os desafios da vida real e orientação para solução com as differentes visões e perspectivas dos membros da Comunidade</span>
+                </li>
+                <li class="flex gap-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-verde shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+                    <span class="text-base md:text-lg text-ink/80">Participação no grupo do WhatsApp durante 12 meses onde compartilhamos dicas, reportagens, podcasts, e todo tipo de material para fortalecer seu repertório</span>
+                </li>
+                <li class="flex gap-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-verde shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+                    <span class="text-base md:text-lg text-ink/80">Atividades práticas para ampliar autoconhecimento e melhorar posicionamento</span>
+                </li>
+                <li class="flex gap-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-verde shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+                    <span class="text-base md:text-lg text-ink/80">Clube do livro realizado trimestralmente - Livro que já lemos juntos e aprofundamos: Pensamento Eficaz</span>
+                </li>
+            </ul>
+            <div class="text-center mt-12 md:mt-16">
+                <a href="#investimento" class="bg-verde-med text-white px-12 py-4 rounded-md text-[14px] uppercase font-bold tracking-[0.2em] hover:bg-verde transition-all inline-block shadow-lg">Vem ser Sequoia</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="investimento" class="py-24 md:py-40 bg-verde">
+        <div class="container">
+            <div class="max-w-4xl mx-auto bg-creme rounded-[40px] overflow-hidden flex flex-col md:row shadow-2xl relative">
+                <div class="p-10 md:p-20 flex-1">
+                    <div class="inline-block bg-verde text-white px-5 py-1.5 rounded-full text-[10px] uppercase font-bold tracking-widest mb-10">Investimento</div>
+                    <h2 class="text-3xl md:text-5xl font-serif mb-8 text-verde leading-tight">Quanto você está disposto a investir para alavancar sua carreira?</h2>
+                    <p class="text-ink/60 mb-10 text-lg md:text-xl font-light italic">Os meios que você escolhe para se atualizar dizem muito sobre o profissional que você é!</p>
+                </div>
+                <div class="bg-white p-10 md:p-20 flex flex-col justify-center items-center text-center border-t md:border-t-0 md:border-l border-black/5 min-w-[320px]">
+                    <span class="text-2xl line-through text-ink/30 mb-2">R$ 2.000</span>
+                    <div class="flex items-baseline gap-2 mb-4">
+                        <span class="text-5xl md:text-7xl font-serif font-black text-ink">R$ 1.500</span>
+                    </div>
+                    <p class="text-[12px] text-ink/50 uppercase tracking-[0.3em] font-bold mb-12">à vista ou R$ 1.800 em 10x</p>
+                    <a href="https://wa.me/5511940803333?text=Olá%20Débora,%20gostaria%20de%20saber%20mais%20e%20garantir%20minha%20vaga%20na%20Comunidade%20Sequoia!" class="w-full bg-verde text-white py-5 rounded-full text-[12px] uppercase font-bold tracking-widest hover:bg-verde-med transition-all shadow-xl hover:shadow-verde/20">Garanta seu lugar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="container text-center">
+            <h2 class="text-2xl md:text-3xl font-serif mb-12">Fazendo parte da comunidade você ganha...</h2>
+            <div class="max-w-3xl mx-auto border border-dashed border-verde/30 rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-10">
+                <div class="flex-1 text-center md:text-left">
+                    <span class="text-dourado font-bold uppercase tracking-widest text-xs block mb-4">Bônus</span>
+                    <h3 class="text-xl font-bold mb-4">1 SESSÃO INDIVIDUAL COMIGO</h3>
+                    <p class="text-ink/60 mb-6 text-sm md:text-base">Para ter mais clareza e confiança em seu planejamento de carreira - 1h - agendado com antecedência.</p>
+                    <div class="flex gap-4 items-baseline justify-center md:justify-start">
+                        <span class="text-xs md:text-sm line-through text-ink/30 italic">DE: R$ 600,00</span>
+                        <span class="text-xl md:text-2xl font-bold text-verde">POR: R$ 0,00</span>
                     </div>
                 </div>
-                <div class="intro-img-wrapper">
-                    <img src="https://i.ibb.co/Rkvpdqkr/logo-sequoia.png" alt="Sequoia Community Logo" class="intro-img" style="background: white; padding: 40px; border-radius: 40px; object-fit: contain;">
+                <img src="https://i.ibb.co/xKb26ptS/debora-Presen-a-Executiva-02.jpg" alt="Débora" class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-creme border-t border-ink/5">
+        <div class="container max-w-3xl">
+            <h2 class="text-4xl font-serif text-center mb-16">Perguntas Frequentes</h2>
+            <div class="space-y-4">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Por quanto tempo terei acesso aos encontros ao vivo
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="faq-answer">12 meses</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Quantos encontros temos ao vivo
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="faq-answer">2 encontros por mês, com 2 momentos cada encontro; um hot seat e uma sessão Interativa com temas diversos</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Quais os temas dos encontros?
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="faq-answer">Temas diversos para ampliar repertório, promover crescimento pessoal e profissional</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        O que mais está incluso?
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="faq-answer">Participação no grupo do WhatsApp com troca entre os membros, acompanhamento próxima para suas questões profissionais, encontros em grupo e um clube do livro a cada 3 meses</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Os encontros ficam gravados?
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="faq-answer">Não. Os encontros são ao vivo e não ficam gravados.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Como ocorre a renovação?
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="faq-answer">Conversarmos após 6 meses sobre a renovação.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" style="border-bottom: none;">
+                        Quais as formas de pagamento?
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="faq-answer">Pix ou parcelado no cartão de crédito</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pillars-section">
-        <div class="container">
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <h3>Inteligência Coletiva</h3>
-                    <p>Resolva seus problemas de gestão e carreira ouvindo as soluções de quem já passou pelo que você está vivendo hoje.</p>
-                </div>
-                <div class="pillar-card">
-                    <h3>Networking Premium</h3>
-                    <p>Acesso direto a uma rede de profissionais que estão no mesmo patamar de ambição e desafios que você.</p>
-                </div>
-                <div class="pillar-card">
-                    <h3>Sustentação Contínua</h3>
-                    <p>Evite o "efeito montanha-russa". A Sequoia garante que você mantenha o foco e a energia alta durante o ano todo.</p>
-                </div>
-            </div>
+    <div class="pb-24 bg-creme border-t border-ink/5 flex flex-col items-center">
+        <div class="mt-20 flex justify-center">
+            <a href="index.html" class="text-[11px] md:text-[13px] font-bold uppercase tracking-[0.4em] text-ink/40 hover:text-verde transition-all px-12 py-5 border border-ink/5 rounded-full bg-white hover:bg-creme shadow-sm">
+                VOLTAR
+            </a>
         </div>
-    </section>
+    </div>
 
-    <section class="cta-section">
-        <div class="container text-center">
-            <h2 style="font-size: clamp(32px, 5vw, 64px); margin-bottom: 40px;">Ninguém cresce <br> <i>sozinho</i> no topo.</h2>
-            <a href="https://wa.me/5511940803333" class="btn">Solicitar Acesso</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container" style="max-width: 1440px; display: flex; flex-direction: column; align-items: center; gap: 40px;">
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-                <div style="display: flex; align-items: center; gap: 16px;">
-                    <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" style="width: 40px; height: 40px; filter: brightness(0) invert(1);">
-                    <div style="display: flex; flex-direction: column; text-align: left;">
-                        <span style="font-family: var(--font-display); font-size: 20px; font-weight: 700; color: white;">Débora Bolangno</span>
-                        <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4);">Estratégia de Carreira & Liderança</span>
+    <footer class="bg-verde py-16 px-8 text-creme">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <div class="flex items-center gap-4">
+                    <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" class="w-10 h-10 object-contain brightness-0 invert shadow-none">
+                    <div class="flex flex-col">
+                        <span class="font-serif text-xl font-bold leading-none mb-1">Débora Bolangno</span>
+                        <span class="text-[9px] uppercase tracking-widest text-creme/40">Estratégia de Carreira &amp; Liderança</span>
                     </div>
                 </div>
             </div>
             
-            <div style="display: flex; gap: 24px;">
-                <a href="https://www.instagram.com/deborabolangno" style="color: white; opacity: 0.5 hover:opacity: 1; transition: opacity 0.3s;">Instagram</a>
-                <a href="https://www.linkedin.com/in/deborabolangno" style="color: white; opacity: 0.5 hover:opacity: 1; transition: opacity 0.3s;">LinkedIn</a>
-                <a href="mailto:deborabolangno@outlook.com" style="color: white; opacity: 0.5 hover:opacity: 1; transition: opacity 0.3s;">E-mail</a>
+            <div class="flex gap-6">
+                <a href="https://www.instagram.com/deborabolangno" target="_blank" rel="noopener" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/deborabolangno" target="_blank" rel="noopener" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="mailto:deborabolangno@outlook.com" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
+                </a>
             </div>
 
-            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; width: 100%;">
-                <p style="text-transform: uppercase; letter-spacing: 0.2em; font-size: 11px; color: rgba(255,255,255,0.7);">© 2026 Débora Bolangno · Todos os direitos reservados</p>
-                <p style="margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.7);">Desenvolvido por <a href="https://www.orvalia.com.br" target="_blank" style="color: inherit; text-decoration: underline;">Orvalia Studio</a></p>
+            <div class="text-center md:text-right">
+                <p class="text-creme/60 text-[11px] font-mono uppercase tracking-[0.4em] mb-1">
+                    Desenvolvido por <a href="https://www.orvalia.com.br" target="_blank" rel="noopener" class="hover:text-creme transition-colors underline underline-offset-4">Orvalia Studio</a>
+                </p>
+                <p class="text-[11px] font-mono text-creme/60 uppercase tracking-[0.4em]">© 2026 Débora Bolangno · Todos os direitos reservados</p>
             </div>
         </div>
     </footer>
 
     <div class="floating-actions">
-        <a href="https://wa.me/5511940803333" target="_blank" class="float-btn btn-whatsapp">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-2.32 0-4.591.4-6.738 1.189-.13.048-.225.105-.33.155a9.034 9.034 0 0 0-4.8 5.6c-.32 1.11-.274 2.274.135 3.363.04.1.096.195.14.286l-.5 2.112c-.04.168.04.34.2.428a.4.4 0 0 0 .195.05.41.41 0 0 0 .19-.047l2.253-.94a9.1 9.1 0 0 0 3.19.57c2.32 0 4.59-.4 6.737-1.19.13-.047.233-.1.33-.153a9.034 9.034 0 0 0 4.801-5.6c.32-1.11.274-2.274-.135-3.364-.04-.1-.1-.2-.14-.294l.5-2.112c.04-.168-.04-.34-.2-.428a.4.4 0 0 0-.195-.05.41.41 0 0 0-.39.247l-2.255.942a9.11 9.11 0 0 0-3.19-.571zM8.332 9.108c.18 0 .36.002.54.004.162.003.32.007.47.012.155.005.3.01.442.02.43 0 .807.13 1.1.37.28.25.43.59.43 1.01 0 .2-.04.4-.11.58-.12.35-.41.67-.86.95-.31.19-.7.34-1.18.45-.15.03-.3.05-.44.07a8.7 8.7 0 0 0-.442.02c-.15.005-.31.009-.47.012-.18.002-.36.004-.54.004h-.01c-.18 0-.36-.002-.54-.004-.16-.003-.32-.007-.47-.012-.15-.005-.3-.01-.44-.02l-.08-.002a8.7 8.7 0 0 0-.36-.02c-.15-.005-.3-.01-.442-.02-.15-.005-.31-.01-.47-.012-.18-.002-.36-.004-.54-.004h-.01c-.18 0-.36.002-.54.004-.16.003-.32.007-.47.012-.15.005-.3.01-.44.02l-.08.002c-.2.01-.4 0-.58-.06-.35-.12-.67-.34-.95-.71-.24-.31-.38-.68-.38-1.1 0-.43.15-.81.44-1.1.25-.25.57-.4.99-.4h.01c.18 0 .36.002.54.004.16.003.31.007.46.012.15.005.3.01.44.02.43.01.81.14 1.1.38.28.25.43.59.43 1.01 0 .2-.04.4-.11.58-.12.35-.41.67-.86.95-.31.19-.7.34-1.18.45-.15.03-.3.05-.44.07l-.02.003c.18.01.36.02.54.02h.01c.18 0 .36-.01.54-.02l.02-.003c.14-.02.29-.04.44-.07.48-.11.87-.26 1.18-.45.45-.28.74-.6.86-.95.07-.18.11-.38.11-.58 0-.42-.15-.76-.43-1.01-.29-.24-.67-.37-1.1-.37-.14-.01-.29-.015-.442-.02-.15-.005-.31-.009-.47-.012-.18-.002-.36-.004-.54-.004h.01c.18 0 .36.002.54.004.16.003.31.007.46.012.15.005.3.009.442.02.443.003.443.003.443.003z"/></svg>
+        <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pela%20página%20da%20Sequoia%20e%20gostaria%20de%20mais%20informações" target="_blank" class="float-btn btn-whatsapp">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.12.541 4.191 1.57 6.017L0 24l6.105-1.602a11.834 11.834 0 005.937 1.57h.005c6.637 0 12.032-5.396 12.035-12.032.003-3.218-1.248-6.242-3.517-8.511z"/></svg>
         </a>
         <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="float-btn btn-up">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
         </button>
     </div>
 
+    <script>
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                q.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>

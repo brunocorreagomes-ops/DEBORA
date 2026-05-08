@@ -100,7 +100,7 @@ const Navbar = () => {
           : "bg-creme border-ink/6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex justify-between items-center">
         <a 
           href="#" 
           onClick={(e) => scrollToSection(e, "#")}
@@ -255,72 +255,60 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen pt-20 flex items-center bg-creme overflow-hidden">
+    <section id="hero" className="min-h-screen pt-24 md:pt-32 flex items-center bg-creme overflow-hidden">
       <motion.div 
         variants={container}
         initial="hidden"
         animate="show"
-        className="max-w-7xl mx-auto px-8 py-[60px] grid grid-cols-1 min-[900px]:grid-cols-2 gap-20 items-center w-full"
+        className="max-w-7xl mx-auto px-6 sm:px-8 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center w-full"
       >
-        <div>
-          <motion.div variants={item} className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-px bg-verde-med"></div>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold">
+        <div className="text-center md:text-left">
+          <motion.div variants={item} className="flex items-center justify-center md:justify-start gap-3 mb-6">
+            <div className="w-10 h-px bg-verde-med"></div>
+            <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-verde-med font-black">
               Estrategista de Carreira · Débora Bolangno
             </span>
           </motion.div>
-          <motion.h1 variants={item} className="font-serif text-[clamp(42px,5vw,64px)] font-black leading-[1.05] text-ink mb-6">
+          <motion.h1 variants={item} className="font-serif text-[clamp(32px,5.5vw,72px)] font-black leading-[1.05] text-ink mb-8">
             <span className="block">Você não está travado</span>
-            <span className="block">por falta de capacidade.</span>
-            <span className="block italic text-highlight">Está travado por falta de estratégia.</span>
+            <span className="block text-ink/90">por falta de capacidade.</span>
+            <span className="block italic text-highlight mt-2">Sua barreira hoje é a falta de estratégia.</span>
           </motion.h1>
-          <motion.p variants={item} className="text-xl text-ink/65 max-w-[520px] leading-[1.6] mb-10">
+          <motion.p variants={item} className="text-lg md:text-2xl text-ink/65 max-w-[560px] mx-auto md:mx-0 leading-relaxed mb-10 md:mb-12">
             Mentoria para profissionais que já performam — mas ainda não avançam na velocidade que deveriam.
           </motion.p>
-          <motion.div variants={item} className="grid grid-cols-2 gap-10 py-8 border-y border-ink/10 mb-10">
-            <div>
-              <div className="font-serif text-[64px] font-black text-verde leading-none mb-2">+20</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-ink/40 leading-[1.4]">
-                Anos de experiência<br/>no mundo corporativo
-              </div>
-            </div>
-            <div>
-              <div className="font-serif text-[64px] font-black text-verde leading-none mb-2">+250</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-ink/40 leading-[1.4]">
-                Profissionais<br/>impactados e mentorados
-              </div>
-            </div>
-          </motion.div>
-          <motion.div variants={item} className="flex gap-4 flex-wrap">
-            <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20estratégico" target="_blank" rel="noopener" className="inline-flex items-center gap-3 bg-verde text-white px-8 py-4 rounded-full text-[11px] uppercase tracking-[0.25em] font-bold transition-all hover:bg-[#112e28] hover:-translate-y-1 hover:shadow-2xl hover:shadow-verde/20 group">
+          
+          <motion.div variants={item} className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start">
+            <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20estratégico" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-4 bg-verde text-white px-8 md:px-10 py-5 rounded-full text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-bold transition-all hover:bg-[#112e28] hover:-translate-y-px shadow-xl shadow-verde/20 group">
               Agendar diagnóstico estratégico
-              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
             </a>
-            <a href="#programas" className="inline-flex items-center gap-3 bg-transparent text-ink px-10 py-4 rounded-full text-[11px] uppercase tracking-[0.25em] font-bold border-2 border-ink/20 transition-all hover:bg-ink hover:text-white">
+            <a href="#programas" className="inline-flex items-center justify-center gap-4 bg-transparent text-ink px-10 md:px-12 py-5 rounded-full text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-bold border-2 border-ink/10 transition-all hover:bg-ink hover:text-white">
               Ver programas
             </a>
           </motion.div>
         </div>
+
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95, x: 20 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-          className="relative rounded-[48px] overflow-hidden aspect-[4/5] bg-verde shadow-2xl border border-ink/5 min-[900px]:order-none order-first"
+          className="relative rounded-[40px] md:rounded-[64px] overflow-hidden aspect-[4/5] bg-verde shadow-2xl border border-ink/5 order-first md:order-last w-full max-w-[500px] mx-auto md:max-w-none"
         >
           <img 
-            src="https://i.ibb.co/N6D2hPBM/debora01.png" 
+            src="https://i.ibb.co/mVqGg1yW/debora-hero-nova.webp" 
             alt="Débora Bolangno" 
-            className="absolute w-full h-[110%] -top-[5%] object-cover transition-transform duration-[2s] hover:scale-105"
+            className="absolute w-full h-[110%] -top-[5%] object-cover transition-transform duration-[3s] hover:scale-105"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
           <motion.img 
             initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 0.1, x: 0 }}
+            animate={{ opacity: 0.08, x: 0 }}
             transition={{ delay: 1.5, duration: 1 }}
             src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" 
             alt="" 
-            className="absolute top-10 right-10 w-24 pointer-events-none" 
+            className="absolute top-10 right-10 w-24 md:w-32 pointer-events-none brightness-0 invert" 
             referrerPolicy="no-referrer" 
           />
         </motion.div>
@@ -359,22 +347,22 @@ const Marquee = () => {
 
 const ProofBar = () => {
   const items = [
-    { num: "+250", label: "Profissionais\natendidos" },
     { num: "+20", label: "Anos de experiência\nem RH e liderança" },
+    { num: "+250", label: "Profissionais\natendidos" },
     { num: "SP", label: "Osasco e\nGrande São Paulo" },
     { num: "5", label: "Formatos de\natendimento" },
   ];
 
   return (
-    <div className="bg-[#0d2018] py-6 px-8">
-      <div className="max-w-7xl mx-auto flex justify-center items-center flex-wrap gap-y-6 sm:grid sm:grid-cols-2 md:flex md:flex-nowrap md:gap-0">
+    <div className="bg-[#0d2018] py-8 md:py-12 px-6">
+      <div className="max-w-7xl mx-auto flex justify-center items-center flex-wrap gap-y-10 md:grid md:grid-cols-4 md:gap-0 lg:flex lg:flex-nowrap">
         {items.map((item, i) => (
           <div 
             key={i} 
-            className="flex flex-col items-center px-6 md:px-10 text-center border-white/20 last:border-0 md:border-r w-full sm:w-auto"
+            className="flex flex-col items-center px-4 md:px-10 text-center border-white/10 last:border-0 md:border-r w-1/2 md:w-auto"
           >
-            <span className="font-serif text-[28px] font-black text-dourado leading-none">{item.num}</span>
-            <span className="text-[10px] uppercase tracking-[0.15em] text-white/50 font-medium mt-1 whitespace-pre-line leading-tight">
+            <span className="font-serif text-[32px] md:text-[48px] font-black text-dourado leading-none">{item.num}</span>
+            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-white/50 font-bold mt-2 whitespace-pre-line leading-tight">
               {item.label}
             </span>
           </div>
@@ -395,14 +383,14 @@ const Identification = () => {
   ];
 
   return (
-    <section id="metodologia" className="bg-white py-24 px-8">
+    <section id="metodologia" className="bg-white py-24 md:py-32 px-6 sm:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="max-w-[700px] mx-auto text-center mb-20">
+        <div className="max-w-[800px] mx-auto text-center mb-16 md:mb-24">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[10px] uppercase tracking-[0.35em] font-bold text-verde-med block mb-6"
+            className="text-[10px] uppercase tracking-[0.4em] font-black text-verde-med block mb-6"
           >
             Sintomas da Estagnação
           </motion.span>
@@ -411,14 +399,14 @@ const Identification = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-[clamp(36px,4vw,56px)] font-black leading-[1.05] text-ink"
+            className="font-serif text-[clamp(32px,5vw,64px)] font-black leading-[1.05] text-ink"
           >
             Se você sente que deveria estar<br />
             em outro nível… <span className="italic text-highlight">provavelmente está certo.</span>
           </motion.h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {points.map((point, i) => (
             <motion.div 
               key={i} 
@@ -426,12 +414,12 @@ const Identification = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="flex gap-6 bg-creme/30 p-8 rounded-[32px] border-l-4 border-transparent hover:border-dourado transition-all hover:bg-creme/50 group"
+              className="flex gap-6 bg-creme/30 p-8 md:p-10 rounded-[40px] border border-transparent hover:border-dourado/30 transition-all hover:bg-creme/50 group"
             >
-              <div className="w-10 h-10 rounded-full bg-dourado/10 flex items-center justify-center shrink-0 group-hover:bg-dourado/20 transition-colors">
-                <Check size={18} className="text-dourado" />
+              <div className="w-12 h-12 rounded-2xl bg-dourado/10 flex items-center justify-center shrink-0 group-hover:bg-dourado/20 transition-colors">
+                <Check size={20} className="text-dourado" />
               </div>
-              <p className="text-[17px] text-ink/75 leading-relaxed font-medium">{point}</p>
+              <p className="text-[16px] md:text-[18px] text-ink/75 leading-relaxed font-medium">{point}</p>
             </motion.div>
           ))}
         </div>
@@ -441,7 +429,7 @@ const Identification = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 }}
-          className="mt-20 text-center font-cormorant text-[26px] font-semibold text-verde/60 italic max-w-2xl mx-auto"
+          className="mt-24 text-center font-cormorant text-[24px] md:text-[32px] font-semibold text-verde/60 italic max-w-3xl mx-auto leading-relaxed"
         >
           "O esforço desgovernado consome você. A estratégia clara liberta você."
         </motion.p>
@@ -452,11 +440,11 @@ const Identification = () => {
 
 const About = () => {
   return (
-    <section id="sobre" className="bg-creme py-24 px-8 border-y border-ink/5">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 min-[900px]:grid-cols-2 gap-20 items-center">
-        <div className="relative rounded-[32px] overflow-hidden shadow-2xl aspect-square min-[900px]:aspect-auto min-[900px]:h-[680px]">
+    <section id="sobre" className="bg-creme py-20 md:py-24 px-6 sm:px-8 border-y border-ink/5">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 min-[900px]:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div className="relative rounded-[24px] md:rounded-[32px] overflow-hidden shadow-2xl aspect-square md:aspect-auto min-[900px]:h-[680px]">
           <img 
-            src="https://i.ibb.co/KpxMJ3Yq/deb04.jpg" 
+            src="https://i.ibb.co/6JVdcFbC/debora-secao-Sobre-Debora-Bolangno.webp" 
             alt="Débora Bolangno - Mentora de Carreira" 
             className="w-full h-full object-cover object-top"
             referrerPolicy="no-referrer"
@@ -518,49 +506,45 @@ const TestimonialsLuxury = () => {
   ];
 
   return (
-    <section id="depoimentos" className="bg-brand-950 text-creme py-24 px-6 overflow-hidden">
-      <div className="max-w-[900px] mx-auto">
-        <h2 className="font-serif text-[42px] font-bold text-center mb-4 text-creme leading-tight">
-          Resultados reais de quem já viveu essa transformação
-        </h2>
-        <p className="font-sans text-center text-creme/60 mb-20">
-          Clareza, evolução e aplicação prática no dia a dia da liderança.
-        </p>
+    <section id="depoimentos" className="bg-verde text-creme py-24 md:py-40 px-6 overflow-hidden">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-16 md:mb-24">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-[10px] uppercase tracking-[0.4em] text-creme/40 font-black mb-6 block"
+          >
+            Impacto Real
+          </motion.span>
+          <h2 className="font-serif text-[clamp(32px,4vw,56px)] font-black text-center text-creme leading-tight">
+            Depoimentos que <br className="hidden md:block" /> validam a jornada.
+          </h2>
+        </div>
 
         {/* DESTAQUE RENATA */}
-        <div className="mb-24 flex flex-col md:flex-row items-center gap-10 bg-white/5 p-10 rounded-[40px] border border-white/10">
-          <img 
-            src="https://i.ibb.co/0yLb61HN/Renata-Nazareth-de-Jesus-CEA-GERENTEGERAL-BRADESCO.jpg" 
-            alt="Renata Nazareth de Jesus" 
-            className="w-32 h-32 md:w-48 md:h-48 rounded-[32px] object-cover grayscale hover:grayscale-0 transition-all duration-500"
-          />
-          <div className="text-center md:text-left">
-            <p className="font-cormorant text-[26px] leading-[1.6] italic text-creme/90">
+        <div className="mb-20 flex flex-col md:flex-row items-center gap-10 bg-white/[0.03] p-10 md:p-14 rounded-[40px] border border-white/10 shadow-2xl">
+          <div className="text-center md:text-left w-full">
+            <p className="font-cormorant text-[24px] md:text-[32px] leading-[1.5] italic text-creme/90 font-medium">
               “Uma jornada rica e transformadora. Saio com novos olhares, insights valiosos e a certeza de evolução real como líder.”
             </p>
-            <span className="block mt-5 text-[14px] tracking-widest font-bold text-highlight uppercase">
+            <span className="block mt-8 text-[12px] md:text-[14px] tracking-[0.2em] font-black text-highlight uppercase">
               — Renata Nazareth de Jesus, CEA
             </span>
           </div>
         </div>
 
         {/* LISTA LIMPA */}
-        <div className="flex flex-col gap-12 mb-24">
+        <div className="flex flex-col gap-12 md:gap-16 mb-24">
           {testimonials.map((t, i) => (
-            <div key={i} className="flex gap-6 items-start border-l border-white/10 pl-8 transition-all hover:border-highlight/50 group">
-              {t.image && (
-                <img 
-                  src={t.image} 
-                  alt={t.name} 
-                  className="w-16 h-16 rounded-2xl object-cover grayscale group-hover:grayscale-0 transition-all"
-                />
-              )}
-              <div>
-                <p className="font-cormorant text-[20px] leading-[1.6] text-creme/80 italic group-hover:text-creme transition-colors">
+            <div key={i} className="flex gap-8 md:gap-10 items-start border-l-2 border-white/10 pl-8 md:pl-12 transition-all hover:border-highlight/50 group">
+              <div className="flex flex-col">
+                <p className="font-cormorant text-[20px] md:text-[24px] leading-relaxed text-creme/80 italic group-hover:text-creme transition-colors">
                   “{t.text}”
                 </p>
-                <div className="mt-4 flex flex-col">
-                  <span className="text-[10px] font-mono text-creme/30 uppercase tracking-[0.3em]">— {t.name}{t.role ? `, ${t.role}` : ''}</span>
+                <div className="mt-6 flex flex-col">
+                  <span className="text-[11px] font-bold text-creme uppercase tracking-[0.2em]">{t.name}</span>
+                  <span className="text-[10px] font-mono text-creme/30 uppercase tracking-[0.2em] mt-1">{t.role}</span>
                 </div>
               </div>
             </div>
@@ -568,18 +552,16 @@ const TestimonialsLuxury = () => {
         </div>
 
         {/* INSTITUCIONAL GLAUCIMAR */}
-        <div className="border-t border-white/10 pt-16 flex flex-col items-center gap-8">
-          <img 
-            src="https://i.ibb.co/8DcshQsd/Glaucimar-Peticov-CEO.jpg" 
-            alt="Glaucimar Peticov" 
-            className="w-24 h-24 rounded-full object-cover grayscale border-2 border-verde-med/30"
-          />
-          <div className="text-center max-w-2xl">
-            <p className="font-cormorant text-[20px] text-creme/70 italic leading-relaxed">
-              “Carreiras são construídas pela consistência, pelo tempo e pelas trocas. É na colaboração que fortalecemos nossa trajetória e ampliamos nosso impacto.”
-            </p>
-            <span className="block mt-6 text-[13px] font-bold text-verde-med uppercase tracking-[0.2em]">
-              — Glaucimar Peticov (Ex-Diretora Executiva do Bradesco, hoje CEO e fundadora da Peti Desenvolvimento Humano, conselheira e referência em liderança e cultura organizacional)
+        <div className="border-t border-white/10 pt-20 flex flex-col items-center gap-10 text-center">
+          <p className="font-cormorant text-[20px] md:text-[26px] text-creme/60 italic leading-relaxed max-w-2xl px-4">
+            “Carreiras são construídas pela consistência, pelo tempo e pelas trocas. É na colaboração que fortalecemos nossa trajetória e ampliamos nosso impacto.”
+          </p>
+          <div className="flex flex-col items-center">
+            <span className="block text-[11px] font-black text-verde-med uppercase tracking-[0.3em] mb-2">
+              Glaucimar Peticov
+            </span>
+            <span className="text-[9px] md:text-[10px] text-creme/30 uppercase tracking-[0.1em] max-w-lg leading-relaxed font-bold">
+              Conselheira e referência em liderança · Ex-Diretora Executiva Bradesco · CEO Peti Desenvolvimento Humano
             </span>
           </div>
         </div>
@@ -590,17 +572,17 @@ const TestimonialsLuxury = () => {
 
 const Qualification = () => {
   return (
-    <section className="bg-verde py-20 px-8 text-creme text-center overflow-hidden relative">
-      <div className="max-w-[800px] mx-auto relative z-10">
-        <h2 className="font-serif text-[clamp(24px,2.5vw,36px)] font-bold italic leading-tight mb-8">
+    <section className="bg-verde py-24 md:py-32 px-8 text-creme text-center overflow-hidden relative">
+      <div className="max-w-4xl mx-auto relative z-10">
+        <h2 className="font-serif text-[clamp(28px,4vw,48px)] font-bold italic leading-tight mb-10">
           "Para quem o sucesso atual já não é mais suficiente e a próxima etapa exige uma nova versão de si mesmo."
         </h2>
-        <div className="w-16 h-px bg-creme/20 mx-auto mb-8"></div>
-        <p className="font-cormorant text-[20px] text-creme/70 tracking-wide font-medium">
+        <div className="w-20 h-px bg-creme/20 mx-auto mb-10"></div>
+        <p className="font-cormorant text-[22px] md:text-[28px] text-creme/70 tracking-wide font-medium leading-relaxed">
           Mentoria focada em posições de liderança, gestão e transições estratégicas.
         </p>
       </div>
-      <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] opacity-5 pointer-events-none" referrerPolicy="no-referrer" />
+      <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] md:w-[40%] opacity-[0.03] pointer-events-none" referrerPolicy="no-referrer" />
     </section>
   );
 };
@@ -620,40 +602,48 @@ const PresenceGallery = () => {
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <motion.div 
-            initial={{ opacity: 0, scale: 1.05 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative rounded-[56px] overflow-hidden aspect-[4/3] shadow-2xl group cursor-none"
-          >
-             <img 
-              src="https://i.ibb.co/FkxQ8zKG/deborabolangoimage1.jpg" 
-              alt="Débora Bolangno Atuação" 
-              className="w-full h-full object-cover object-[50%_20%] brightness-[1.08] contrast-[1.02] transition-transform duration-[2.5s] group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
-            <div className="absolute bottom-10 left-10 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-              <span className="text-[10px] uppercase tracking-widest font-bold">Domínio Legislativo</span>
-            </div>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, scale: 1.05 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="relative rounded-[56px] overflow-hidden aspect-[4/3] shadow-2xl group cursor-none"
-          >
-             <img 
-              src="https://i.ibb.co/PZS5bDgy/DEBORA-MARCA-PESSOAL.jpg" 
-              alt="Débora Bolangno Liderança" 
-              className="w-full h-full object-cover object-[50%_15%] brightness-[1.08] contrast-[1.02] transition-transform duration-[2.5s] group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
-            <div className="absolute bottom-10 left-10 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-              <span className="text-[10px] uppercase tracking-widest font-bold">Atuação Executiva</span>
-            </div>
-          </motion.div>
+          {[
+            {
+              src: "https://i.ibb.co/B58qn0fV/debora-atuacao-e-lideranca-01.webp",
+              label: "Atuação & Liderança",
+              delay: 0
+            },
+            {
+              src: "https://i.ibb.co/N6gJyhg0/Debora-Branding-Posicionamento.webp",
+              label: "Branding & Posicionamento",
+              delay: 0.2
+            },
+            {
+              src: "https://i.ibb.co/TqMtJCk3/Debora-Mentoria-Conex-o.webp",
+              label: "Mentoria & Conexão",
+              delay: 0.4
+            },
+            {
+              src: "https://i.ibb.co/BHR15hzF/debora-Presen-a-Executiva.webp",
+              label: "Presença Executiva",
+              delay: 0.6
+            }
+          ].map((item, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, scale: 1.05 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: item.delay }}
+              className="relative rounded-[56px] overflow-hidden aspect-[4/3] shadow-2xl group cursor-none"
+            >
+               <img 
+                src={item.src} 
+                alt={`Débora Bolangno - ${item.label}`} 
+                className="w-full h-full object-cover object-[50%_20%] brightness-[1.08] contrast-[1.02] transition-transform duration-[2.5s] group-hover:scale-110"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
+              <div className="absolute bottom-10 left-10 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                <span className="text-[10px] uppercase tracking-widest font-bold">{item.label}</span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -662,13 +652,13 @@ const PresenceGallery = () => {
 
 const Triagem = () => {
   return (
-    <section className="bg-brand-950 py-24 px-8 border-t border-white/5">
+    <section id="seu-momento" className="bg-brand-950 py-24 md:py-32 px-6 sm:px-8 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <motion.span 
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-[10px] uppercase tracking-[0.3em] font-bold text-highlight block mb-5 text-center"
+          className="text-[10px] uppercase tracking-[0.4em] font-black text-highlight block mb-6 text-center"
         >
           Seu momento
         </motion.span>
@@ -677,11 +667,11 @@ const Triagem = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-serif text-[clamp(28px,3.5vw,44px)] font-black text-creme leading-tight text-center mb-16"
+          className="font-serif text-[clamp(32px,4.5vw,56px)] font-black text-creme leading-[1.1] text-center mb-16 md:mb-24"
         >
-          Qual desses momentos descreve você hoje?
+          Qual desses momentos <br className="hidden md:block" /> descreve você hoje?
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {[
             {
               href: "marca-intencional.html",
@@ -712,13 +702,14 @@ const Triagem = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.7 }}
               href={item.href} 
-              className="group bg-white/5 border border-white/10 p-10 rounded-3xl transition-all hover:bg-highlight/10 hover:border-highlight hover:-translate-y-2 relative overflow-hidden"
+              className="group bg-white/5 border border-white/10 p-8 md:p-12 rounded-[40px] transition-all hover:bg-highlight/10 hover:border-highlight/50 hover:-translate-y-2 relative overflow-hidden"
             >
-              {item.extra}
-              <div className="font-serif text-[44px] font-black text-highlight/20 leading-none mb-6">{item.num}</div>
-              <h3 className="font-serif text-2xl font-bold text-creme mb-4">{item.title}</h3>
-              <p className="text-sm text-creme/50 leading-relaxed mb-8">{item.desc}</p>
-              <span className="text-[10px] uppercase tracking-widest font-bold text-highlight flex items-center gap-2 group-hover:gap-4 transition-all">{item.label} <ArrowRight size={14} /></span>
+              <div className="font-serif text-[48px] md:text-[64px] font-black text-highlight/20 leading-none mb-8">{item.num}</div>
+              <h3 className="font-serif text-2xl md:text-3xl font-bold text-creme mb-6">{item.title}</h3>
+              <p className="text-[15px] md:text-[16px] text-creme/50 leading-relaxed mb-10">{item.desc}</p>
+              <span className="text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold text-highlight flex items-center gap-3 group-hover:gap-5 transition-all">
+                {item.label} <ArrowRight size={16} />
+              </span>
             </motion.a>
           ))}
         </div>
@@ -948,9 +939,9 @@ const ProgramsGrid = () => {
   ];
 
   return (
-    <section id="programa" className="bg-white py-24 px-8">
+    <section id="programas" className="bg-white py-20 md:py-24 px-6 sm:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-20">
+        <div className="mb-12 md:mb-20">
           <motion.span 
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -964,7 +955,7 @@ const ProgramsGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink"
+            className="font-serif text-[clamp(28px,3.5vw,48px)] font-black leading-[1.15] text-ink"
           >
             O seu próximo <span className="italic text-highlight">salto estratégico</span> começa aqui.
           </motion.h2>
@@ -978,7 +969,7 @@ const ProgramsGrid = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.8 }}
-              className="bg-white p-12 border border-ink/6 rounded-[40px] flex flex-col hover:border-verde-med/20 hover:shadow-[0_40px_80px_rgba(26,58,46,0.08)] transition-all group"
+              className="bg-white p-8 md:p-12 border border-ink/6 rounded-[32px] md:rounded-[40px] flex flex-col hover:border-verde-med/20 hover:shadow-[0_40px_80px_rgba(26,58,46,0.08)] transition-all group"
             >
               <div className="w-14 h-14 bg-creme rounded-2xl flex items-center justify-center text-verde mb-8 group-hover:bg-verde group-hover:text-creme transition-colors">
                 {card.icon}
@@ -1020,9 +1011,6 @@ const ProgramsGrid = () => {
   );
 };
 
-
-
-
 const Lectures = () => {
   const lectures = [
     {
@@ -1040,15 +1028,15 @@ const Lectures = () => {
   ];
 
   return (
-    <section id="palestras" className="bg-creme py-24 px-8 border-t border-ink/5">
+    <section id="palestras" className="bg-creme py-24 md:py-32 px-6 sm:px-8 border-t border-ink/5">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col min-[900px]:flex-row justify-between items-start min-[900px]:items-end gap-10 mb-16">
-          <div className="max-w-[620px]">
+        <div className="flex flex-col min-[900px]:flex-row justify-between items-start min-[900px]:items-end gap-10 mb-16 md:mb-24">
+          <div className="max-w-[700px]">
             <motion.span 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-4 block"
+              className="text-[10px] uppercase tracking-[0.4em] text-verde-med font-black mb-6 block"
             >
               Palestras & Workshops
             </motion.span>
@@ -1057,7 +1045,7 @@ const Lectures = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15] text-ink"
+              className="font-serif text-[clamp(32px,4.5vw,56px)] font-black leading-[1.1] text-ink"
             >
               Conteúdo de <span className="italic text-highlight">alto impacto</span> para o seu time.
             </motion.h2>
@@ -1070,13 +1058,13 @@ const Lectures = () => {
             href="https://wa.me/5511940803333?text=Olá,%20gostaria%20de%20receber%20um%20orçamento%20para%20palestras" 
             target="_blank"
             rel="noopener"
-            className="bg-verde text-white px-8 py-4 rounded-full text-[10px] uppercase tracking-[0.25em] font-bold hover:bg-[#112e28] transition-all"
+            className="w-full sm:w-auto text-center bg-verde text-white px-12 py-5 rounded-full text-[11px] uppercase tracking-[0.25em] font-bold hover:bg-[#112e28] hover:-translate-y-px shadow-lg transition-all"
           >
             Solicitar orçamento
           </motion.a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {lectures.map((l, i) => (
             <motion.article 
               key={i} 
@@ -1084,15 +1072,53 @@ const Lectures = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.7 }}
-              className="bg-white p-10 rounded-[40px] border border-ink/6 shadow-sm hover:shadow-xl transition-all group"
+              className="bg-white p-10 md:p-12 rounded-[40px] border border-ink/6 shadow-sm hover:shadow-2xl transition-all group"
             >
-              <div className="w-12 h-12 bg-creme rounded-2xl flex items-center justify-center text-verde font-serif text-xl font-bold mb-8 italic group-hover:bg-verde group-hover:text-white transition-colors transition-duration-500">
+              <div className="w-14 h-14 bg-creme rounded-2xl flex items-center justify-center text-verde font-serif text-2xl font-bold mb-10 italic group-hover:bg-verde group-hover:text-white transition-all duration-500">
                 {i + 1}.
               </div>
-              <h3 className="font-serif text-2xl font-bold text-ink leading-tight mb-4">{l.title}</h3>
-              <p className="text-[17px] text-ink/65 leading-relaxed">{l.desc}</p>
+              <h3 className="font-serif text-2xl md:text-3xl font-bold text-ink leading-tight mb-6">{l.title}</h3>
+              <p className="text-[16px] md:text-[18px] text-ink/65 leading-relaxed">{l.desc}</p>
             </motion.article>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Repertoire = () => {
+  return (
+    <section className="bg-white py-20 md:py-24 px-6 sm:px-8 overflow-hidden">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div className="order-2 md:order-1">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-verde-med font-bold mb-6 block text-center md:text-left">Repertório & Autoridade</span>
+          <h2 className="font-serif text-[clamp(28px,3.5vw,48px)] font-black leading-[1.15] text-ink mb-8 text-center md:text-left">
+            Fundamento que <br />
+            <span className="italic text-highlight">gera resultado.</span>
+          </h2>
+          <p className="text-base md:text-lg text-ink/70 leading-relaxed mb-8 text-center md:text-left">
+            A prática sem teoria é cega, e a teoria sem prática é estéril. Minha atuação é pautada por um repertório sólido, unindo os maiores clássicos da gestão com as ferramentas mais modernas de desenvolvimento humano.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+            <div className="p-5 md:p-6 bg-creme rounded-2xl border border-ink/5 text-center sm:text-left">
+              <div className="text-verde font-bold text-base md:text-lg mb-1">Estratégia</div>
+              <div className="text-[10px] text-ink/40 uppercase tracking-widest font-medium">Visão de Longo Prazo</div>
+            </div>
+            <div className="p-5 md:p-6 bg-creme rounded-2xl border border-ink/5 text-center sm:text-left">
+              <div className="text-verde font-bold text-base md:text-lg mb-1">Liderança</div>
+              <div className="text-[10px] text-ink/40 uppercase tracking-widest font-medium">Gestão de Pessoas</div>
+            </div>
+          </div>
+        </div>
+        <div className="order-1 md:order-2 relative group">
+          <div className="absolute -inset-2 md:-inset-4 bg-verde/5 rounded-[24px] md:rounded-[48px] scale-105 group-hover:scale-110 transition-transform duration-700"></div>
+          <img 
+            src="https://i.ibb.co/20Ddwc9Y/LIVROS-DB.jpg" 
+            alt="Repertório Débora Bolangno" 
+            className="relative rounded-[24px] md:rounded-[40px] shadow-2xl brightness-95 group-hover:brightness-100 transition-all duration-700 w-full" 
+            referrerPolicy="no-referrer"
+          />
         </div>
       </div>
     </section>
@@ -1116,45 +1142,69 @@ const Differentials = () => {
   ];
 
   return (
-    <section className="bg-verde py-24 px-8 text-creme overflow-hidden">
+    <section className="bg-verde py-24 md:py-40 px-6 sm:px-8 text-creme overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-[680px] mx-auto mb-20">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-[10px] uppercase tracking-[0.35em] text-creme/50 font-bold mb-5 block"
-          >
-            Diferenciais
-          </motion.span>
-          <motion.h2 
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+          <div>
+            <div className="mb-16 md:mb-24 text-center md:text-left">
+              <motion.span 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-[10px] uppercase tracking-[0.4em] text-creme/40 font-black mb-6 block"
+              >
+                Diferenciais
+              </motion.span>
+              <motion.h2 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="font-serif text-[clamp(32px,4.5vw,64px)] font-black leading-[1.05]"
+              >
+                Por que <br className="hidden md:block" />
+                <span className="italic text-highlight">Débora Bolangno?</span>
+              </motion.h2>
+            </div>
+
+            <div className="space-y-6 md:space-y-8">
+              {diffs.map((d, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15, duration: 0.7 }}
+                  className="bg-white/5 border border-white/10 p-8 md:p-10 rounded-[40px] hover:bg-white/10 transition-all group"
+                >
+                  <div className="flex flex-col sm:flex-row gap-6 md:gap-8 items-center sm:items-start text-center sm:text-left">
+                    <div className="w-14 h-14 bg-dourado/20 rounded-2xl flex items-center justify-center text-dourado shrink-0 group-hover:scale-110 transition-transform">
+                      <Check size={28} strokeWidth={3} />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-2xl md:text-3xl font-bold mb-3">{d.title}</h3>
+                      <p className="text-creme/60 text-base md:text-lg leading-relaxed">{d.desc}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          
+          <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="font-serif text-[clamp(32px,3.5vw,48px)] font-black leading-[1.15]"
+            className="relative rounded-[40px] md:rounded-[64px] overflow-hidden aspect-[4/5] shadow-2xl group"
           >
-            Por que Débora Bolangno?
-          </motion.h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {diffs.map((d, i) => (
-            <motion.div 
-              key={i} 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.7 }}
-              className="bg-white/5 border border-white/10 p-12 rounded-[48px] hover:bg-white/10 transition-all hover:scale-[1.02]"
-            >
-              <div className="w-14 h-14 bg-dourado/20 rounded-2xl flex items-center justify-center text-dourado mb-8">
-                <Check size={28} strokeWidth={3} />
-              </div>
-              <h3 className="font-serif text-2xl font-bold mb-4">{d.title}</h3>
-              <p className="text-creme/65 text-lg leading-relaxed">{d.desc}</p>
-            </motion.div>
-          ))}
+            <img 
+              src="https://i.ibb.co/mVqGg1yW/debora-hero-nova.webp" 
+              alt="Débora Bolangno Diferenciais" 
+              className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-verde/60 via-transparent to-transparent"></div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -1256,22 +1306,43 @@ const ContactModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 
 const CTA = () => {
   return (
-    <section id="contato" className="bg-creme-light py-24 text-center px-8 border-y border-ink/4">
+    <section id="contato" className="bg-white py-24 md:py-40 px-6 sm:px-8 border-y border-ink/4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-serif text-[clamp(28px,3.5vw,48px)] font-black text-ink leading-[1.1] mb-8 max-w-[800px] mx-auto">
-          Pronto para o seu <span className="italic text-highlight">próximo nível</span> na carreira?
-        </h2>
-        <p className="text-[18px] text-ink/70 max-w-[600px] mx-auto mb-10 leading-[1.6]">
-          Agende agora um diagnóstico estratégico e entenda como podemos acelerar seu crescimento e resultados.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20estratégico" target="_blank" rel="noopener" className="bg-verde text-white px-10 py-5 rounded-full text-[11px] uppercase tracking-[0.25em] font-bold hover:bg-[#112e28] transition-all flex items-center gap-3">
-            Agendar diagnóstico agora
-            <ArrowRight size={18} />
-          </a>
-          <a href="https://www.linkedin.com/in/deborabolangno" target="_blank" rel="noopener" className="border-2 border-ink/10 text-ink px-10 py-5 rounded-full text-[11px] uppercase tracking-[0.25em] font-bold hover:bg-ink hover:text-white transition-all">
-            Ver LinkedIn
-          </a>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="relative rounded-[40px] md:rounded-[64px] overflow-hidden aspect-[4/5] shadow-2xl order-last md:order-first">
+            <img 
+              src="https://i.ibb.co/FLG1NkW7/debora-Pronto-para-o-seu-pr-ximo-n-vel-na-carreira.webp" 
+              alt="Débora Bolangno" 
+              className="w-full h-full object-cover transition-transform duration-[3s] hover:scale-105"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+          </div>
+          <div className="text-center md:text-left">
+            <motion.span 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-[10px] uppercase tracking-[0.4em] text-verde-med font-black mb-8 block"
+            >
+              Próximo Passo
+            </motion.span>
+            <h2 className="font-serif text-[clamp(32px,5vw,64px)] font-black text-ink leading-[1.05] mb-8 lg:mb-12">
+              Pronto para o seu <span className="italic text-highlight">próximo nível</span> na carreira?
+            </h2>
+            <p className="text-lg md:text-2xl text-ink/65 max-w-[560px] mx-auto md:mx-0 mb-12 lg:mb-16 leading-relaxed">
+              Agende agora um diagnóstico estratégico e entenda como podemos acelerar seu crescimento e resultados.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-5">
+              <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20estratégico" target="_blank" rel="noopener" className="w-full sm:w-auto bg-verde text-white px-10 md:px-12 py-5 rounded-full text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-bold hover:bg-[#112e28] hover:-translate-y-px shadow-xl shadow-verde/20 transition-all flex items-center justify-center gap-4">
+                Agendar diagnóstico agora
+                <ArrowRight size={20} />
+              </a>
+              <a href="https://www.linkedin.com/in/deborabolangno" target="_blank" rel="noopener" className="w-full sm:w-auto border-2 border-ink/10 text-ink px-10 md:px-12 py-5 rounded-full text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-bold hover:bg-ink hover:text-white transition-all text-center">
+                Ver LinkedIn
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1377,9 +1448,10 @@ export default function App() {
         <SectionReveal><Identification /></SectionReveal>
         <SectionReveal><ProofBar /></SectionReveal>
         <SectionReveal><About /></SectionReveal>
+        <SectionReveal><Repertoire /></SectionReveal>
         <SectionReveal><TestimonialsLuxury /></SectionReveal>
         <SectionReveal><Qualification /></SectionReveal>
-        <ProgramsGrid />
+        <SectionReveal><ProgramsGrid /></SectionReveal>
         <SectionReveal><Lectures /></SectionReveal>
         <SectionReveal><Differentials /></SectionReveal>
         <Quiz />

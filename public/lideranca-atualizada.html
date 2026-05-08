@@ -9,6 +9,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        verde: '#1a3a2e',
+                        'verde-med': '#2d5a47',
+                        dourado: '#bca374',
+                        creme: '#F9F7F2',
+                        ink: '#121212',
+                        highlight: '#8b2d2d',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Jost', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
         :root {
@@ -318,8 +339,26 @@
             transition: var(--transition);
         }
         .float-btn:hover { transform: scale(1.1); }
-        .btn-whatsapp { background-color: #25D366; color: white; }
-        .btn-up { background-color: var(--brand-green); color: white; }
+        .btn-whatsapp { background-color: #25D366; color: white; display: flex; align-items: center; justify-content: center; }
+        .btn-up { background-color: var(--brand-green); color: white; display: flex; align-items: center; justify-content: center; }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--brand-green);
+            margin-bottom: 40px;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+        .btn-back:hover {
+            opacity: 1;
+            transform: translateX(-5px);
+        }
 
         @media (max-width: 1024px) {
             .nav-menu { display: none; }
@@ -349,107 +388,116 @@
 </head>
 <body>
 
-    <header>
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">
-                <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" class="logo-img">
-                <div class="logo-text-group">
-                    <span class="logo-name">Débora Bolangno</span>
-                    <span class="logo-subtitle">Estratégia de Carreira & Liderança</span>
+    <header class="fixed w-full z-50 transition-all bg-creme border-b border-ink/5">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex justify-between items-center">
+            <a href="index.html" class="text-[10px] md:text-[12px] uppercase tracking-[0.3em] font-bold text-ink">
+                VOLTAR
+            </a>
+            <a href="index.html" class="flex items-center gap-3 group text-left">
+                <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo Débora Bolangno" class="w-9 h-9 md:w-11 md:h-11 object-contain">
+                <div class="hidden sm:flex flex-col">
+                    <span class="font-serif text-base md:text-lg font-bold text-ink leading-tight tracking-tight">Débora Bolangno</span>
+                    <span class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-ink/40 font-medium whitespace-nowrap">Estratégia de Carreira & Liderança</span>
                 </div>
             </a>
-            
-                <div class="nav-right">
-                    <div class="nav-menu">
-                        <a href="index.html#sobre">Sobre</a>
-                        <a href="index.html#depoimentos">Depoimentos</a>
-                        <a href="index.html#programas">Programas</a>
-                        <a href="index.html#palestras">Palestras</a>
-                        <a href="index.html#contato">Contato</a>
-                    </div>
-    
-                    <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20portfólio%20corporativo%20e%20gostaria%20de%20maiores%20informações" target="_blank" class="btn-nav">Solicitar Proposta</a>
-                </div>
+            <a href="https://wa.me/5511940803333" target="_blank" class="bg-verde text-white px-5 md:px-8 py-2 md:py-3 rounded-full text-[9px] md:text-[11px] uppercase font-bold tracking-[0.2em] hover:bg-verde-med transition-all">
+                AGENDAR
+            </a>
         </div>
     </header>
+
+    <div class="pt-20"></div>
 
     <section class="page-intro">
         <div class="container">
             <div class="page-intro-inner">
-                <div>
+                <div class="text-center md:text-left">
                     <span class="tag">Mentoria em Grupo</span>
                     <h1 class="title-display">Liderança <i>&</i> Gestão <i>de</i> Alta Performance</h1>
-                    <div class="title-divider" style="width: 100px; height: 1px; background: var(--brand-gold); margin-bottom: 40px;"></div>
+                    <div class="title-divider" style="width: 100px; height: 1px; background: var(--brand-gold); margin: 0 auto 40px; md:margin-left: 0;"></div>
                     <p class="intro-subtitle">
                         Saia do operacional e torne-se o líder estratégico que seu time e sua empresa precisam.
                     </p>
                     <div style="margin-top: 48px;">
-                        <a href="https://wa.me/5511940803333" class="btn">Entrar na Lista de Espera</a>
+                        <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20entrar%20na%20lista%20de%20espera%20da%20Mentoria%20de%20Liderança" class="btn w-full sm:w-auto justify-center">Entrar na Lista de Espera</a>
                     </div>
                 </div>
-                <div class="intro-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&q=80&w=1200" alt="Liderança" class="intro-img">
+                <div class="intro-img-wrapper order-first md:order-last">
+                    <img src="https://i.ibb.co/3ydbm1z4/Debora-marca-intencional-3.webp" alt="Liderança" class="intro-img">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pillars-section">
+    <section class="pillars-section py-20 md:py-32">
         <div class="container">
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <h3>Comunicação Assertiva</h3>
-                    <p>Dominar a arte do feedback, reuniões eficientes e a clareza nas expectativas. O fim do retrabalho por má comunicação.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 border border-ink/5 rounded-[40px] overflow-hidden">
+                <div class="pillar-card border-b md:border-b-0 md:border-r border-ink/5 p-8 md:p-12 hover:bg-creme transition-all">
+                    <h3 class="text-2xl md:text-3xl font-serif mb-4 md:mb-6">Comunicação Assertiva</h3>
+                    <p class="text-ink/60 leading-relaxed text-sm md:text-base">Dominar a arte do feedback, reuniões eficientes e a clareza nas expectativas. O fim do retrabalho por má comunicação.</p>
                 </div>
-                <div class="pillar-card">
-                    <h3>Cultura de Confiança</h3>
-                    <p>Como construir um ambiente de segurança psicológica que estimula a inovação e o comprometimento genuíno do time.</p>
+                <div class="pillar-card border-b md:border-b-0 md:border-r border-ink/5 p-8 md:p-12 hover:bg-creme transition-all">
+                    <h3 class="text-2xl md:text-3xl font-serif mb-4 md:mb-6">Cultura de Confiança</h3>
+                    <p class="text-ink/60 leading-relaxed text-sm md:text-base">Como construir um ambiente de segurança psicológica que estimula a inovação e o comprometimento genuíno do time.</p>
                 </div>
-                <div class="pillar-card">
-                    <h3>Foco em Resultados</h3>
-                    <p>Sair da reatividade. Aprenda a priorizar o que realmente move o ponteiro e a delegar com segurança e acompanhamento.</p>
+                <div class="pillar-card p-8 md:p-12 hover:bg-creme transition-all">
+                    <h3 class="text-2xl md:text-3xl font-serif mb-4 md:mb-6">Foco em Resultados</h3>
+                    <p class="text-ink/60 leading-relaxed text-sm md:text-base">Sair da reatividade. Aprenda a priorizar o que realmente move o ponteiro e a delegar com segurança e acompanhamento.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
+    <section class="cta-section bg-creme border-t border-ink/5 pt-16 pb-24 md:py-32">
         <div class="container text-center">
-            <h2 style="font-size: clamp(32px, 5vw, 64px); margin-bottom: 40px;">Seu time é um <br> <i>reflexo</i> da sua liderança.</h2>
-            <a href="https://wa.me/5511940803333" class="btn">Garantir Lugar no Grupo</a>
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif mb-10 leading-tight">Seu time é um <br> <i>reflexo</i> da sua liderança.</h2>
+            <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20garantir%20meu%20lugar%20na%20Mentoria%20de%20Liderança" class="btn w-full sm:w-auto justify-center">Garantir Lugar no Grupo</a>
+            <div class="mt-12 flex justify-center">
+                <a href="index.html#programas" class="text-[11px] uppercase tracking-[0.3em] font-bold text-ink/40 hover:text-verde transition-colors py-4 px-8 border border-ink/5 rounded-full">
+                    VOLTAR
+                </a>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container" style="max-width: 1440px; display: flex; flex-direction: column; align-items: center; gap: 40px;">
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-                <div style="display: flex; align-items: center; gap: 16px;">
-                    <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" style="width: 40px; height: 40px; filter: brightness(0) invert(1);">
-                    <div style="display: flex; flex-direction: column; text-align: left;">
-                        <span style="font-family: var(--font-display); font-size: 20px; font-weight: 700; color: white;">Débora Bolangno</span>
-                        <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4);">Estratégia de Carreira & Liderança</span>
+    <footer class="bg-verde py-16 px-8 text-creme mt-24">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <div class="flex items-center gap-4">
+                    <img src="https://i.ibb.co/v4bp7gxB/logo-db-3.png" alt="Logo" class="w-10 h-10 object-contain brightness-0 invert">
+                    <div class="flex flex-col">
+                        <span class="font-serif text-xl font-bold leading-none mb-1">Débora Bolangno</span>
+                        <span class="text-[9px] uppercase tracking-widest text-creme/40">Estratégia de Carreira & Liderança</span>
                     </div>
                 </div>
             </div>
             
-            <div style="display: flex; gap: 24px;">
-                <a href="https://www.instagram.com/deborabolangno" style="color: white; opacity: 0.5 hover:opacity: 1; transition: opacity 0.3s;">Instagram</a>
-                <a href="https://www.linkedin.com/in/deborabolangno" style="color: white; opacity: 0.5 hover:opacity: 1; transition: opacity 0.3s;">LinkedIn</a>
-                <a href="mailto:deborabolangno@outlook.com" style="color: white; opacity: 0.5 hover:opacity: 1; transition: opacity 0.3s;">E-mail</a>
+            <div class="flex gap-6">
+                <a href="https://www.instagram.com/deborabolangno" target="_blank" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/deborabolangno" target="_blank" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="mailto:deborabolangno@outlook.com" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
+                </a>
             </div>
 
-            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; width: 100%;">
-                <p style="text-transform: uppercase; letter-spacing: 0.2em; font-size: 11px; color: rgba(255,255,255,0.7);">© 2026 Débora Bolangno · Todos os direitos reservados</p>
-                <p style="margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.7);">Desenvolvido por <a href="https://www.orvalia.com.br" target="_blank" style="color: inherit; text-decoration: underline;">Orvalia Studio</a></p>
+            <div class="text-center md:text-right">
+                <p class="text-creme/60 text-[11px] font-mono uppercase tracking-[0.4em] mb-1">
+                    Desenvolvido por <a href="https://www.orvalia.com.br" target="_blank" rel="noopener" class="hover:text-creme transition-colors underline underline-offset-4">Orvalia Studio</a>
+                </p>
+                <p class="text-[11px] font-mono text-creme/60 uppercase tracking-[0.4em]">© 2026 Débora Bolangno · Todos os direitos reservados</p>
             </div>
         </div>
     </footer>
 
     <div class="floating-actions">
-        <a href="https://wa.me/5511940803333" target="_blank" class="float-btn btn-whatsapp">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-2.32 0-4.591.4-6.738 1.189-.13.048-.225.105-.33.155a9.034 9.034 0 0 0-4.8 5.6c-.32 1.11-.274 2.274.135 3.363.04.1.096.195.14.286l-.5 2.112c-.04.168.04.34.2.428a.4.4 0 0 0 .195.05.41.41 0 0 0 .19-.047l2.253-.94a9.1 9.1 0 0 0 3.19.57c2.32 0 4.59-.4 6.737-1.19.13-.047.233-.1.33-.153a9.034 9.034 0 0 0 4.801-5.6c.32-1.11.274-2.274-.135-3.364-.04-.1-.1-.2-.14-.294l.5-2.112c.04-.168-.04-.34-.2-.428a.4.4 0 0 0-.195-.05.41.41 0 0 0-.39.247l-2.255.942a9.11 9.11 0 0 0-3.19-.571zM8.332 9.108c.18 0 .36.002.54.004.162.003.32.007.47.012.155.005.3.01.442.02.43 0 .807.13 1.1.37.28.25.43.59.43 1.01 0 .2-.04.4-.11.58-.12.35-.41.67-.86.95-.31.19-.7.34-1.18.45-.15.03-.3.05-.44.07a8.7 8.7 0 0 0-.442.02c-.15.005-.31.009-.47.012-.18.002-.36.004-.54.004h-.01c-.18 0-.36-.002-.54-.004-.16-.003-.32-.007-.47-.012-.15-.005-.3-.01-.44-.02l-.08-.002a8.7 8.7 0 0 0-.36-.02c-.15-.005-.3-.01-.442-.02-.15-.005-.31-.01-.47-.012-.18-.002-.36-.004-.54-.004h-.01c-.18 0-.36.002-.54.004-.16.003-.32.007-.47.012-.15.005-.3.01-.44.02l-.08.002c-.2.01-.4 0-.58-.06-.35-.12-.67-.34-.95-.71-.24-.31-.38-.68-.38-1.1 0-.43.15-.81.44-1.1.25-.25.57-.4.99-.4h.01c.18 0 .36.002.54.004.16.003.31.007.46.012.15.005.3.01.44.02.43.01.81.14 1.1.38.28.25.43.59.43 1.01 0 .2-.04.4-.11.58-.12.35-.41.67-.86.95-.31.19-.7.34-1.18.45-.15.03-.3.05-.44.07l-.02.003c.18.01.36.02.54.02h.01c.18 0 .36-.01.54-.02l.02-.003c.14-.02.29-.04.44-.07.48-.11.87-.26 1.18-.45.45-.28.74-.6.86-.95.07-.18.11-.38.11-.58 0-.42-.15-.76-.43-1.01-.29-.24-.67-.37-1.1-.37-.14-.01-.29-.015-.442-.02-.15-.005-.31-.009-.47-.012-.18-.002-.36-.004-.54-.004h.01c.18 0 .36.002.54.004.16.003.31.007.46.012.15.005.3.009.442.02.443.003.443.003.443.003z"/></svg>
+        <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Mentoria%20em%20Grupo%20Liderança%20e%20Gestão" target="_blank" class="float-btn btn-whatsapp" aria-label="Contato via WhatsApp">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.12.541 4.191 1.57 6.017L0 24l6.105-1.602a11.834 11.834 0 005.937 1.57h.005c6.637 0 12.032-5.396 12.035-12.032.003-3.218-1.248-6.242-3.517-8.511z"/></svg>
         </a>
-        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="float-btn btn-up">
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="float-btn btn-up" aria-label="Voltar ao topo">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
         </button>
     </div>
