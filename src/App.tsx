@@ -261,30 +261,30 @@ const Hero = () => {
         variants={container}
         initial="hidden"
         animate="show"
-        className="max-w-7xl mx-auto px-6 sm:px-8 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center w-full"
+        className="max-w-7xl mx-auto px-6 sm:px-8 py-12 md:py-16 grid grid-cols-1 md:grid-cols-[55%_45%] gap-12 lg:gap-20 items-center w-full"
       >
         <div className="text-center md:text-left">
-          <motion.div variants={item} className="flex items-center justify-center md:justify-start gap-3 mb-6">
+          <motion.div variants={item} className="flex items-center justify-center md:justify-start gap-3 mb-5">
             <div className="w-10 h-px bg-verde-med"></div>
             <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-verde-med font-black">
               Estrategista de Carreira · Débora Bolangno
             </span>
           </motion.div>
-          <motion.h1 variants={item} className="font-serif text-[clamp(32px,5.5vw,72px)] font-black leading-[1.05] text-ink mb-8">
-            <span className="block">Você não está travado</span>
-            <span className="block text-ink/90">por falta de capacidade.</span>
-            <span className="block italic text-highlight mt-2">Sua barreira hoje é a falta de estratégia.</span>
+          <motion.h1 variants={item} className="font-serif text-[clamp(28px,4.4vw,56px)] font-black leading-[1.12] text-ink mb-6 tracking-tight">
+            <span className="block">Clareza para decidir.</span>
+            <span className="block text-ink/90">Confiança para agir.</span>
+            <span className="block italic text-highlight mt-1 md:mt-1.5">Estratégia para crescer.</span>
           </motion.h1>
-          <motion.p variants={item} className="text-lg md:text-2xl text-ink/65 max-w-[560px] mx-auto md:mx-0 leading-relaxed mb-10 md:mb-12">
-            Mentoria para profissionais que já performam — mas ainda não avançam na velocidade que deveriam.
+          <motion.p variants={item} className="text-base md:text-lg lg:text-[19px] text-ink/65 max-w-[540px] mx-auto md:mx-0 leading-relaxed mb-6 md:mb-8">
+            Mentoria em carreira e liderança para profissionais que desejam ampliar seu impacto, fortalecer seu posicionamento e crescer com intenção.
           </motion.p>
           
-          <motion.div variants={item} className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start">
-            <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20estratégico" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-4 bg-verde text-white px-8 md:px-10 py-5 rounded-full text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-bold transition-all hover:bg-[#112e28] hover:-translate-y-px shadow-xl shadow-verde/20 group">
+          <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20estratégico" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-4 bg-verde text-white px-8 md:px-10 py-4 rounded-full text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-bold transition-all hover:bg-[#112e28] hover:-translate-y-px shadow-xl shadow-verde/20 group">
               Agendar diagnóstico estratégico
               <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
             </a>
-            <a href="#programas" className="inline-flex items-center justify-center gap-4 bg-transparent text-ink px-10 md:px-12 py-5 rounded-full text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-bold border-2 border-ink/10 transition-all hover:bg-ink hover:text-white">
+            <a href="#programas" className="inline-flex items-center justify-center gap-4 bg-transparent text-ink px-10 md:px-12 py-4 rounded-full text-[11px] md:text-[12px] uppercase tracking-[0.25em] font-bold border-2 border-ink/10 transition-all hover:bg-ink hover:text-white">
               Ver programas
             </a>
           </motion.div>

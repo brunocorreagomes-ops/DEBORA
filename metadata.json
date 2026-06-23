@@ -2,5 +2,5 @@
   "name": "Débora Bolangno  | Estratégia de Carreira e Liderança",
   "description": "Portfólio de Mentoria de Carreira, Liderança e Presença Executiva por Débora Bolangno.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
