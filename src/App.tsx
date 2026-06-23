@@ -350,7 +350,7 @@ const ProofBar = () => {
   const items = [
     { num: "+20", label: "Anos de experiência\nem RH e liderança" },
     { num: "+250", label: "Profissionais\natendidos" },
-    { num: "SP", label: "Osasco e\nGrande São Paulo" },
+    { num: "ONLINE", label: "Atendimento para\ntodo o Brasil" },
     { num: "5", label: "Formatos de\natendimento" },
   ];
 
@@ -1129,8 +1129,8 @@ const Repertoire = () => {
 const Differentials = () => {
   const diffs = [
     {
-      title: "+20 Anos de Mercado",
-      desc: "Experiência real em grandes corporações, vivendo na prática os desafios que você enfrenta hoje."
+      title: "+ de 20 anos vivendo o mundo corporativo",
+      desc: "Te entrego as minhas experiências e todo o repertório obtido vivenciando diferentes jornadas dos meus clientes."
     },
     {
       title: "Método Validado",
