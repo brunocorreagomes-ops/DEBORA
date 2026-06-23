@@ -62,6 +62,7 @@ const Navbar = () => {
     { name: "Depoimentos", href: "#depoimentos" },
     { name: "Programas", href: "#programas" },
     { name: "Palestras", href: "#palestras" },
+    { name: "Blog", href: "blog.html" },
     { name: "Contato", href: "#contato" },
   ];
 
