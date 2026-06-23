@@ -227,10 +227,10 @@
         }
 
         .title-display {
-            font-size: clamp(48px, 6vw, 84px);
+            font-size: clamp(38px, 4.6vw, 64px);
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 32px;
+            line-height: 1.15;
+            margin-bottom: 24px;
             color: var(--brand-green);
         }
 
@@ -256,11 +256,11 @@
         }
 
         .intro-subtitle {
-            font-size: 18px;
-            color: rgba(26, 58, 46, 0.6);
-            max-width: 500px;
-            line-height: 1.8;
-            margin-top: 40px;
+            font-size: clamp(16px, 1.3vw, 19px);
+            color: rgba(18, 18, 18, 0.85);
+            max-width: 520px;
+            line-height: 1.7;
+            margin-top: 24px;
         }
 
         /* Pillars Section */
@@ -288,7 +288,7 @@
         .pillar-card:hover { background-color: var(--brand-cream); }
 
         .pillar-card h3 { font-size: 28px; margin-bottom: 16px; font-weight: 700; }
-        .pillar-card p { font-size: 17px; color: rgba(10, 26, 20, 0.5); }
+        .pillar-card p { font-size: 17px; color: rgba(18, 18, 18, 0.8); }
 
         /* CTA */
         .cta-section { padding: 140px 0; text-align: center; }
@@ -498,13 +498,23 @@
             <div class="page-intro-inner">
                 <div class="text-center md:text-left">
                     <span class="tag">Mentoria em Grupo</span>
-                    <h1 class="title-display">Liderança <i>&</i> Gestão <i>de</i> Alta Performance</h1>
-                    <div class="title-divider" style="width: 100px; height: 1px; background: var(--brand-gold); margin: 0 auto 40px; md:margin-left: 0;"></div>
+                    <h1 class="title-display">Liderança Atualizada</h1>
+                    <div class="title-divider" style="width: 100px; height: 1px; background: var(--brand-gold); margin: 0 auto 32px; md:margin-left: 0;"></div>
                     <p class="intro-subtitle">
-                        Saia do operacional e torne-se o líder estratégico que seu time e sua empresa precisam.
+                        Um programa em grupo para líderes que querem se comunicar melhor, tomar decisões com mais clareza e conduzir seus times com mais segurança.
                     </p>
-                    <div style="margin-top: 48px;">
-                        <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20entrar%20na%20lista%20de%20espera%20da%20Mentoria%20de%20Liderança" class="btn w-full sm:w-auto justify-center">Entrar na Lista de Espera</a>
+                    
+                    <!-- Próxima Turma Info Box -->
+                    <div class="mt-8 mb-6 p-5 bg-[#1a3a2e]/5 border border-[#1a3a2e]/10 rounded-3xl flex flex-col gap-1 max-w-[480px] mx-auto md:mx-0 text-left">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-verde-med font-bold">Próxima Turma</span>
+                        <div class="flex flex-col gap-0.5">
+                            <span class="text-xl md:text-2xl font-serif font-black text-verde">03, 10, 17 e 24/08</span>
+                            <span class="text-xs md:text-sm text-ink/80 font-medium">Segundas-feiras, das 20h às 21h30</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 32px;">
+                        <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20garantir%20minha%20vaga%20no%20programa%20Liderança%20Atualizada" class="btn w-full sm:w-auto justify-center">Garantir minha vaga</a>
                     </div>
                 </div>
                 <div class="intro-img-wrapper order-first md:order-last">
@@ -518,16 +528,16 @@
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-3 border border-ink/5 rounded-[40px] overflow-hidden">
                 <div class="pillar-card border-b md:border-b-0 md:border-r border-ink/5 p-8 md:p-12 hover:bg-creme transition-all">
-                    <h3 class="text-2xl md:text-3xl font-serif mb-4 md:mb-6">Comunicação Assertiva</h3>
-                    <p class="text-ink/60 leading-relaxed text-sm md:text-base">Dominar a arte do feedback, reuniões eficientes e a clareza nas expectativas. O fim do retrabalho por má comunicação.</p>
+                    <h3 class="text-2xl md:text-3xl font-serif mb-4 md:mb-6 text-verde font-bold">Comunicação Assertiva</h3>
+                    <p class="text-ink/80 leading-relaxed text-sm md:text-base">Aprenda a alinhar expectativas, conduzir conversas difíceis e reduzir ruídos na comunicação com o time.</p>
                 </div>
                 <div class="pillar-card border-b md:border-b-0 md:border-r border-ink/5 p-8 md:p-12 hover:bg-creme transition-all">
-                    <h3 class="text-2xl md:text-3xl font-serif mb-4 md:mb-6">Cultura de Confiança</h3>
-                    <p class="text-ink/60 leading-relaxed text-sm md:text-base">Como construir um ambiente de segurança psicológica que estimula a inovação e o comprometimento genuíno do time.</p>
+                    <h3 class="text-2xl md:text-3xl font-serif mb-4 md:mb-6 text-verde font-bold">Cultura de Confiança</h3>
+                    <p class="text-ink/80 leading-relaxed text-sm md:text-base">Construa um ambiente de segurança psicológica, colaboração e responsabilidade compartilhada.</p>
                 </div>
                 <div class="pillar-card p-8 md:p-12 hover:bg-creme transition-all">
-                    <h3 class="text-2xl md:text-3xl font-serif mb-4 md:mb-6">Foco em Resultados</h3>
-                    <p class="text-ink/60 leading-relaxed text-sm md:text-base">Sair da reatividade. Aprenda a priorizar o que realmente move o ponteiro e a delegar com segurança e acompanhamento.</p>
+                    <h3 class="text-2xl md:text-3xl font-serif mb-4 md:mb-6 text-verde font-bold">Foco em Resultados</h3>
+                    <p class="text-ink/80 leading-relaxed text-sm md:text-base">Desenvolva clareza para priorizar, delegar melhor e acompanhar entregas com mais consistência.</p>
                 </div>
             </div>
         </div>
@@ -536,7 +546,7 @@
     <section class="cta-section bg-creme border-t border-ink/5 pt-16 pb-24 md:py-32">
         <div class="container text-center">
             <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif mb-10 leading-tight">Seu time é um <br> <i>reflexo</i> da sua liderança.</h2>
-            <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20garantir%20meu%20lugar%20na%20Mentoria%20de%20Liderança" class="btn w-full sm:w-auto justify-center">Garantir Lugar no Grupo</a>
+            <a href="https://wa.me/5511940803333?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20garantir%20minha%20vaga%20no%20programa%20Liderança%20Atualizada" class="btn w-full sm:w-auto justify-center">Garantir minha vaga</a>
             <div class="mt-12 flex justify-center">
                 <a href="index.html#programas" class="text-[11px] uppercase tracking-[0.3em] font-bold text-ink/40 hover:text-verde transition-colors py-4 px-8 border border-ink/5 rounded-full">
                     VOLTAR
