@@ -98,8 +98,8 @@ const Navbar = () => {
       <nav 
         className={`fixed top-0 left-0 right-0 z-[100] border-b transition-all duration-400 ${
           isScrolled 
-            ? "bg-white backdrop-blur-md border-ink/6 shadow-lg shadow-verde/6" 
-            : "bg-white border-ink/6"
+            ? "bg-white/95 backdrop-blur-md border-verde/10 shadow-lg shadow-verde/6" 
+            : "bg-white border-verde/10 shadow-[0_1px_0_rgba(0,0,0,0.04)]"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex justify-between items-center">
@@ -351,7 +351,7 @@ const ProofBar = () => {
   const items = [
     { num: "+20", label: "Anos de experiência\nem RH e liderança" },
     { num: "+250", label: "Profissionais\natendidos" },
-    { num: "ONLINE", label: "Atendimento para\ntodo o Brasil" },
+    { num: "100% Online", label: "Atendimento para\ntodo o Brasil" },
     { num: "5", label: "Formatos de\natendimento" },
   ];
 
@@ -363,7 +363,9 @@ const ProofBar = () => {
             key={i} 
             className="flex flex-col items-center px-4 md:px-10 text-center border-white/10 last:border-0 md:border-r w-1/2 md:w-auto"
           >
-            <span className="font-serif text-[32px] md:text-[48px] font-black text-dourado leading-none">{item.num}</span>
+            <span className={`font-serif ${item.num.length > 5 ? 'text-[24px] md:text-[36px] tracking-tight' : 'text-[32px] md:text-[48px]'} font-black text-dourado leading-none`}>
+              {item.num}
+            </span>
             <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-white/50 font-bold mt-2 whitespace-pre-line leading-tight">
               {item.label}
             </span>
