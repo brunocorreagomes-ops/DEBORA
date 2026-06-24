@@ -31,9 +31,8 @@ import {
 import { useState, useEffect } from "react";
 import * as React from "react";
 
-const Navbar = () => {
+const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen }: { isMobileMenuOpen: boolean; setIsMobileMenuOpen: (open: boolean) => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -1404,6 +1403,7 @@ const SectionReveal = ({ children }: { children: React.ReactNode }) => (
 export default function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setShowBackToTop(window.scrollY > 1000);
@@ -1435,7 +1435,7 @@ export default function App() {
 
   return (
     <div className="selection:bg-verde selection:text-white relative">
-      <Navbar />
+      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
       <main>
         <Hero />
         <Marquee />
@@ -1470,30 +1470,32 @@ export default function App() {
       />
 
       {/* Floating Actions */}
-      <div className="fixed bottom-8 right-8 z-50 flex gap-4 items-center">
-        {/* WhatsApp Button */}
-        <a
-          href={`https://wa.me/5511940803333?text=${encodeURIComponent("Olá, vim pelo site e gostaria de mais informações.")}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-4 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 transition-all flex items-center justify-center"
-          aria-label="Contato via WhatsApp"
-        >
-          <MessageCircle size={24} fill="currentColor" />
-        </a>
-
-        {/* Back to Top Button */}
-        {showBackToTop && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            onClick={scrollToTop}
-            className="p-4 bg-verde text-creme rounded-full shadow-2xl hover:bg-verde-med transition-all"
+      {!isMobileMenuOpen && (
+        <div className="fixed bottom-8 right-8 z-50 flex gap-4 items-center">
+          {/* WhatsApp Button */}
+          <a
+            href={`https://wa.me/5511940803333?text=${encodeURIComponent("Olá, vim pelo site e gostaria de mais informações.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 transition-all flex items-center justify-center"
+            aria-label="Contato via WhatsApp"
           >
-            <ArrowUp size={20} />
-          </motion.button>
-        )}
-      </div>
+            <MessageCircle size={24} fill="currentColor" />
+          </a>
+
+          {/* Back to Top Button */}
+          {showBackToTop && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              onClick={scrollToTop}
+              className="p-4 bg-verde text-creme rounded-full shadow-2xl hover:bg-verde-med transition-all"
+            >
+              <ArrowUp size={20} />
+            </motion.button>
+          )}
+        </div>
+      )}
     </div>
   );
 }
