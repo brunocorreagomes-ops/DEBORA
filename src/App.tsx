@@ -207,16 +207,16 @@ const Navbar = () => {
                 </button>
               </div>
 
-              <div className="flex flex-col gap-7">
+              <div className="flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <a 
                     key={link.name} 
                     href={link.href} 
                     onClick={(e) => scrollToSection(e, link.href)}
-                    className="text-2xl font-serif font-bold text-ink hover:text-verde transition-colors flex items-center justify-between"
+                    className="text-[12px] uppercase tracking-[0.2em] font-semibold text-ink/55 hover:text-verde transition-all flex items-center justify-between py-3.5 border-b border-ink/5"
                   >
                     {link.name}
-                    <ChevronRight size={20} className="opacity-30" />
+                    <ChevronRight size={14} className="opacity-30" />
                   </a>
                 ))}
               </div>
